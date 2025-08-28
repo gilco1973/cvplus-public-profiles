@@ -1,6 +1,6 @@
 import { HttpsError } from 'firebase-functions/v2/https';
 import { logger } from 'firebase-functions';
-import { getUserSubscriptionInternal } from '../../../packages/payments/src/backend/functions';
+import { getUserSubscriptionInternal } from '@cvplus/premium/backend';
 import { subscriptionManagementService } from '../services/subscription-management.service';
 import { requireAuth, AuthenticatedRequest } from './authGuard';
 

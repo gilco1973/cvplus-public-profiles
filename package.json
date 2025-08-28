@@ -77,9 +77,9 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
-    "@cvplus/core": "workspace:*",
-    "@cvplus/auth": "workspace:*",
-    "@cvplus/multimedia": "workspace:*",
+    "@cvplus/core": "file:../core",
+    "@cvplus/auth": "file:../auth",
+    "@cvplus/multimedia": "file:../multimedia",
     "@types/node": "^22.9.1",
     "firebase": "^10.14.1",
     "firebase-admin": "^12.1.0",
