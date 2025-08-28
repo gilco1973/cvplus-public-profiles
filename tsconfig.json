@@ -28,11 +28,15 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src/**/*"
+    "src/types/**/*",
+    "src/constants/**/*",
+    "src/services/**/*",
+    "src/index.ts"
   ],
   "exclude": [
     "node_modules",
     "dist",
+    "src/backend/**/*",
     "**/*.test.ts",
     "**/*.test.tsx",
     "**/*.spec.ts",

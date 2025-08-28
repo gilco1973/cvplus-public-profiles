@@ -77,13 +77,13 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
-    "@cvplus/core": "^1.0.0",
-    "@cvplus/auth": "^1.0.0",
-    "@cvplus/multimedia": "^1.0.0",
-    "@cvplus/premium": "^1.0.0",
+    "@cvplus/core": "workspace:*",
+    "@cvplus/auth": "workspace:*",
+    "@cvplus/multimedia": "workspace:*",
     "@types/node": "^22.9.1",
     "firebase": "^10.14.1",
     "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.1.1",
     "react-helmet-async": "^2.0.4",
     "qrcode": "^1.5.3",
     "jsdom": "^25.0.1",
