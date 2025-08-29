@@ -210,3 +210,6 @@ export function initializePublicProfiles(config: PublicProfilesConfig = {}): Pub
 
   return PublicProfilesManager.create();
 }
+
+// Backend Functions - For Firebase Functions use
+export * from './backend';

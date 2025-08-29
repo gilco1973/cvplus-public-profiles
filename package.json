@@ -80,6 +80,8 @@
     "@cvplus/core": "file:../core",
     "@cvplus/auth": "file:../auth",
     "@cvplus/multimedia": "file:../multimedia",
+    "@cvplus/admin": "file:../admin",
+    "@cvplus/premium": "file:../premium",
     "@types/node": "^22.9.1",
     "firebase": "^10.14.1",
     "firebase-admin": "^12.1.0",

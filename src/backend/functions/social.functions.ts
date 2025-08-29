@@ -219,9 +219,11 @@ export async function trackSocialClick(request: CallableRequest<TrackSocialClick
 
     if (!socialProfileQuery.empty) {
       const socialProfileDoc = socialProfileQuery.docs[0];
-      await socialProfileDoc.ref.update({
-        clicks: FieldValue.increment(1)
-      });
+      if (socialProfileDoc) {
+        await socialProfileDoc.ref.update({
+          clicks: FieldValue.increment(1)
+        });
+      }
     }
 
     return {
@@ -310,13 +312,15 @@ export async function updateSocialDisplaySettings(request: CallableRequest<Updat
     }
 
     const integrationDoc = integrationQuery.docs[0];
-    await integrationDoc.ref.update({
-      settings: {
-        ...integrationDoc.data().settings,
-        ...settings
-      },
-      updatedAt: FieldValue.serverTimestamp()
-    });
+    if (integrationDoc) {
+      await integrationDoc.ref.update({
+        settings: {
+          ...integrationDoc.data().settings,
+          ...settings
+        },
+        updatedAt: FieldValue.serverTimestamp()
+      });
+    }
 
     return {
       success: true,

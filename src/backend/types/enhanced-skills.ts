@@ -13,7 +13,7 @@
  * Used throughout the system to handle different ways skills can be structured
  */
 export type FlexibleSkillsFormat = string[] | {
-  [key: string]: string[];
+  [key: string]: string[] | undefined;
   technical?: string[];
   soft?: string[];
   languages?: string[];

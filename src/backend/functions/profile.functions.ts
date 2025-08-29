@@ -100,6 +100,10 @@ export async function getPublicProfile(request: CallableRequest<GetPublicProfile
     }
 
     const profileDoc = profileQuery.docs[0];
+    if (!profileDoc) {
+      return { success: false, error: 'Profile not found' };
+    }
+    
     const profileData = profileDoc.data();
 
     return {
@@ -221,7 +225,7 @@ export async function trackQRScan(request: CallableRequest<TrackQRScanRequest>):
 /**
  * Test email configuration
  */
-export async function testEmailConfiguration(request: CallableRequest): Promise<any> {
+export async function testEmailConfiguration(_request: CallableRequest): Promise<any> {
   try {
     // Basic email configuration test
     return {

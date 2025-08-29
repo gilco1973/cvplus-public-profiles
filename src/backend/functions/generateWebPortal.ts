@@ -9,9 +9,9 @@ import {
   PortalGenerationResult, 
   PortalStatus, 
   PortalGenerationStep,
-  PortalErrorCode,
-  ErrorCategory
+  PortalErrorCode
 } from '../types/portal';
+import { ErrorCategory } from '../types/portal-config';
 import { GenerationMetadata } from '../types/portal-original';
 
 /**
@@ -36,7 +36,7 @@ export const generateWebPortal = onCall(
     ...corsOptions,
     secrets: ['ANTHROPIC_API_KEY', 'HUGGINGFACE_API_TOKEN']
   },
-  withPremiumAccess('webPortal', async (request) => {
+  withPremiumAccess('webPortal', async (request: any) => {
     
     const startTime = Date.now();
     const stepsCompleted: PortalGenerationStep[] = [];
@@ -123,7 +123,7 @@ export const generateWebPortal = onCall(
       
       // Create a realistic processing delay to simulate complex operations
       // In real implementation, these would be actual service calls
-      const simulateStep = async (stepName: string, step: PortalGenerationStep, durationMs: number) => {
+      const simulateStep = async (_stepName: string, step: PortalGenerationStep, durationMs: number) => {
         
         // Update portal status
         await admin.firestore()
@@ -209,8 +209,9 @@ export const generateWebPortal = onCall(
       
       const processingTimeMs = Date.now() - startTime;
       
-      // Generate metadata for the portal generation
-      const generationMetadata: GenerationMetadata = {
+      // Generate metadata for the portal generation (currently unused)
+      /*
+      const _generationMetadata: GenerationMetadata = {
         version: '1.0.0',
         timestamp: new Date(),
         statistics: {
@@ -237,6 +238,7 @@ export const generateWebPortal = onCall(
           overallScore: 0.90
         }
       };
+      */
       
       // Final portal configuration (minimal for Firestore storage)
       const finalPortalConfig = {
@@ -325,7 +327,7 @@ export const generateWebPortal = onCall(
       }
       
       // Update portal status to failed if we have a portal ID
-      const { jobId, portalConfig } = request.data || {};
+      const { jobId } = request.data || {};
       if (jobId) {
         // Try to get existing portal ID or create one for error tracking
         let portalId = '';

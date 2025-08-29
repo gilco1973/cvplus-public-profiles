@@ -105,7 +105,7 @@ export const createPublicProfile = onCall<CreatePublicProfileRequest>(
         publicPhone: false,
         requireContactFormForCV: false
       };
-      const maskedCV = maskPII(job.parsedData, defaultPrivacySettings);
+      const _maskedCV = maskPII(job.parsedData, defaultPrivacySettings);
       const publicSlug = `cv-${jobId.substring(0, 8)}-${Date.now()}`;
       
       // Generate QR code for the public profile
@@ -224,10 +224,15 @@ export const getPublicProfile = onCall<GetPublicProfileRequest>(
         throw new HttpsError('not-found', 'Public profile not found');
       }
 
-      const profile = profilesSnapshot.docs[0].data() as PublicCVProfile;
+      const profileDoc = profilesSnapshot.docs[0];
+      if (!profileDoc) {
+        throw new HttpsError('not-found', 'Profile not found');
+      }
+      
+      const profile = profileDoc.data() as PublicCVProfile;
 
       // Update analytics
-      await profilesSnapshot.docs[0].ref.update({
+      await profileDoc.ref.update({
         'analytics.views': FieldValue.increment(1),
         'analytics.lastViewedAt': FieldValue.serverTimestamp()
       });
@@ -436,7 +441,7 @@ export const submitContactForm = onCall<SubmitContactFormRequest>(
               publicPhone: false,
               requireContactFormForCV: false
             };
-            const maskedCV = maskPII(job.parsedData, defaultPrivacySettings);
+            const _maskedCV = maskPII(job.parsedData, defaultPrivacySettings);
             const publicSlug = `cv-${lookupId.substring(0, 8)}-${Date.now()}`;
             
             // Generate QR code for the public profile
@@ -501,7 +506,7 @@ export const submitContactForm = onCall<SubmitContactFormRequest>(
             };
 
             // Save to Firestore
-            const newProfileDoc = await admin.firestore()
+            const _newProfileDoc = await admin.firestore()
               .collection('publicProfiles')
               .doc(lookupId)
               .create(publicProfile);
@@ -523,6 +528,10 @@ export const submitContactForm = onCall<SubmitContactFormRequest>(
         } else {
           profileDoc = profileQuery.docs[0];
         }
+      }
+
+      if (!profileDoc) {
+        throw new HttpsError('not-found', 'Public profile not found');
       }
 
       const profile = profileDoc.data() as PublicCVProfile;
@@ -578,9 +587,11 @@ export const submitContactForm = onCall<SubmitContactFormRequest>(
         .add(submission);
 
       // Update analytics
-      await profileDoc.ref.update({
-        'analytics.contactSubmissions': FieldValue.increment(1)
-      });
+      if (profileDoc) {
+        await profileDoc.ref.update({
+          'analytics.contactSubmissions': FieldValue.increment(1)
+        });
+      }
 
       // Send email notification if configured
       const contactEmail = job.parsedData?.personalInfo?.email;

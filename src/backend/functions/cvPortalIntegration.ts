@@ -19,10 +19,9 @@ import {
 } from '../services/portal-integration.service';
 import { 
   PortalGenerationResult, 
-  PortalStatus,
-  URLPlacement,
-  QRCodeType 
+  PortalStatus 
 } from '../types/portal';
+import { URLPlacement, QRCodeType } from '../types/portal-analytics';
 import { ParsedCV } from '../types/job';
 
 // ============================================================================

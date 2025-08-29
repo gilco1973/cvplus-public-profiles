@@ -220,14 +220,16 @@ export async function updateCarouselLayout(request: CallableRequest<UpdateCarous
     }
 
     const carouselDoc = carouselQuery.docs[0];
-    await carouselDoc.ref.update({
-      layout: layout.style,
-      settings: {
-        ...carouselDoc.data().settings,
-        autoPlay: layout.autoPlay !== undefined ? layout.autoPlay : carouselDoc.data().settings.autoPlay,
-        showRatings: layout.showRatings !== undefined ? layout.showRatings : carouselDoc.data().settings.showRatings,
-        showAuthorImages: layout.showAuthorImages !== undefined ? layout.showAuthorImages : carouselDoc.data().settings.showAuthorImages,
-        maxVisible: layout.maxVisible || carouselDoc.data().settings.maxVisible || 3
+    if (carouselDoc) {
+      const carouselData = carouselDoc.data();
+      await carouselDoc.ref.update({
+        layout: layout.style,
+        settings: {
+          ...carouselData.settings,
+          autoPlay: layout.autoPlay !== undefined ? layout.autoPlay : carouselData.settings.autoPlay,
+          showRatings: layout.showRatings !== undefined ? layout.showRatings : carouselData.settings.showRatings,
+          showAuthorImages: layout.showAuthorImages !== undefined ? layout.showAuthorImages : carouselData.settings.showAuthorImages,
+          maxVisible: layout.maxVisible || carouselData.settings.maxVisible || 3
       },
       updatedAt: FieldValue.serverTimestamp()
     });

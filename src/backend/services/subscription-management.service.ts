@@ -1,6 +1,6 @@
 import { logger } from 'firebase-functions';
 import { cachedSubscriptionService, UserSubscriptionData } from './cached-subscription.service';
-import { invalidateUserSubscriptionCache } from '@cvplus/premium/backend';
+import { invalidateUserSubscriptionCache } from '@cvplus/premium';
 
 export class SubscriptionManagementService {
   /**

@@ -1,8 +1,17 @@
 import { HttpsError, CallableRequest } from 'firebase-functions/v2/https';
 import { logger } from 'firebase-functions';
 import * as admin from 'firebase-admin';
-// Import admin types from admin submodule
-import { AdminRole, AdminLevel, AdminPermissions } from '@cvplus/admin';
+// TODO: Import admin types from admin submodule when built
+// import { AdminRole, AdminLevel, AdminPermissions } from '@cvplus/admin';
+
+// Temporary type definitions
+type AdminRole = 'super_admin' | 'admin' | 'moderator';
+type AdminLevel = 1 | 2 | 3 | 4 | 5;
+interface AdminPermissions {
+  canModify: boolean;
+  canDelete: boolean;
+  canView: boolean;
+}
 
 
 export interface AuthenticatedRequest extends CallableRequest {

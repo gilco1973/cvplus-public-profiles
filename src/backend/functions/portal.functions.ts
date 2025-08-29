@@ -177,7 +177,7 @@ export async function retryPortalGeneration(request: CallableRequest<PortalStatu
 /**
  * Get user portal preferences
  */
-export async function getUserPortalPreferences(request: CallableRequest): Promise<any> {
+export async function getUserPortalPreferences(_request: CallableRequest): Promise<any> {
   try {
     // This would typically get user-specific preferences
     // For now, returning default preferences
@@ -203,7 +203,7 @@ export async function getUserPortalPreferences(request: CallableRequest): Promis
 /**
  * List user portals
  */
-export async function listUserPortals(request: CallableRequest): Promise<any> {
+export async function listUserPortals(_request: CallableRequest): Promise<any> {
   try {
     // This would typically list portals for the authenticated user
     // For now, returning empty array

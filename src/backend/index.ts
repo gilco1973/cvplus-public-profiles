@@ -43,3 +43,32 @@ export {
   removeTestimonial,
   updateCarouselLayout
 } from './functions/testimonials.functions';
+
+// Portal Chat Functions
+export {
+  portalChat,
+  portalChatPublic,
+  initPortalChat
+} from './functions/portals/portalChat';
+
+// QR Code Functions
+export {
+  generateQRCode,
+  trackQRCodeScan,
+  getQRCodes,
+  updateQRCode,
+  deleteQRCode,
+  getQRAnalytics,
+  getQRTemplates
+} from './functions/qr/enhancedQR';
+
+// QR Code Enhancement Functions
+export {
+  enhanceQRCode,
+  generateQRCodePreview,
+  getEnhancedQRCodes,
+  updateQRCodeStyling,
+  generateBulkQRCodes,
+  exportQRCodeData,
+  getQRCodeInsights
+} from './functions/qr/qrCodeEnhancement';

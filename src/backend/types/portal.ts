@@ -10,9 +10,9 @@
 
 // Re-export types from other portal files for convenience
 export type { HuggingFaceSpaceConfig, RepositoryFile } from './portal-huggingface';
-export { HuggingFaceSDK, HuggingFaceVisibility, HuggingFaceHardware, FileType } from './portal-huggingface';
+export type { HuggingFaceSDK, HuggingFaceVisibility, HuggingFaceHardware, FileType } from './portal-huggingface';
 export type { DeploymentResult, BuildConfig, DeploymentMetadata } from './portal-original';
-export { 
+export type { 
   AssetType, 
   AssetSource,
   MobileOptimizationLevel
@@ -443,7 +443,7 @@ export enum ContentType {
 }
 
 // Re-export types from modular files for backward compatibility
-export {
+export type {
   PortalTheme,
   PortalSection,
   RAGConfig,
