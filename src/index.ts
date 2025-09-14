@@ -32,6 +32,9 @@ export { ANALYTICS_CONSTANTS } from './constants/analytics.constants';
 // Services
 export * from './services';
 
+// Frontend Components and Hooks
+export * from './frontend';
+
 // Main Public Profiles Manager
 import { PublicProfilesServiceFactory } from './services';
 import { 
