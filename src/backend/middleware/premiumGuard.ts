@@ -1,7 +1,6 @@
 import { HttpsError } from 'firebase-functions/v2/https';
 import { logger } from 'firebase-functions';
 // TODO: Import from @cvplus/premium when built
-// import { getUserSubscriptionInternal } from '@cvplus/premium';
 // import { subscriptionManagementService } from '../services/subscription-management.service';
 
 // Temporary mock function
@@ -252,4 +251,3 @@ export const requireAnyPremiumFeature = (features: PremiumFeature[]) => {
     }
   };
 };
-

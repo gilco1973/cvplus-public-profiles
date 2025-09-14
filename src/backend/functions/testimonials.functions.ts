@@ -230,9 +230,10 @@ export async function updateCarouselLayout(request: CallableRequest<UpdateCarous
           showRatings: layout.showRatings !== undefined ? layout.showRatings : carouselData.settings.showRatings,
           showAuthorImages: layout.showAuthorImages !== undefined ? layout.showAuthorImages : carouselData.settings.showAuthorImages,
           maxVisible: layout.maxVisible || carouselData.settings.maxVisible || 3
-      },
-      updatedAt: FieldValue.serverTimestamp()
-    });
+        },
+        updatedAt: FieldValue.serverTimestamp()
+      });
+    }
 
     return {
       success: true,

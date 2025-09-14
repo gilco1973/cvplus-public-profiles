@@ -29,8 +29,9 @@
   },
   "include": [
     "src/types/**/*",
-    "src/constants/**/*",
+    "src/constants/**/*", 
     "src/services/**/*",
+    "src/frontend/**/*",
     "src/index.ts"
   ],
   "exclude": [

@@ -21,7 +21,14 @@ export {
   updatePortalPreferences,
   retryPortalGeneration,
   getUserPortalPreferences,
-  listUserPortals
+  listUserPortals,
+  // One Click Portal Functions
+  generateOneClickPortal,
+  processPortalChat,
+  initializePortalChatSession,
+  getPortalAnalytics,
+  updatePortalContent,
+  validatePremiumPortalAccess
 } from './functions/portal.functions';
 
 // Social Media Integration Functions
