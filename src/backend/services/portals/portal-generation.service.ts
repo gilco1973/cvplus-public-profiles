@@ -11,8 +11,9 @@ import {
   PortalGenerationResult,
   PortalStatus,
   PortalUrls,
-  HuggingFaceSpaceConfig
-} from '../types/portal';
+  HuggingFaceSpaceConfig,
+  PortalGenerationStep
+} from '@cvplus/core';
 import { ParsedCV } from '../types/job';
 // Import existing services and One Click Portal utilities
 import { VerifiedClaudeService } from '../verified-claude.service';

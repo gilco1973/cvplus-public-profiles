@@ -11,10 +11,10 @@
 
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
-import { 
-  PortalConfig, 
-  PortalStatus, 
-  PortalGenerationResult, 
+import {
+  PortalConfig,
+  PortalStatus,
+  PortalGenerationResult,
   PortalGenerationStep,
   PortalError,
   PortalErrorCode,
@@ -24,7 +24,7 @@ import {
   JobIntegration,
   URLPlacement,
   QRCodeType
-} from '../types/portal';
+} from '@cvplus/core';
 import { ParsedCV } from '../types/job';
 import { config } from '../config/environment';
 

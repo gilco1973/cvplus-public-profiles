@@ -42,7 +42,7 @@ import {
   FeatureToggles,
   PrivacyLevel,
   PortalTheme
-} from '../types/portal';
+} from '@cvplus/core';
 import { ParsedCV } from '../types/job';
 import { VerifiedClaudeService } from './verified-claude.service';
 import { embeddingService } from './embedding.service';

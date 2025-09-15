@@ -100,3 +100,12 @@ export interface ModuleStatus {
   lastUpdated: Date;
   dependencies: string[];
 }
+
+// Portal Types - Migrated from Core
+export * from './portal-chat-config';
+export * from './portal-core';
+export * from './portal-customization';
+export * from './portal-embeddings';
+export * from './portal-rag-config';
+export * from './portal-styling';
+export * from './portal-vector-db';
