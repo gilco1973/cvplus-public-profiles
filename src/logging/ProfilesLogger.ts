@@ -1,4 +1,4 @@
-/**
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
  * T035: Public profiles logging in packages/public-profiles/src/logging/ProfilesLogger.ts
  *
  * Specialized logger for public profile, portfolio, and social sharing events

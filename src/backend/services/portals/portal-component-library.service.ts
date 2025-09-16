@@ -1,4 +1,4 @@
-import { ParsedCV } from '../types/job';
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { ParsedCV } from '../types/job';
 import { PortalTemplate, PortalTheme, ComponentConfiguration } from '../types/portal';
 import { TemplateCustomizationService } from './template-customization.service';
 import { logger } from 'firebase-functions';

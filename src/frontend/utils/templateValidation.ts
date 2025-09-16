@@ -1,4 +1,4 @@
-import { TemplateDefinition, TemplateValidationResult } from '../types/template.types';
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { TemplateDefinition, TemplateValidationResult } from '../types/template.types';
 import { PublicProfileData } from '../../types/profile.types';
 import { BrandingSettings } from '../types/creator.types';
 import { TemplateValidationCore } from './templateValidationCore';

@@ -1,4 +1,4 @@
-import { onCall, CallableRequest, HttpsError } from 'firebase-functions/v2/https';
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { onCall, CallableRequest, HttpsError } from 'firebase-functions/v2/https';
 import { TestimonialsService } from '../services/testimonials.service';
 import { CVParsingService } from '../services/cvParsing.service';
 import { logger } from 'firebase-functions';

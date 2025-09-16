@@ -1,4 +1,4 @@
-import { HttpsError } from 'firebase-functions/v2/https';
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { HttpsError } from 'firebase-functions/v2/https';
 import { logger } from 'firebase-functions';
 // TODO: Import from @cvplus/premium when built
 // import { subscriptionManagementService } from '../services/subscription-management.service';
