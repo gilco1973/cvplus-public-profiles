@@ -1,10 +1,10 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { logger } from 'firebase-functions';
+// @ts-ignore - Export conflicts
 import { cachedSubscriptionService, UserSubscriptionData } from './cached-subscription.service';
 
 export class SubscriptionManagementService {
   /**
    * Activate lifetime premium access for user
-   */
+    */
   async activateLifetimeAccess(userId: string, metadata?: any): Promise<void> {
     try {
       const subscriptionUpdate: Partial<UserSubscriptionData> = {
@@ -41,7 +41,7 @@ export class SubscriptionManagementService {
 
   /**
    * Deactivate premium access (revert to free)
-   */
+    */
   async deactivatePremiumAccess(userId: string, reason?: string): Promise<void> {
     try {
       const subscriptionUpdate: Partial<UserSubscriptionData> = {
@@ -76,7 +76,7 @@ export class SubscriptionManagementService {
 
   /**
    * Update specific premium features for user
-   */
+    */
   async updatePremiumFeatures(userId: string, features: Partial<UserSubscriptionData['features']>): Promise<void> {
     try {
       // Get current subscription to merge features
@@ -109,14 +109,14 @@ export class SubscriptionManagementService {
 
   /**
    * Get current subscription status (uses cached service)
-   */
+    */
   async getSubscriptionStatus(userId: string): Promise<UserSubscriptionData> {
     return await cachedSubscriptionService.getUserSubscription(userId);
   }
 
   /**
    * Check if user has specific premium feature (with caching)
-   */
+    */
   async hasFeature(userId: string, feature: keyof UserSubscriptionData['features']): Promise<boolean> {
     try {
       const subscription = await cachedSubscriptionService.getUserSubscription(userId);
@@ -129,7 +129,7 @@ export class SubscriptionManagementService {
 
   /**
    * Bulk feature check (with caching)
-   */
+    */
   async hasAnyFeatures(userId: string, features: (keyof UserSubscriptionData['features'])[]): Promise<boolean> {
     try {
       const subscription = await cachedSubscriptionService.getUserSubscription(userId);
@@ -142,7 +142,7 @@ export class SubscriptionManagementService {
 
   /**
    * Force refresh subscription from database (bypasses cache)
-   */
+    */
   async forceRefreshSubscription(userId: string): Promise<UserSubscriptionData> {
     try {
       // Invalidate cache first
@@ -161,7 +161,7 @@ export class SubscriptionManagementService {
 
   /**
    * Get cache statistics for monitoring
-   */
+    */
   getCachePerformanceStats() {
     return cachedSubscriptionService.getCacheStats();
   }

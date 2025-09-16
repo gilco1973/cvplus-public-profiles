@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * One Click Portal Utilities Service
  *
  * Supporting utilities for One Click Portal functionality
@@ -7,7 +8,7 @@
  * @author Gil Klainert
  * @created 2025-09-13
  * @version 1.0
- */
+  */
 
 import { logger } from 'firebase-functions';
 import * as admin from 'firebase-admin';
@@ -19,7 +20,7 @@ export class OneClickPortalUtils {
 
   /**
    * Generate CV embeddings for RAG system (FR-006)
-   */
+    */
   async generateCVEmbeddings(cvData: ParsedCV): Promise<any[]> {
     try {
       logger.info('Generating CV embeddings for semantic search');
@@ -49,7 +50,7 @@ export class OneClickPortalUtils {
 
   /**
    * Create vector index for semantic search
-   */
+    */
   async createVectorIndex(embeddings: any[]): Promise<any> {
     try {
       logger.info('Creating vector index for One Click Portal RAG');
@@ -75,7 +76,7 @@ export class OneClickPortalUtils {
 
   /**
    * Initialize confidence scoring system (FR-008)
-   */
+    */
   async initializeConfidenceScoring(cvData: ParsedCV): Promise<any> {
     try {
       logger.info('Initializing confidence scoring for RAG responses');
@@ -98,7 +99,7 @@ export class OneClickPortalUtils {
 
   /**
    * Create source mapping for citations (FR-007)
-   */
+    */
   createSourceMapping(cvData: ParsedCV): any {
     const mapping = {};
 
@@ -118,7 +119,7 @@ export class OneClickPortalUtils {
 
   /**
    * Create context chunks for better RAG responses
-   */
+    */
   createContextChunks(cvData: ParsedCV): any[] {
     const chunks = [];
 
@@ -155,7 +156,7 @@ export class OneClickPortalUtils {
 
   /**
    * Select optimal template based on CV analysis (FR-001)
-   */
+    */
   async selectOptimalTemplate(cvData: ParsedCV): Promise<string> {
     try {
       logger.info('Selecting optimal template for One Click Portal');
@@ -180,7 +181,7 @@ export class OneClickPortalUtils {
 
   /**
    * Generate unique space ID for HuggingFace deployment (FR-002)
-   */
+    */
   generateUniqueSpaceId(): string {
     const timestamp = Date.now();
     const random = Math.random().toString(36).substring(2, 8);
@@ -189,7 +190,7 @@ export class OneClickPortalUtils {
 
   /**
    * Setup portal analytics tracking (FR-012)
-   */
+    */
   async setupPortalAnalytics(jobId: string, portalURLs: PortalUrls): Promise<void> {
     try {
       logger.info(`Setting up analytics for portal: ${jobId}`);
@@ -222,7 +223,7 @@ export class OneClickPortalUtils {
 
   /**
    * Initialize visitor tracking
-   */
+    */
   async initializeVisitorTracking(jobId: string, portalURLs: PortalUrls): Promise<void> {
     try {
       logger.info(`Initializing visitor tracking for portal: ${jobId}`);
@@ -245,7 +246,7 @@ export class OneClickPortalUtils {
 
   /**
    * Setup content synchronization (FR-010)
-   */
+    */
   async setupContentSynchronization(jobId: string, portalURLs: PortalUrls): Promise<void> {
     try {
       logger.info(`Setting up content sync for portal: ${jobId}`);
@@ -268,7 +269,7 @@ export class OneClickPortalUtils {
 
   /**
    * Setup premium validation (FR-014)
-   */
+    */
   async setupPremiumValidation(jobId: string, portalURLs: PortalUrls): Promise<void> {
     try {
       logger.info(`Setting up premium validation for portal: ${jobId}`);

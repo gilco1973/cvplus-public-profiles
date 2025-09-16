@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * HuggingFace API Service
  * 
  * Real implementation of HuggingFace Spaces API integration for portal deployment.
@@ -6,7 +7,7 @@
  * 
  * @author Gil Klainert
  * @created 2025-08-19
- */
+  */
 
 import { createRepo, uploadFiles, spaceInfo, listSpaces } from '@huggingface/hub';
 import * as crypto from 'crypto';
@@ -71,7 +72,7 @@ export class HuggingFaceApiService {
 
   /**
    * Create a new HuggingFace Space for portal deployment with resilience
-   */
+    */
   async createSpace(spaceConfig: HuggingFaceSpaceConfig): Promise<{ spaceId: string; url: string }> {
     logger.info(`[HUGGINGFACE-API] Creating space with resilience: ${spaceConfig.spaceName}`);
 
@@ -131,7 +132,7 @@ export class HuggingFaceApiService {
 
   /**
    * Upload files to HuggingFace Space
-   */
+    */
   async uploadFiles(spaceId: string, files: SpaceFile[]): Promise<void> {
     try {
 
@@ -165,7 +166,7 @@ export class HuggingFaceApiService {
 
   /**
    * Get deployment status of a space
-   */
+    */
   async getDeploymentStatus(spaceId: string): Promise<DeploymentStatus> {
     try {
       const spaceInfo = await this.retryOperation(async () => {
@@ -213,7 +214,7 @@ export class HuggingFaceApiService {
 
   /**
    * Wait for space deployment to complete
-   */
+    */
   async waitForDeployment(spaceId: string, timeoutMs: number = 300000): Promise<DeploymentStatus> {
     const startTime = Date.now();
     const pollInterval = 10000; // 10 seconds
@@ -244,7 +245,7 @@ export class HuggingFaceApiService {
 
   /**
    * Update space configuration
-   */
+    */
   async updateSpaceConfig(spaceId: string, config: Partial<HuggingFaceSpaceConfig>): Promise<void> {
     try {
 
@@ -277,7 +278,7 @@ export class HuggingFaceApiService {
 
   /**
    * Delete a space
-   */
+    */
   async deleteSpace(spaceId: string): Promise<void> {
     try {
 
@@ -296,7 +297,7 @@ export class HuggingFaceApiService {
 
   /**
    * Generate portal files for HuggingFace deployment
-   */
+    */
   generatePortalFiles(portalConfig: PortalConfig): SpaceFile[] {
     const files: SpaceFile[] = [];
 
@@ -362,7 +363,7 @@ export class HuggingFaceApiService {
 
   /**
    * Complete portal deployment workflow with full resilience
-   */
+    */
   async deployPortal(portalData: any): Promise<DeploymentResult> {
     const startTime = Date.now();
     
@@ -499,7 +500,7 @@ export class HuggingFaceApiService {
 
   /**
    * Private helper methods
-   */
+    */
   private async validateSpaceName(spaceName: string): Promise<void> {
     // Check if space name is available
     try {
@@ -1002,7 +1003,7 @@ if __name__ == "__main__":
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${portalConfig.customization.personalInfo?.name || 'Professional Portfolio'}</title>
     <style>
-        /* Modern professional styling */
+        /* Modern professional styling  */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -1254,7 +1255,7 @@ ${this.extractPortfolioData(portalConfig).website ? `- **Website:** ${this.extra
 
   /**
    * Helper methods for resilience integration
-   */
+    */
   private fallbackCreateSpace(spaceConfig: HuggingFaceSpaceConfig): Promise<{ spaceId: string; url: string }> {
     logger.info('[HUGGINGFACE-API] Using fallback space creation');
     

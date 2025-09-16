@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * QR Code Enhancement Service
  * 
  * Enhances existing QR codes to support portal functionality and creates portal-specific QR codes.
@@ -7,7 +8,7 @@
  * @author Gil Klainert
  * @created 2025-08-19
  * @version 1.0
- */
+  */
 
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
@@ -64,7 +65,7 @@ export class QRCodeEnhancementService {
 
   /**
    * Enhance QR codes for a job with portal integration
-   */
+    */
   async enhanceQRCodes(
     jobId: string,
     portalUrls: PortalUrls,
@@ -173,7 +174,7 @@ export class QRCodeEnhancementService {
 
   /**
    * Update existing QR codes to point to portal
-   */
+    */
   private async updateExistingQRCodes(
     jobId: string,
     portalUrls: PortalUrls
@@ -217,7 +218,7 @@ export class QRCodeEnhancementService {
 
   /**
    * Generate new portal-specific QR codes
-   */
+    */
   private async generatePortalQRCodes(
     jobId: string,
     types: QRCodeType[],
@@ -259,7 +260,7 @@ export class QRCodeEnhancementService {
 
   /**
    * Get QR configuration for specific type
-   */
+    */
   private getQRConfigForType(type: QRCodeType, portalUrls: PortalUrls): {
     url: string;
     label: string;
@@ -300,7 +301,7 @@ export class QRCodeEnhancementService {
 
   /**
    * Generate QR code data (placeholder implementation)
-   */
+    */
   private async generateQRCodeData(
     url: string,
     label: string,
@@ -326,7 +327,7 @@ export class QRCodeEnhancementService {
 
   /**
    * Create QR code image (placeholder implementation)
-   */
+    */
   private async createQRCodeImage(url: string, styling: QRCodeStyling): Promise<string> {
     // This is a placeholder. In a real implementation, you would:
     // 1. Use a QR code library like 'qrcode' or 'qr-image'
@@ -346,7 +347,7 @@ export class QRCodeEnhancementService {
 
   /**
    * Get existing QR codes for a job
-   */
+    */
   private async getExistingQRCodes(jobId: string): Promise<any[]> {
     try {
       const qrCodeDoc = await this.db
@@ -368,7 +369,7 @@ export class QRCodeEnhancementService {
 
   /**
    * Save enhanced QR codes to database
-   */
+    */
   private async saveEnhancedQRCodes(
     jobId: string,
     qrCodes: EnhancedQRCode[]
@@ -396,7 +397,7 @@ export class QRCodeEnhancementService {
 
   /**
    * Get default QR code styling
-   */
+    */
   private getDefaultStyling(): QRCodeStyling {
     return {
       primaryColor: '#2563eb',
@@ -411,7 +412,7 @@ export class QRCodeEnhancementService {
 
   /**
    * Get enhanced QR codes for a job
-   */
+    */
   async getEnhancedQRCodes(jobId: string): Promise<EnhancedQRCode[]> {
     try {
       const qrCodeDoc = await this.db
@@ -433,7 +434,7 @@ export class QRCodeEnhancementService {
 
   /**
    * Track QR code scan
-   */
+    */
   async trackQRCodeScan(
     jobId: string,
     qrCodeId: string,
@@ -483,7 +484,7 @@ export class QRCodeEnhancementService {
 
   /**
    * Update QR code analytics
-   */
+    */
   private async updateQRCodeAnalytics(
     jobId: string,
     qrCodeId: string,
@@ -565,7 +566,7 @@ export class QRCodeEnhancementService {
 
   /**
    * Get QR code analytics for a job
-   */
+    */
   async getQRCodeAnalytics(jobId: string): Promise<QRCodeAnalytics | null> {
     try {
       const analyticsDoc = await this.db

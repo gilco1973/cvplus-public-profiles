@@ -1,11 +1,12 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * PublicProfile Firestore Service
  *
  * Firebase model service for managing PublicProfile entities with comprehensive
  * CRUD operations, visibility controls, and engagement tracking.
  *
  * @fileoverview PublicProfile service for Firebase Functions with SEO and analytics
- */
+  */
 
 import {
   getFirestore,
@@ -122,7 +123,7 @@ function invalidateCache(id: string, slug?: string): void {
 
 /**
  * Create a new PublicProfile in Firestore
- */
+  */
 export async function createPublicProfile(
   profileData: Omit<PublicProfile, 'id' | 'createdAt' | 'updatedAt'>
 ): Promise<PublicProfile> {
@@ -185,7 +186,7 @@ export async function createPublicProfile(
 
 /**
  * Get PublicProfile by ID
- */
+  */
 export async function getPublicProfile(id: string): Promise<PublicProfile | null> {
   // Check cache first
   const cached = getCachedProfile(id);
@@ -222,7 +223,7 @@ export async function getPublicProfile(id: string): Promise<PublicProfile | null
 
 /**
  * Get PublicProfile by slug
- */
+  */
 export async function getPublicProfileBySlug(slug: string): Promise<PublicProfile | null> {
   // Check slug cache first
   const cachedId = slugCache.get(slug);
@@ -262,7 +263,7 @@ export async function getPublicProfileBySlug(slug: string): Promise<PublicProfil
 
 /**
  * Update PublicProfile
- */
+  */
 export async function updatePublicProfile(
   id: string,
   updates: Partial<Omit<PublicProfile, 'id' | 'createdAt'>>
@@ -319,7 +320,7 @@ export async function updatePublicProfile(
 
 /**
  * Delete PublicProfile
- */
+  */
 export async function deletePublicProfile(id: string): Promise<boolean> {
   const existingProfile = await getPublicProfile(id);
   if (!existingProfile) {
@@ -349,7 +350,7 @@ export async function deletePublicProfile(id: string): Promise<boolean> {
 
 /**
  * Ensure slug is unique by appending numbers if necessary
- */
+  */
 async function ensureUniqueSlug(desiredSlug: string): Promise<string> {
   if (!isValidSlug(desiredSlug)) {
     throw new Error(`Invalid slug format: ${desiredSlug}`);
@@ -378,7 +379,7 @@ async function ensureUniqueSlug(desiredSlug: string): Promise<string> {
 
 /**
  * Check if slug is available
- */
+  */
 export async function isSlugAvailable(slug: string): Promise<boolean> {
   if (!isValidSlug(slug)) {
     return false;
@@ -390,7 +391,7 @@ export async function isSlugAvailable(slug: string): Promise<boolean> {
 
 /**
  * Generate and reserve a slug from a name
- */
+  */
 export async function generateUniqueSlug(name: string): Promise<string> {
   const baseSlug = generateSlug(name);
   return ensureUniqueSlug(baseSlug);
@@ -402,7 +403,7 @@ export async function generateUniqueSlug(name: string): Promise<string> {
 
 /**
  * Record a profile view
- */
+  */
 export async function recordProfileView(
   profileId: string,
   visitorInfo: {
@@ -485,7 +486,7 @@ export async function recordProfileView(
 
 /**
  * Record a contact form submission
- */
+  */
 export async function recordContactFormSubmission(profileId: string): Promise<PublicProfile> {
   const updates: Partial<PublicProfile> = {
     contactFormSubmissions: 0, // Will be incremented by 1 in the update
@@ -502,7 +503,7 @@ export async function recordContactFormSubmission(profileId: string): Promise<Pu
 
 /**
  * Record a social share
- */
+  */
 export async function recordSocialShare(profileId: string): Promise<PublicProfile> {
   const updates: Partial<PublicProfile> = {
     shareCount: 0, // Will be incremented by 1 in the update
@@ -523,7 +524,7 @@ export async function recordSocialShare(profileId: string): Promise<PublicProfil
 
 /**
  * Update profile visibility settings
- */
+  */
 export async function updateVisibilitySettings(
   profileId: string,
   settings: {
@@ -543,7 +544,7 @@ export async function updateVisibilitySettings(
 
 /**
  * Update visible sections
- */
+  */
 export async function updateVisibleSections(
   profileId: string,
   visibleSections: ProfileSection[]
@@ -562,7 +563,7 @@ export async function updateVisibleSections(
 
 /**
  * Update contact options
- */
+  */
 export async function updateContactOptions(
   profileId: string,
   contactOptions: ContactOption[]
@@ -578,7 +579,7 @@ export async function updateContactOptions(
 
 /**
  * Update custom branding
- */
+  */
 export async function updateCustomBranding(
   profileId: string,
   branding: Partial<CustomBranding>
@@ -623,7 +624,7 @@ export interface PublicProfileQueryOptions {
 
 /**
  * Query PublicProfiles with pagination
- */
+  */
 export async function queryPublicProfiles(options: PublicProfileQueryOptions = {}): Promise<{
   profiles: PublicProfile[];
   lastDoc: DocumentSnapshot | null;
@@ -709,7 +710,7 @@ export async function queryPublicProfiles(options: PublicProfileQueryOptions = {
 
 /**
  * Get profiles by user ID
- */
+  */
 export async function getProfilesByUserId(userId: string): Promise<PublicProfile[]> {
   const result = await queryPublicProfiles({
     userId,
@@ -723,7 +724,7 @@ export async function getProfilesByUserId(userId: string): Promise<PublicProfile
 
 /**
  * Get popular profiles
- */
+  */
 export async function getPopularProfiles(limit: number = 20): Promise<PublicProfile[]> {
   const result = await queryPublicProfiles({
     isActive: true,
@@ -743,7 +744,7 @@ export async function getPopularProfiles(limit: number = 20): Promise<PublicProf
 
 /**
  * Get country name from country code
- */
+  */
 function getCountryName(countryCode: string): string {
   // This would typically use a country code to name mapping
   // For now, return the code as placeholder
@@ -765,7 +766,7 @@ function getCountryName(countryCode: string): string {
 
 /**
  * Clear all cached profiles (for testing/debugging)
- */
+  */
 export function clearProfileCache(): void {
   cache.clear();
   slugCache.clear();
@@ -774,7 +775,7 @@ export function clearProfileCache(): void {
 
 /**
  * Get cache statistics
- */
+  */
 export function getCacheStats(): { size: number; entries: string[]; slugCacheSize: number } {
   return {
     size: cache.size,
@@ -785,7 +786,7 @@ export function getCacheStats(): { size: number; entries: string[]; slugCacheSiz
 
 /**
  * Clean up expired profiles
- */
+  */
 export async function cleanupExpiredProfiles(): Promise<number> {
   const result = await queryPublicProfiles({
     includeExpired: true,
@@ -822,7 +823,7 @@ export async function cleanupExpiredProfiles(): Promise<number> {
 
 /**
  * Get profile engagement analytics
- */
+  */
 export async function getProfileEngagement(profileId: string): Promise<{
   totalViews: number;
   uniqueViews: number;

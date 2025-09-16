@@ -1,9 +1,10 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Portal Integration Service
  * 
  * Service for portal integration and embedding functionality.
  * Minimal implementation for TypeScript compilation.
- */
+  */
 
 import type { PortalConfig, EmbeddingOptions, PortalWidget } from '../types/portal';
 

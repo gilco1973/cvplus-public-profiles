@@ -1,8 +1,9 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Social Media Integration Functions for Firebase Cloud Functions
  * 
  * These functions handle social media integration and analytics for public profiles.
- */
+  */
 
 import { CallableRequest } from 'firebase-functions/v2/https';
 import { HttpsError } from 'firebase-functions/v2/https';
@@ -45,7 +46,7 @@ export interface UpdateSocialDisplaySettingsRequest {
 
 /**
  * Generate social media integration for a profile
- */
+  */
 export async function generateSocialMediaIntegration(request: CallableRequest<GenerateSocialMediaIntegrationRequest>): Promise<any> {
   const { profileId, platforms } = request.data;
 
@@ -85,7 +86,7 @@ export async function generateSocialMediaIntegration(request: CallableRequest<Ge
 
 /**
  * Add a social profile to a public profile
- */
+  */
 export async function addSocialProfile(request: CallableRequest<SocialProfileRequest>): Promise<any> {
   const { profileId, platform, handle, url, displayName } = request.data;
 
@@ -123,7 +124,7 @@ export async function addSocialProfile(request: CallableRequest<SocialProfileReq
 
 /**
  * Update a social profile
- */
+  */
 export async function updateSocialProfile(request: CallableRequest<SocialProfileRequest & { socialProfileId: string }>): Promise<any> {
   const { socialProfileId, handle, url, displayName } = request.data;
 
@@ -158,7 +159,7 @@ export async function updateSocialProfile(request: CallableRequest<SocialProfile
 
 /**
  * Remove a social profile
- */
+  */
 export async function removeSocialProfile(request: CallableRequest<{ socialProfileId: string }>): Promise<any> {
   const { socialProfileId } = request.data;
 
@@ -188,7 +189,7 @@ export async function removeSocialProfile(request: CallableRequest<{ socialProfi
 
 /**
  * Track social media click
- */
+  */
 export async function trackSocialClick(request: CallableRequest<TrackSocialClickRequest>): Promise<any> {
   const { profileId, platform, clickType } = request.data;
 
@@ -239,7 +240,7 @@ export async function trackSocialClick(request: CallableRequest<TrackSocialClick
 
 /**
  * Get social media analytics
- */
+  */
 export async function getSocialAnalytics(request: CallableRequest<GetSocialAnalyticsRequest>): Promise<any> {
   const { profileId, timeRange = '30d' } = request.data;
 
@@ -291,7 +292,7 @@ export async function getSocialAnalytics(request: CallableRequest<GetSocialAnaly
 
 /**
  * Update social display settings
- */
+  */
 export async function updateSocialDisplaySettings(request: CallableRequest<UpdateSocialDisplaySettingsRequest>): Promise<any> {
   const { profileId, settings } = request.data;
 

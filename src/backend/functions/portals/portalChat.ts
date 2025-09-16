@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Portal Chat Function for CVPlus Web Portals
  * 
  * Handles real-time chat interactions for generated web portals deployed on HuggingFace Spaces.
@@ -7,7 +8,7 @@
  * @author Gil Klainert
  * @created 2025-08-19
  * @version 1.0
- */
+  */
 
 import { onCall, onRequest, CallableRequest, HttpsError } from 'firebase-functions/v2/https';
 import * as admin from 'firebase-admin';
@@ -27,17 +28,17 @@ import { nanoid } from 'nanoid';
 
 /**
  * Portal chat request interface
- */
+  */
 interface PortalChatRequest {
-  /** Portal ID */
+  /** Portal ID  */
   portalId: string;
-  /** User message */
+  /** User message  */
   message: string;
-  /** Optional user ID for authenticated users */
+  /** Optional user ID for authenticated users  */
   userId?: string;
-  /** Session ID for conversation tracking */
+  /** Session ID for conversation tracking  */
   sessionId?: string;
-  /** Visitor metadata */
+  /** Visitor metadata  */
   visitorMetadata?: {
     userAgent?: string;
     referrer?: string;
@@ -48,11 +49,11 @@ interface PortalChatRequest {
 
 /**
  * Portal chat response interface
- */
+  */
 interface PortalChatResponse {
-  /** Success status */
+  /** Success status  */
   success: boolean;
-  /** AI response content */
+  /** AI response content  */
   response: {
     content: string;
     timestamp: Date;
@@ -60,14 +61,14 @@ interface PortalChatResponse {
     sources?: string[];
     confidence?: number;
   };
-  /** Session information */
+  /** Session information  */
   session: {
     sessionId: string;
     messageCount: number;
   };
-  /** Suggested follow-up questions */
+  /** Suggested follow-up questions  */
   suggestedQuestions?: string[];
-  /** Rate limiting information */
+  /** Rate limiting information  */
   rateLimiting: {
     remaining: number;
     resetTime: Date;
@@ -76,39 +77,39 @@ interface PortalChatResponse {
 
 /**
  * Rate limiting configuration
- */
+  */
 interface RateLimitConfig {
-  /** Messages per minute per IP/session */
+  /** Messages per minute per IP/session  */
   messagesPerMinute: number;
-  /** Messages per hour per IP/session */
+  /** Messages per hour per IP/session  */
   messagesPerHour: number;
-  /** Maximum concurrent sessions per IP */
+  /** Maximum concurrent sessions per IP  */
   maxConcurrentSessions: number;
-  /** Session timeout in minutes */
+  /** Session timeout in minutes  */
   sessionTimeoutMinutes: number;
 }
 
 /**
  * Chat analytics data
- */
+  */
 interface ChatAnalytics {
-  /** Portal ID */
+  /** Portal ID  */
   portalId: string;
-  /** Session ID */
+  /** Session ID  */
   sessionId: string;
-  /** Message count in session */
+  /** Message count in session  */
   messageCount: number;
-  /** Response time in milliseconds */
+  /** Response time in milliseconds  */
   responseTime: number;
-  /** User type */
+  /** User type  */
   userType: 'anonymous' | 'authenticated';
-  /** Quality metrics */
+  /** Quality metrics  */
   quality: {
     confidence: number;
     sourceRelevance: number;
     userSatisfaction?: number;
   };
-  /** Timestamp */
+  /** Timestamp  */
   timestamp: Date;
 }
 
@@ -154,7 +155,7 @@ Context from CV:
 
 /**
  * Validate chat message
- */
+  */
 function validateChatMessage(message: string): { valid: boolean; error?: string } {
   if (!message || typeof message !== 'string') {
     return { valid: false, error: 'Message is required and must be a string' };
@@ -190,7 +191,7 @@ function validateChatMessage(message: string): { valid: boolean; error?: string 
 
 /**
  * Check rate limits
- */
+  */
 async function checkRateLimit(
   sessionId: string, 
   ipAddress?: string
@@ -239,7 +240,7 @@ async function checkRateLimit(
 
 /**
  * Get or create chat session
- */
+  */
 async function getOrCreateChatSession(
   portalId: string,
   sessionId?: string,
@@ -298,7 +299,7 @@ async function getOrCreateChatSession(
 
 /**
  * Get portal configuration and validate access
- */
+  */
 async function getPortalConfig(portalId: string): Promise<{ portal: PortalConfig; job: EnhancedJob; ragProfile: UserRAGProfile }> {
   try {
     // Get portal configuration
@@ -358,7 +359,7 @@ async function getPortalConfig(portalId: string): Promise<{ portal: PortalConfig
 
 /**
  * Generate AI response using RAG
- */
+  */
 async function generateRAGResponse(
   message: string,
   job: EnhancedJob,
@@ -439,7 +440,7 @@ async function generateRAGResponse(
 
 /**
  * Store chat message and analytics
- */
+  */
 async function storeChatMessage(
   sessionId: string,
   portalId: string,
@@ -505,7 +506,7 @@ async function storeChatMessage(
 
 /**
  * Get suggested follow-up questions
- */
+  */
 function getSuggestedQuestions(job: EnhancedJob, previousMessage: string): string[] {
   const suggestions = [];
   const cvData = job.parsedData;
@@ -548,7 +549,7 @@ function getSuggestedQuestions(job: EnhancedJob, previousMessage: string): strin
 
 /**
  * Portal Chat Function - Callable for authenticated access
- */
+  */
 export const portalChat = onCall(
   {
     timeoutSeconds: 60,
@@ -674,7 +675,7 @@ export const portalChat = onCall(
 
 /**
  * Portal Chat HTTP Function - For public access from HuggingFace portals
- */
+  */
 export const portalChatPublic = onRequest(
   {
     timeoutSeconds: 60,
@@ -831,7 +832,7 @@ export const portalChatPublic = onRequest(
 
 /**
  * Portal Chat Analytics Function
- */
+  */
 export const getPortalChatAnalytics = onCall(
   { ...corsOptions },
   async (request: CallableRequest<{ portalId: string; timeRange?: string }>) => {

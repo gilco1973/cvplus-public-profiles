@@ -1,9 +1,10 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Enhanced Social Sharing Service
  * Handles social media integration and sharing
  * Author: Gil Klainert
  * Date: 2025-08-22
- */
+  */
 
 import * as admin from 'firebase-admin';
 import { https } from 'firebase-functions';
@@ -40,7 +41,7 @@ export class SocialSharingService {
 
   /**
    * Generate share links for all platforms
-   */
+    */
   generateShareLinks(shareCard: ShareCard): Record<string, string> {
     const encodedUrl = encodeURIComponent(shareCard.url);
     const encodedTitle = encodeURIComponent(shareCard.title);
@@ -61,7 +62,7 @@ export class SocialSharingService {
 
   /**
    * Generate Open Graph meta tags
-   */
+    */
   generateOpenGraphTags(shareCard: ShareCard): OpenGraphTags {
     return {
       'og:title': shareCard.title,
@@ -78,7 +79,7 @@ export class SocialSharingService {
 
   /**
    * Link social profiles to user account
-   */
+    */
   async linkSocialProfile(
     userId: string,
     profile: SocialProfile
@@ -96,7 +97,7 @@ export class SocialSharingService {
 
   /**
    * Get user's linked social profiles
-   */
+    */
   async getSocialProfiles(userId: string): Promise<SocialProfile[]> {
     const snapshot = await this.db
       .collection('users')
@@ -109,7 +110,7 @@ export class SocialSharingService {
 
   /**
    * Unlink social profile
-   */
+    */
   async unlinkSocialProfile(
     userId: string,
     platform: string
@@ -124,7 +125,7 @@ export class SocialSharingService {
 
   /**
    * Track share event
-   */
+    */
   async trackShare(
     userId: string,
     platform: string,
@@ -140,7 +141,7 @@ export class SocialSharingService {
 
   /**
    * Get share analytics
-   */
+    */
   async getShareAnalytics(userId: string): Promise<{
     totalShares: number;
     byPlatform: Record<string, number>;
@@ -176,7 +177,7 @@ export class SocialSharingService {
 
   /**
    * Generate social sharing preview image
-   */
+    */
   async generatePreviewImage(
     userId: string,
     template: 'default' | 'professional' | 'creative'
@@ -188,7 +189,7 @@ export class SocialSharingService {
 
   /**
    * Verify social profile ownership
-   */
+    */
   async verifySocialProfile(
     userId: string,
     platform: string,
@@ -220,7 +221,7 @@ export class SocialSharingService {
 
   /**
    * Create shareable short link
-   */
+    */
   async createShortLink(longUrl: string): Promise<string> {
     // This would integrate with a URL shortening service
     // For now, return a placeholder
@@ -237,7 +238,7 @@ export class SocialSharingService {
 
   /**
    * Get platform-specific profile URL format
-   */
+    */
   getPlatformUrlFormat(platform: string): string {
     const formats: Record<string, string> = {
       linkedin: 'https://linkedin.com/in/{username}',

@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * RAG (Retrieval Augmented Generation) Service
  *
  * Handles vector storage, similarity search, and CV content retrieval
@@ -6,7 +7,7 @@
  *
  * @author CVPlus Team
  * @version 1.0.0
- */
+  */
 
 import { Pinecone } from '@pinecone-database/pinecone';
 import { CVEmbeddingDocument, EmbeddingService } from './embedding.service';
@@ -48,7 +49,7 @@ export class RAGService {
 
   /**
    * Initialize Pinecone index for CV embeddings
-   */
+    */
   async initializeIndex(): Promise<boolean> {
     try {
       const indexStats = await this.getIndexStats();
@@ -62,7 +63,7 @@ export class RAGService {
 
   /**
    * Store CV embeddings in Pinecone
-   */
+    */
   async storeCVEmbeddings(embeddings: CVEmbeddingDocument[]): Promise<boolean> {
     if (embeddings.length === 0) {
       console.warn('No embeddings provided to store');
@@ -118,7 +119,7 @@ export class RAGService {
 
   /**
    * Search for relevant CV content using semantic similarity
-   */
+    */
   async searchRelevantContent(
     processedCvId: string,
     query: string,
@@ -191,7 +192,7 @@ export class RAGService {
 
   /**
    * Delete CV embeddings from Pinecone
-   */
+    */
   async deleteCVEmbeddings(processedCvId: string): Promise<boolean> {
     try {
       const namespace = `${this.NAMESPACE_PREFIX}${processedCvId}`;
@@ -211,7 +212,7 @@ export class RAGService {
 
   /**
    * Check if CV embeddings exist in Pinecone
-   */
+    */
   async hasCVEmbeddings(processedCvId: string): Promise<boolean> {
     try {
       const namespace = `${this.NAMESPACE_PREFIX}${processedCvId}`;
@@ -236,7 +237,7 @@ export class RAGService {
 
   /**
    * Get Pinecone index statistics
-   */
+    */
   async getIndexStats(): Promise<any> {
     try {
       const index = this.pinecone.index(this.INDEX_NAME);
@@ -250,7 +251,7 @@ export class RAGService {
 
   /**
    * Generate embeddings and store them for a CV
-   */
+    */
   async processAndStoreCVEmbeddings(processedCV: any): Promise<boolean> {
     try {
       console.log(`Processing and storing embeddings for CV: ${processedCV.id}`);
@@ -287,7 +288,7 @@ export class RAGService {
 
   /**
    * Validate RAG service configuration
-   */
+    */
   async validateConfiguration(): Promise<{
     valid: boolean;
     errors: string[];
@@ -330,7 +331,7 @@ export class RAGService {
 
   /**
    * Truncate content to fit Pinecone metadata limits
-   */
+    */
   private truncateContent(content: string, maxLength: number): string {
     if (content.length <= maxLength) {
       return content;

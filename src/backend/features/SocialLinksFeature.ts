@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { CVFeature } from '../types';
+// @ts-ignore - Export conflicts/types';
 import { ParsedCV } from '../../cvParser';
 
 interface SocialMediaProfile {
@@ -11,7 +11,7 @@ interface SocialMediaProfile {
 /**
  * Social Links Feature - Generates interactive social media links section for CV
  * Converted to use React SocialMediaLinks component for enhanced functionality
- */
+  */
 export class SocialLinksFeature implements CVFeature {
   
   async generate(cv: ParsedCV, jobId: string, options?: any): Promise<string> {
@@ -42,7 +42,7 @@ export class SocialLinksFeature implements CVFeature {
 
   /**
    * Extract social media data from CV in format expected by React component
-   */
+    */
   private extractComponentData(cv: ParsedCV): any {
     const data: any = {};
     
@@ -112,7 +112,7 @@ export class SocialLinksFeature implements CVFeature {
 
   /**
    * Generate React component placeholder for modern CV rendering
-   */
+    */
   private generateReactComponentPlaceholder(jobId: string, props: any): string {
     return `
       <div class="cv-feature-container social-links-feature">
@@ -131,7 +131,7 @@ export class SocialLinksFeature implements CVFeature {
 
   /**
    * SECURITY: Validate URL format and ensure it's safe
-   */
+    */
   private isValidUrl(url: string): boolean {
     try {
       const urlObj = new URL(url);
@@ -144,7 +144,7 @@ export class SocialLinksFeature implements CVFeature {
 
   /**
    * SECURITY: Sanitize URL to prevent injection attacks
-   */
+    */
   private sanitizeUrl(url: string): string {
     if (!this.isValidUrl(url)) {
       return '#';
@@ -166,7 +166,7 @@ export class SocialLinksFeature implements CVFeature {
 
   /**
    * SECURITY: Escape HTML to prevent XSS
-   */
+    */
   private escapeHtml(unsafe: string): string {
     return unsafe
       .replace(/&/g, "&amp;")
@@ -179,12 +179,12 @@ export class SocialLinksFeature implements CVFeature {
 
   getStyles(): string {
     return `
-      /* CV Feature Container Styles */
+      /* CV Feature Container Styles  */
       .cv-feature-container.social-links-feature {
         margin: 2rem 0;
       }
       
-      /* React Component Placeholder Styles */
+      /* React Component Placeholder Styles  */
       .react-component-placeholder {
         min-height: 300px;
         position: relative;
@@ -195,7 +195,7 @@ export class SocialLinksFeature implements CVFeature {
         box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.1);
       }
       
-      /* Component Loading Styles */
+      /* Component Loading Styles  */
       .component-loading {
         display: flex;
         flex-direction: column;
@@ -220,7 +220,7 @@ export class SocialLinksFeature implements CVFeature {
         100% { transform: rotate(360deg); }
       }
       
-      /* React Fallback Styles */
+      /* React Fallback Styles  */
       .react-fallback, .react-error {
         text-align: center;
         padding: 2rem;
@@ -270,7 +270,7 @@ export class SocialLinksFeature implements CVFeature {
         margin: 0.5rem 0;
       }
       
-      /* Mobile Responsive */
+      /* Mobile Responsive  */
       @media (max-width: 768px) {
         .cv-feature-container.social-links-feature {
           margin: 1rem 0;
@@ -286,7 +286,7 @@ export class SocialLinksFeature implements CVFeature {
         }
       }
       
-      /* Dark mode support */
+      /* Dark mode support  */
       @media (prefers-color-scheme: dark) {
         .react-component-placeholder {
           background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);

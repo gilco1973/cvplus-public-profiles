@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Portal Asset Management Service
  * 
  * Manages images, documents, and media files for portal generation.
@@ -6,7 +7,7 @@
  * 
  * @author Gil Klainert
  * @created 2025-08-19
- */
+  */
 
 import * as admin from 'firebase-admin';
 import * as path from 'path';
@@ -135,7 +136,7 @@ export class PortalAssetManagementService {
 
   /**
    * Extract and process all assets from CV data
-   */
+    */
   async extractAssetsFromCV(cvData: ParsedCV, jobId: string): Promise<AssetBundle> {
     
     const extractedAssets: ProcessedAsset[] = [];
@@ -240,7 +241,7 @@ export class PortalAssetManagementService {
 
   /**
    * Process and optimize individual asset
-   */
+    */
   private async processAsset(options: {
     url: string;
     type: AssetType;
@@ -291,7 +292,7 @@ export class PortalAssetManagementService {
 
   /**
    * Create comprehensive asset bundle with manifest
-   */
+    */
   private async createAssetBundle(assets: ProcessedAsset[], jobId: string): Promise<AssetBundle> {
     const totalSize = assets.reduce((sum, asset) => sum + asset.optimizedSize, 0);
     const originalTotalSize = assets.reduce((sum, asset) => sum + asset.size, 0);
@@ -357,7 +358,7 @@ export class PortalAssetManagementService {
 
   /**
    * Generate template assets for portal
-   */
+    */
   async generateTemplateAssets(portalConfig: PortalConfig): Promise<AssetBundle> {
 
     const templateAssets: ProcessedAsset[] = [];
@@ -409,7 +410,7 @@ export class PortalAssetManagementService {
 
   /**
    * Optimize assets for HuggingFace deployment
-   */
+    */
   async optimizeForHuggingFace(assetBundle: AssetBundle, jobId: string): Promise<AssetBundle> {
 
     const optimizedAssets: ProcessedAsset[] = [];
@@ -431,7 +432,7 @@ export class PortalAssetManagementService {
 
   /**
    * Private helper methods
-   */
+    */
   private async downloadAsset(url: string): Promise<Buffer> {
     try {
       const response = await fetch(url);

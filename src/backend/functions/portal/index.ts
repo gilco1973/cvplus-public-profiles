@@ -6,7 +6,7 @@
  *
  * @author CVPlus Team
  * @version 1.0.0
- */
+  */
 
 // Portal API endpoints - basic structure implemented
 export * from './generatePortal'; // T005/T032 - POST /portal/generate

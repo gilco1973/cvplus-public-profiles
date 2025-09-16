@@ -6,7 +6,7 @@
  *
  * @author CVPlus Team
  * @version 1.0.0
- */
+  */
 
 import { https } from 'firebase-functions/v2';
 import { Request, Response } from 'express';
@@ -15,7 +15,7 @@ import { authenticateUser } from '../middleware/auth.middleware';
 
 /**
  * Generate Portal Request Body
- */
+  */
 interface GeneratePortalRequest {
   processedCvId: string;
   portalConfig?: {
@@ -27,7 +27,7 @@ interface GeneratePortalRequest {
 
 /**
  * Generate Portal Response
- */
+  */
 interface GeneratePortalResponse {
   success: boolean;
   portalId?: string;
@@ -38,7 +38,7 @@ interface GeneratePortalResponse {
 
 /**
  * Portal generation handler
- */
+  */
 async function handleGeneratePortal(req: Request, res: Response): Promise<void> {
   try {
     // Validate request method
@@ -220,7 +220,7 @@ async function handleGeneratePortal(req: Request, res: Response): Promise<void> 
 /**
  * Firebase Function: Generate Portal
  * Endpoint: POST /portal/generate
- */
+  */
 export const generatePortal = https.onRequest(
   {
     cors: true,

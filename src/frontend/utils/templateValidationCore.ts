@@ -1,11 +1,11 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { TemplateDefinition, TemplateValidationResult } from '../types/template.types';
+// @ts-ignore - Export conflicts/types/template.types';
 import { PublicProfileData } from '../../types/profile.types';
 import { BrandingSettings } from '../types/creator.types';
 
 export class TemplateValidationCore {
   /**
    * Validate template compatibility with profile data
-   */
+    */
   static validateTemplateWithProfile(
     template: TemplateDefinition,
     profileData: Partial<PublicProfileData>
@@ -44,7 +44,7 @@ export class TemplateValidationCore {
 
   /**
    * Get required fields for a template
-   */
+    */
   private static getRequiredFieldsForTemplate(template: TemplateDefinition): string[] {
     const baseRequired = ['name', 'title'];
 
@@ -64,7 +64,7 @@ export class TemplateValidationCore {
 
   /**
    * Get optimal fields for better template appearance
-   */
+    */
   private static getOptimalFieldsForTemplate(template: TemplateDefinition): string[] {
     const baseOptimal = ['summary', 'profileImage', 'skills'];
 
@@ -84,7 +84,7 @@ export class TemplateValidationCore {
 
   /**
    * Check if profile has a specific field with content
-   */
+    */
   private static hasProfileField(profileData: Partial<PublicProfileData>, field: string): boolean {
     const value = profileData[field as keyof PublicProfileData];
 

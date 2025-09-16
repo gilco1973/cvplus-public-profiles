@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Portal RAG System Types
  * 
  * RAG (Retrieval-Augmented Generation) configuration and service types
@@ -6,344 +7,344 @@
  * 
  * @author Gil Klainert
  * @version 1.0.0
- */
+  */
 
 /**
  * RAG system configuration for AI chat functionality
- */
+  */
 export interface RAGConfig {
-  /** Whether RAG chat is enabled */
+  /** Whether RAG chat is enabled  */
   enabled: boolean;
   
-  /** Vector database configuration */
+  /** Vector database configuration  */
   vectorDatabase: VectorDatabaseConfig;
   
-  /** Embedding generation settings */
+  /** Embedding generation settings  */
   embeddings: EmbeddingConfig;
   
-  /** Chat service configuration */
+  /** Chat service configuration  */
   chatService: ChatServiceConfig;
   
-  /** Knowledge base settings */
+  /** Knowledge base settings  */
   knowledgeBase: KnowledgeBaseConfig;
   
-  /** Query processing configuration */
+  /** Query processing configuration  */
   queryProcessing: QueryProcessingConfig;
   
-  /** Response generation settings */
+  /** Response generation settings  */
   responseGeneration: ResponseGenerationConfig;
 }
 
 /**
  * Vector database configuration
- */
+  */
 export interface VectorDatabaseConfig {
-  /** Database provider */
+  /** Database provider  */
   provider: 'pinecone' | 'weaviate' | 'chroma' | 'qdrant';
   
-  /** API endpoint */
+  /** API endpoint  */
   endpoint: string;
   
-  /** Index name */
+  /** Index name  */
   indexName: string;
   
-  /** Embedding dimensions */
+  /** Embedding dimensions  */
   dimensions: number;
   
-  /** Distance metric */
+  /** Distance metric  */
   metric: 'cosine' | 'euclidean' | 'manhattan';
   
-  /** Connection settings */
+  /** Connection settings  */
   connection: {
-    /** API key for authentication */
+    /** API key for authentication  */
     apiKey: string;
     
-    /** Connection timeout in ms */
+    /** Connection timeout in ms  */
     timeout: number;
     
-    /** Max retries */
+    /** Max retries  */
     maxRetries: number;
   };
 }
 
 /**
  * Embedding configuration
- */
+  */
 export interface EmbeddingConfig {
-  /** Embedding model provider */
+  /** Embedding model provider  */
   provider: 'openai' | 'huggingface' | 'cohere';
   
-  /** Model name */
+  /** Model name  */
   modelName: string;
   
-  /** Embedding dimensions */
+  /** Embedding dimensions  */
   dimensions: number;
   
-  /** Batch size for processing */
+  /** Batch size for processing  */
   batchSize: number;
   
-  /** Model-specific settings */
+  /** Model-specific settings  */
   settings: {
-    /** API key */
+    /** API key  */
     apiKey: string;
     
-    /** Model parameters */
+    /** Model parameters  */
     parameters?: Record<string, any>;
   };
 }
 
 /**
  * Chat service configuration
- */
+  */
 export interface ChatServiceConfig {
-  /** Chat model provider */
+  /** Chat model provider  */
   provider: 'anthropic' | 'openai' | 'huggingface';
   
-  /** Model name */
+  /** Model name  */
   modelName: string;
   
-  /** Max tokens in response */
+  /** Max tokens in response  */
   maxTokens: number;
   
-  /** Temperature for generation */
+  /** Temperature for generation  */
   temperature: number;
   
-  /** Top-p for nucleus sampling */
+  /** Top-p for nucleus sampling  */
   topP: number;
   
-  /** System prompt template */
+  /** System prompt template  */
   systemPrompt: string;
   
-  /** Model settings */
+  /** Model settings  */
   settings: {
-    /** API key */
+    /** API key  */
     apiKey: string;
     
-    /** Additional parameters */
+    /** Additional parameters  */
     parameters?: Record<string, any>;
   };
 }
 
 /**
  * Knowledge base configuration
- */
+  */
 export interface KnowledgeBaseConfig {
-  /** Source documents */
+  /** Source documents  */
   sources: KnowledgeSource[];
   
-  /** Chunking strategy */
+  /** Chunking strategy  */
   chunking: ChunkingConfig;
   
-  /** Content filters */
+  /** Content filters  */
   filters: ContentFilter[];
   
-  /** Update frequency */
+  /** Update frequency  */
   updateFrequency: 'manual' | 'hourly' | 'daily' | 'weekly';
   
-  /** Version tracking */
+  /** Version tracking  */
   versioning: {
-    /** Current version */
+    /** Current version  */
     currentVersion: string;
     
-    /** Auto-update enabled */
+    /** Auto-update enabled  */
     autoUpdate: boolean;
   };
 }
 
 /**
  * Knowledge source definition
- */
+  */
 export interface KnowledgeSource {
-  /** Source type */
+  /** Source type  */
   type: 'cv' | 'portfolio' | 'documents' | 'web' | 'api';
   
-  /** Source identifier */
+  /** Source identifier  */
   sourceId: string;
   
-  /** Source URL or path */
+  /** Source URL or path  */
   location: string;
   
-  /** Content weight */
+  /** Content weight  */
   weight: number;
   
-  /** Last updated */
+  /** Last updated  */
   lastUpdated: Date;
   
-  /** Processing status */
+  /** Processing status  */
   status: 'pending' | 'processing' | 'completed' | 'failed';
 }
 
 /**
  * Content chunking configuration
- */
+  */
 export interface ChunkingConfig {
-  /** Chunk size in tokens */
+  /** Chunk size in tokens  */
   chunkSize: number;
   
-  /** Chunk overlap in tokens */
+  /** Chunk overlap in tokens  */
   chunkOverlap: number;
   
-  /** Chunking strategy */
+  /** Chunking strategy  */
   strategy: 'fixed' | 'semantic' | 'paragraph' | 'sentence';
   
-  /** Minimum chunk size */
+  /** Minimum chunk size  */
   minChunkSize: number;
   
-  /** Maximum chunks per document */
+  /** Maximum chunks per document  */
   maxChunks: number;
 }
 
 /**
  * Content filter for knowledge processing
- */
+  */
 export interface ContentFilter {
-  /** Filter type */
+  /** Filter type  */
   type: 'include' | 'exclude' | 'transform';
   
-  /** Filter pattern (regex) */
+  /** Filter pattern (regex)  */
   pattern: string;
   
-  /** Replacement text (for transform filters) */
+  /** Replacement text (for transform filters)  */
   replacement?: string;
   
-  /** Filter description */
+  /** Filter description  */
   description: string;
 }
 
 /**
  * Query processing configuration
- */
+  */
 export interface QueryProcessingConfig {
-  /** Query expansion enabled */
+  /** Query expansion enabled  */
   expandQuery: boolean;
   
-  /** Maximum expanded queries */
+  /** Maximum expanded queries  */
   maxExpansions: number;
   
-  /** Query rewriting enabled */
+  /** Query rewriting enabled  */
   rewriteQuery: boolean;
   
-  /** Intent classification */
+  /** Intent classification  */
   intentClassification: {
-    /** Enabled */
+    /** Enabled  */
     enabled: boolean;
     
-    /** Known intents */
+    /** Known intents  */
     intents: string[];
     
-    /** Default intent */
+    /** Default intent  */
     defaultIntent: string;
   };
   
-  /** Query validation */
+  /** Query validation  */
   validation: {
-    /** Min query length */
+    /** Min query length  */
     minLength: number;
     
-    /** Max query length */
+    /** Max query length  */
     maxLength: number;
     
-    /** Blocked patterns */
+    /** Blocked patterns  */
     blockedPatterns: string[];
   };
 }
 
 /**
  * Response generation configuration
- */
+  */
 export interface ResponseGenerationConfig {
-  /** Max context chunks to include */
+  /** Max context chunks to include  */
   maxContextChunks: number;
   
-  /** Context relevance threshold */
+  /** Context relevance threshold  */
   relevanceThreshold: number;
   
-  /** Response style */
+  /** Response style  */
   responseStyle: 'professional' | 'casual' | 'technical' | 'friendly';
   
-  /** Include sources in response */
+  /** Include sources in response  */
   includeSources: boolean;
   
-  /** Source citation format */
+  /** Source citation format  */
   citationFormat: 'numbered' | 'inline' | 'footnote';
   
-  /** Fallback responses */
+  /** Fallback responses  */
   fallbackResponses: string[];
   
-  /** Content safety filters */
+  /** Content safety filters  */
   safetyFilters: {
-    /** Enabled */
+    /** Enabled  */
     enabled: boolean;
     
-    /** Filter level */
+    /** Filter level  */
     level: 'low' | 'medium' | 'high';
     
-    /** Custom filters */
+    /** Custom filters  */
     customFilters: string[];
   };
 }
 
 /**
  * RAG embedding data structure
- */
+  */
 export interface RAGEmbedding {
-  /** Unique embedding ID */
+  /** Unique embedding ID  */
   id: string;
   
-  /** Text content */
+  /** Text content  */
   content: string;
   
-  /** Metadata about the content */
+  /** Metadata about the content  */
   metadata: EmbeddingMetadata;
   
-  /** Vector embedding array */
+  /** Vector embedding array  */
   vector: number[];
   
-  /** Token count */
+  /** Token count  */
   tokens: number;
   
-  /** Creation timestamp */
+  /** Creation timestamp  */
   createdAt: Date;
 }
 
 /**
  * Embedding metadata
- */
+  */
 export interface EmbeddingMetadata {
-  /** CV section this embedding belongs to */
+  /** CV section this embedding belongs to  */
   section: CVSection;
   
-  /** Subsection if applicable */
+  /** Subsection if applicable  */
   subsection?: string;
   
-  /** Importance score (1-10) */
+  /** Importance score (1-10)  */
   importance: number;
   
-  /** Date range if applicable */
+  /** Date range if applicable  */
   dateRange?: {
     start: Date;
     end?: Date;
   };
   
-  /** Tags for categorization */
+  /** Tags for categorization  */
   tags: string[];
   
-  /** Source page/document */
+  /** Source page/document  */
   source: string;
   
-  /** Keywords extracted from content */
+  /** Keywords extracted from content  */
   keywords?: string[];
   
-  /** Technologies mentioned in content */
+  /** Technologies mentioned in content  */
   technologies?: string[];
   
-  /** Type of content */
+  /** Type of content  */
   contentType?: string;
 }
 
 /**
  * CV sections for embedding categorization
- */
+  */
 export enum CVSection {
   PERSONAL = 'personal',
   SUMMARY = 'summary',

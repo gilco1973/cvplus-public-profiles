@@ -1,7 +1,8 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Secure Environment Configuration System
  * Provides comprehensive validation, sanitization, and security for environment variables
- */
+  */
 
 import * as functions from 'firebase-functions';
 import { config as loadDotenv } from 'dotenv';

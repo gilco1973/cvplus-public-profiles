@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { ParsedCV } from '../types/job';
+// @ts-ignore - Export conflicts/types/job';
 import { PortalTemplate, PortalTheme, ComponentConfiguration } from '../types/portal';
 import { TemplateCustomizationService } from './template-customization.service';
 import { logger } from 'firebase-functions';
@@ -45,7 +45,7 @@ export class PortalComponentLibraryService {
 
   /**
    * Generate all components for a portal
-   */
+    */
   async generatePortalComponents(config: ComponentLibraryConfig): Promise<GeneratedComponent[]> {
     logger.info('[COMPONENT-LIBRARY] Generating portal components', {
       platform: config.platform,
@@ -89,7 +89,7 @@ export class PortalComponentLibraryService {
 
   /**
    * Generate hero section component
-   */
+    */
   private async generateHeroComponent(config: ComponentLibraryConfig): Promise<GeneratedComponent> {
     const cvData = config.cvData;
     const theme = config.theme;
@@ -430,7 +430,7 @@ function openContact() {
 
   /**
    * Generate experience timeline component
-   */
+    */
   private async generateExperienceComponent(config: ComponentLibraryConfig): Promise<GeneratedComponent> {
     const experiences = config.cvData.experience || [];
     
@@ -567,7 +567,7 @@ export const ExperienceTimeline = ({ experiences }) => {
 
   /**
    * Generate skills matrix component
-   */
+    */
   private async generateSkillsComponent(config: ComponentLibraryConfig): Promise<GeneratedComponent> {
     const skills = config.cvData.skills || [];
     
@@ -666,7 +666,7 @@ export const SkillsMatrix = ({ skills }) => {
 
   /**
    * Generate navigation component
-   */
+    */
   private async generateNavigationComponent(config: ComponentLibraryConfig): Promise<GeneratedComponent> {
     return {
       id: 'navigation-component',
@@ -824,7 +824,7 @@ export const Navigation = ({ sections }) => {
 
   /**
    * Generate footer component
-   */
+    */
   private async generateFooterComponent(config: ComponentLibraryConfig): Promise<GeneratedComponent> {
     const currentYear = new Date().getFullYear();
     const name = config.cvData.personalInfo?.name || 'Professional';
@@ -973,7 +973,7 @@ export const Footer = ({ qrCodeUrl, socialLinks }) => {
 
   /**
    * Generate portfolio gallery component
-   */
+    */
   private async generatePortfolioComponent(config: ComponentLibraryConfig): Promise<GeneratedComponent> {
     return {
       id: 'portfolio-component',
@@ -1048,7 +1048,7 @@ export const PortfolioGallery = ({ projects }) => {
 
   /**
    * Generate contact form component
-   */
+    */
   private async generateContactComponent(config: ComponentLibraryConfig): Promise<GeneratedComponent> {
     return {
       id: 'contact-component',
@@ -1158,7 +1158,7 @@ export const ContactForm = () => {
 
   /**
    * Generate chat widget component
-   */
+    */
   private async generateChatComponent(config: ComponentLibraryConfig): Promise<GeneratedComponent> {
     return {
       id: 'chat-component',
@@ -1257,7 +1257,7 @@ export const ChatWidget = ({ portalId }) => {
 
   /**
    * Generate complete portal page
-   */
+    */
   async generateCompletePortal(config: ComponentLibraryConfig): Promise<string> {
     const components = await this.generatePortalComponents(config);
     

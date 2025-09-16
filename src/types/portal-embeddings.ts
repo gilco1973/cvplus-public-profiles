@@ -1,35 +1,36 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Portal Embeddings Configuration Types
  *
  * Embedding configuration for content processing in portal RAG systems.
  *
  * @author Gil Klainert
  * @version 1.0.0
- */
+  */
 
 /**
  * Embedding configuration
- */
+  */
 export interface EmbeddingConfig {
-  /** Embedding provider */
+  /** Embedding provider  */
   provider: EmbeddingProvider;
 
-  /** Model configuration */
+  /** Model configuration  */
   model: EmbeddingModelConfig;
 
-  /** Processing configuration */
+  /** Processing configuration  */
   processing: EmbeddingProcessingConfig;
 
-  /** Batch processing settings */
+  /** Batch processing settings  */
   batch: EmbeddingBatchConfig;
 
-  /** Quality assurance settings */
+  /** Quality assurance settings  */
   quality: EmbeddingQualityConfig;
 }
 
 /**
  * Supported embedding providers
- */
+  */
 export enum EmbeddingProvider {
   OPENAI = 'openai',
   HUGGINGFACE = 'huggingface',
@@ -42,275 +43,275 @@ export enum EmbeddingProvider {
 
 /**
  * Embedding model configuration
- */
+  */
 export interface EmbeddingModelConfig {
-  /** Model name/identifier */
+  /** Model name/identifier  */
   name: string;
 
-  /** Model dimension */
+  /** Model dimension  */
   dimension: number;
 
-  /** Maximum input tokens */
+  /** Maximum input tokens  */
   maxInputTokens: number;
 
-  /** Model version */
+  /** Model version  */
   version?: string;
 
-  /** Model-specific parameters */
+  /** Model-specific parameters  */
   parameters?: Record<string, any>;
 
-  /** Custom model settings */
+  /** Custom model settings  */
   custom?: CustomModelConfig;
 }
 
 /**
  * Custom model configuration
- */
+  */
 export interface CustomModelConfig {
-  /** Model endpoint URL */
+  /** Model endpoint URL  */
   endpoint?: string;
 
-  /** Authentication headers */
+  /** Authentication headers  */
   headers?: Record<string, string>;
 
-  /** Request format */
+  /** Request format  */
   requestFormat?: 'json' | 'form' | 'raw';
 
-  /** Response parsing configuration */
+  /** Response parsing configuration  */
   responseParser?: ResponseParserConfig;
 }
 
 /**
  * Response parser configuration
- */
+  */
 export interface ResponseParserConfig {
-  /** JSON path to embeddings array */
+  /** JSON path to embeddings array  */
   embeddingsPath: string;
 
-  /** JSON path to token count */
+  /** JSON path to token count  */
   tokenCountPath?: string;
 
-  /** JSON path to metadata */
+  /** JSON path to metadata  */
   metadataPath?: string;
 }
 
 /**
  * Embedding processing configuration
- */
+  */
 export interface EmbeddingProcessingConfig {
-  /** Chunk size for text splitting */
+  /** Chunk size for text splitting  */
   chunkSize: number;
 
-  /** Chunk overlap for context preservation */
+  /** Chunk overlap for context preservation  */
   chunkOverlap: number;
 
-  /** Text preprocessing options */
+  /** Text preprocessing options  */
   preprocessing: TextPreprocessingConfig;
 
-  /** Metadata extraction settings */
+  /** Metadata extraction settings  */
   metadataExtraction: MetadataExtractionConfig;
 
-  /** Content filtering */
+  /** Content filtering  */
   filtering: ContentFilteringOptions;
 }
 
 /**
  * Text preprocessing configuration
- */
+  */
 export interface TextPreprocessingConfig {
-  /** Remove special characters */
+  /** Remove special characters  */
   removeSpecialChars: boolean;
 
-  /** Normalize whitespace */
+  /** Normalize whitespace  */
   normalizeWhitespace: boolean;
 
-  /** Convert to lowercase */
+  /** Convert to lowercase  */
   lowercase: boolean;
 
-  /** Remove stop words */
+  /** Remove stop words  */
   removeStopWords: boolean;
 
-  /** Language for processing */
+  /** Language for processing  */
   language: string;
 
-  /** Custom preprocessing steps */
+  /** Custom preprocessing steps  */
   customSteps?: PreprocessingStep[];
 }
 
 /**
  * Preprocessing step configuration
- */
+  */
 export interface PreprocessingStep {
-  /** Step name/identifier */
+  /** Step name/identifier  */
   name: string;
 
-  /** Step type */
+  /** Step type  */
   type: 'regex' | 'function' | 'filter';
 
-  /** Step configuration */
+  /** Step configuration  */
   config: Record<string, any>;
 
-  /** Step execution order */
+  /** Step execution order  */
   order: number;
 }
 
 /**
  * Metadata extraction configuration
- */
+  */
 export interface MetadataExtractionConfig {
-  /** Extract section headers */
+  /** Extract section headers  */
   extractHeaders: boolean;
 
-  /** Extract dates */
+  /** Extract dates  */
   extractDates: boolean;
 
-  /** Extract entities (names, organizations) */
+  /** Extract entities (names, organizations)  */
   extractEntities: boolean;
 
-  /** Extract numerical data */
+  /** Extract numerical data  */
   extractNumbers: boolean;
 
-  /** Extract URLs and links */
+  /** Extract URLs and links  */
   extractUrls: boolean;
 
-  /** Custom metadata extractors */
+  /** Custom metadata extractors  */
   customExtractors?: MetadataExtractor[];
 }
 
 /**
  * Custom metadata extractor
- */
+  */
 export interface MetadataExtractor {
-  /** Extractor name */
+  /** Extractor name  */
   name: string;
 
-  /** Extractor type */
+  /** Extractor type  */
   type: 'regex' | 'nlp' | 'custom';
 
-  /** Extraction pattern or configuration */
+  /** Extraction pattern or configuration  */
   pattern: string | Record<string, any>;
 
-  /** Output field name */
+  /** Output field name  */
   outputField: string;
 }
 
 /**
  * Content filtering options
- */
+  */
 export interface ContentFilteringOptions {
-  /** Minimum content length */
+  /** Minimum content length  */
   minLength: number;
 
-  /** Maximum content length */
+  /** Maximum content length  */
   maxLength: number;
 
-  /** Filter empty content */
+  /** Filter empty content  */
   filterEmpty: boolean;
 
-  /** Filter duplicates */
+  /** Filter duplicates  */
   filterDuplicates: boolean;
 
-  /** Content quality threshold */
+  /** Content quality threshold  */
   qualityThreshold: number;
 
-  /** Language filtering */
+  /** Language filtering  */
   languageFilter?: LanguageFilterConfig;
 }
 
 /**
  * Language filtering configuration
- */
+  */
 export interface LanguageFilterConfig {
-  /** Allowed languages */
+  /** Allowed languages  */
   allowedLanguages: string[];
 
-  /** Language detection threshold */
+  /** Language detection threshold  */
   detectionThreshold: number;
 
-  /** Auto-detect language */
+  /** Auto-detect language  */
   autoDetect: boolean;
 }
 
 /**
  * Embedding batch processing configuration
- */
+  */
 export interface EmbeddingBatchConfig {
-  /** Batch size for processing */
+  /** Batch size for processing  */
   batchSize: number;
 
-  /** Delay between batches (ms) */
+  /** Delay between batches (ms)  */
   batchDelay: number;
 
-  /** Maximum concurrent batches */
+  /** Maximum concurrent batches  */
   maxConcurrentBatches: number;
 
-  /** Retry configuration */
+  /** Retry configuration  */
   retry: RetryConfig;
 
-  /** Progress tracking */
+  /** Progress tracking  */
   progressTracking: boolean;
 }
 
 /**
  * Retry configuration
- */
+  */
 export interface RetryConfig {
-  /** Maximum retry attempts */
+  /** Maximum retry attempts  */
   maxAttempts: number;
 
-  /** Base delay between retries (ms) */
+  /** Base delay between retries (ms)  */
   baseDelay: number;
 
-  /** Exponential backoff multiplier */
+  /** Exponential backoff multiplier  */
   backoffMultiplier: number;
 
-  /** Maximum delay between retries (ms) */
+  /** Maximum delay between retries (ms)  */
   maxDelay: number;
 
-  /** Jitter factor for randomization */
+  /** Jitter factor for randomization  */
   jitterFactor?: number;
 }
 
 /**
  * Embedding quality configuration
- */
+  */
 export interface EmbeddingQualityConfig {
-  /** Enable quality checks */
+  /** Enable quality checks  */
   enabled: boolean;
 
-  /** Similarity threshold for duplicates */
+  /** Similarity threshold for duplicates  */
   similarityThreshold: number;
 
-  /** Dimension validation */
+  /** Dimension validation  */
   validateDimensions: boolean;
 
-  /** NaN/Infinity checks */
+  /** NaN/Infinity checks  */
   validateValues: boolean;
 
-  /** Quality scoring */
+  /** Quality scoring  */
   qualityScoring: QualityScoringConfig;
 }
 
 /**
  * Quality scoring configuration
- */
+  */
 export interface QualityScoringConfig {
-  /** Enable quality scoring */
+  /** Enable quality scoring  */
   enabled: boolean;
 
-  /** Scoring metrics */
+  /** Scoring metrics  */
   metrics: QualityMetric[];
 
-  /** Minimum quality score */
+  /** Minimum quality score  */
   minQualityScore: number;
 
-  /** Quality report generation */
+  /** Quality report generation  */
   generateReports: boolean;
 }
 
 /**
  * Quality metrics
- */
+  */
 export enum QualityMetric {
   COHERENCE = 'coherence',
   DIVERSITY = 'diversity',

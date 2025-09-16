@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Enhanced Analytics Types
  * 
  * Analytics and tracking types for enhanced CV features.
@@ -6,11 +7,11 @@
  * 
  * @author Gil Klainert
  * @version 1.0.0
- */
+  */
 
 /**
  * Public CV profile data
- */
+  */
 export interface PublicCVProfile {
   id: string;
   userId: string;
@@ -62,7 +63,7 @@ export interface PublicCVProfile {
 
 /**
  * Public CV Profile analytics (summary level)
- */
+  */
 export interface PublicProfileAnalytics {
   totalViews: number;
   uniqueVisitors: number;
@@ -79,7 +80,7 @@ export interface PublicProfileAnalytics {
 
 /**
  * Feature analytics tracking (detailed interactions)
- */
+  */
 export interface FeatureAnalytics {
   jobId: string;
   featureId: string;
@@ -106,7 +107,7 @@ export interface FeatureAnalytics {
 
 /**
  * Feature interaction tracking
- */
+  */
 export interface FeatureInteraction {
   type: string; // 'view', 'click', 'submit', etc.
   timestamp: Date;
@@ -123,7 +124,7 @@ export interface FeatureInteraction {
 
 /**
  * Contact form submission data
- */
+  */
 export interface ContactFormSubmission {
   id: string;
   jobId: string;
@@ -148,7 +149,7 @@ export interface ContactFormSubmission {
 
 /**
  * QR code scan tracking
- */
+  */
 export interface QRCodeScan {
   id: string;
   jobId: string;

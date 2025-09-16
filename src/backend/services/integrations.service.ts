@@ -1,6 +1,7 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Service for managing third-party integrations
- */
+  */
 
 import * as admin from 'firebase-admin';
 import * as QRCode from 'qrcode';
@@ -17,7 +18,7 @@ export class IntegrationsService {
 
   /**
    * Initialize email transporter with fallback options
-   */
+    */
   private initializeEmailTransporter(): void {
     try {
       // Check for SendGrid configuration first (recommended for production)
@@ -69,7 +70,7 @@ export class IntegrationsService {
 
   /**
    * Generate QR code for a URL
-   */
+    */
   async generateQRCode(url: string, options?: QRCode.QRCodeToBufferOptions): Promise<Buffer> {
     const defaultOptions: QRCode.QRCodeToBufferOptions = {
       type: 'png',
@@ -87,7 +88,7 @@ export class IntegrationsService {
 
   /**
    * Upload QR code to storage
-   */
+    */
   async uploadQRCode(buffer: Buffer, jobId: string): Promise<string> {
     const bucket = admin.storage().bucket();
     const fileName = `qr-codes/${jobId}/qr-${Date.now()}.png`;
@@ -106,7 +107,7 @@ export class IntegrationsService {
 
   /**
    * Send email notification with enhanced error handling
-   */
+    */
   async sendEmail(options: {
     to: string;
     subject: string;
@@ -169,7 +170,7 @@ export class IntegrationsService {
 
   /**
    * Test email configuration
-   */
+    */
   async testEmailConfiguration(): Promise<{ success: boolean; provider: string; error?: string }> {
     try {
       if (!this.emailTransporter) {
@@ -198,7 +199,7 @@ export class IntegrationsService {
 
   /**
    * Generate email template for contact form
-   */
+    */
   generateContactFormEmailTemplate(data: {
     senderName: string;
     senderEmail: string;
@@ -290,7 +291,7 @@ export class IntegrationsService {
 
   /**
    * Initialize calendar integration using the dedicated calendar service
-   */
+    */
   async initializeCalendarIntegration(userId: string, provider: 'google' | 'calendly'): Promise<any> {
     // Import the calendar integration service
     // const { CalendarIntegrationService } = await import('./calendar-integration.service');
@@ -317,7 +318,7 @@ export class IntegrationsService {
 
   /**
    * Generate video thumbnail using video generation service
-   */
+    */
   async generateVideoThumbnail(videoUrl: string): Promise<string> {
     try {
       // Import the video generation service
@@ -336,7 +337,7 @@ export class IntegrationsService {
 
   /**
    * Generate podcast audio using the dedicated podcast service
-   */
+    */
   async generatePodcastAudio(script: string, voice?: string): Promise<Buffer> {
     try {
       // Import the podcast generation service

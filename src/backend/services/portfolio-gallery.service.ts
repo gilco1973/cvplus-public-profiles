@@ -1,7 +1,8 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Portfolio Gallery Service
  * Creates visual showcases for projects and achievements
- */
+  */
 
 import { ParsedCV } from '../types/enhanced-models';
 import * as admin from 'firebase-admin';
@@ -75,7 +76,7 @@ export class PortfolioGalleryService {
   
   /**
    * Generate portfolio gallery from CV data
-   */
+    */
   async generatePortfolioGallery(parsedCV: ParsedCV, jobId: string): Promise<PortfolioGallery> {
     const items: PortfolioItem[] = [];
     const categories = new Set<string>();
@@ -167,7 +168,7 @@ export class PortfolioGalleryService {
 
   /**
    * Get technical skills from skills union type
-   */
+    */
   private getTechnicalSkills(skills: string[] | { [key: string]: string[]; technical?: string[]; soft?: string[]; languages?: string[]; tools?: string[]; frontend?: string[]; backend?: string[]; databases?: string[]; cloud?: string[]; competencies?: string[]; frameworks?: string[]; expertise?: string[]; } | undefined): string[] {
     if (!skills) return [];
     if (Array.isArray(skills)) return skills;
@@ -176,7 +177,7 @@ export class PortfolioGalleryService {
   
   /**
    * Extract projects from work experience
-   */
+    */
   private async extractProjectsFromExperience(exp: any): Promise<PortfolioItem[]> {
     const projects: PortfolioItem[] = [];
     
@@ -249,7 +250,7 @@ Return empty array if no specific projects found.`;
   
   /**
    * Create achievement portfolio item
-   */
+    */
   private async createAchievementItem(achievement: string, exp: any): Promise<PortfolioItem> {
     const impact = this.extractImpactMetrics(achievement);
     
@@ -269,7 +270,7 @@ Return empty array if no specific projects found.`;
   
   /**
    * Check if text describes a publication
-   */
+    */
   private isPublication(text: string): boolean {
     const publicationKeywords = [
       'published', 'publication', 'paper', 'article', 'journal',
@@ -283,7 +284,7 @@ Return empty array if no specific projects found.`;
   
   /**
    * Create publication portfolio item
-   */
+    */
   private async createPublicationItem(text: string): Promise<PortfolioItem> {
     return {
       id: `publication-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
@@ -299,7 +300,7 @@ Return empty array if no specific projects found.`;
   
   /**
    * Generate placeholder media for portfolio items
-   */
+    */
   private async generatePlaceholderMedia(item: PortfolioItem): Promise<PortfolioItem['media']> {
     // In production, this could integrate with services like:
     // - Bannerbear for dynamic image generation
@@ -369,7 +370,7 @@ Return empty array if no specific projects found.`;
   
   /**
    * Calculate portfolio statistics
-   */
+    */
   private calculateStatistics(items: PortfolioItem[], cv: ParsedCV): PortfolioGallery['statistics'] {
     const allTechnologies = new Set<string>();
     const impactMetrics = new Map<string, number>();
@@ -418,7 +419,7 @@ Return empty array if no specific projects found.`;
   
   /**
    * Determine optimal layout for gallery
-   */
+    */
   private determineOptimalLayout(items: PortfolioItem[]): PortfolioGallery['layout'] {
     // Determine best layout style based on content
     let style: 'grid' | 'timeline' | 'showcase' = 'grid';
@@ -460,7 +461,7 @@ Return empty array if no specific projects found.`;
   
   /**
    * Generate branding based on CV
-   */
+    */
   private async generateBranding(cv: ParsedCV): Promise<PortfolioGallery['branding']> {
     // Determine color scheme based on industry/role
     const role = cv.experience?.[0]?.position?.toLowerCase() || '';
@@ -492,7 +493,7 @@ Return empty array if no specific projects found.`;
   
   /**
    * Helper methods
-   */
+    */
   
   private extractTagsFromCertification(cert: any): string[] {
     const tags: string[] = [];
@@ -721,7 +722,7 @@ Return empty array if no specific projects found.`;
   
   /**
    * Store gallery data in Firestore
-   */
+    */
   private async storeGalleryData(jobId: string, gallery: PortfolioGallery): Promise<void> {
     await admin.firestore()
       .collection('jobs')
@@ -738,7 +739,7 @@ Return empty array if no specific projects found.`;
   
   /**
    * Generate shareable portfolio page
-   */
+    */
   async generateShareablePortfolio(
     jobId: string,
     customDomain?: string

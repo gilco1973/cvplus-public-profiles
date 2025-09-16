@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * CV-Portal Integration Service
  * 
  * Core service that coordinates between CV generation and portal creation systems.
@@ -7,7 +8,7 @@
  * @author Gil Klainert
  * @created 2025-08-19
  * @version 1.0
- */
+  */
 
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
@@ -66,7 +67,7 @@ interface IntegrationStatus {
 /**
  * Main CV-Portal Integration Service
  * Coordinates between CV generation and portal creation systems
- */
+  */
 export class CVPortalIntegrationService {
   private db: admin.firestore.Firestore;
   private logger: any;
@@ -79,7 +80,7 @@ export class CVPortalIntegrationService {
   /**
    * Initialize portal generation after CV completion
    * Main entry point for automatic portal generation
-   */
+    */
   async initializePortalGeneration(trigger: CVPortalTrigger): Promise<PortalGenerationResult> {
     const startTime = Date.now();
     
@@ -282,7 +283,7 @@ export class CVPortalIntegrationService {
 
   /**
    * Get portal generation status for a job
-   */
+    */
   async getPortalStatus(jobId: string): Promise<IntegrationStatus | null> {
     try {
       const statusDoc = await this.db
@@ -314,7 +315,7 @@ export class CVPortalIntegrationService {
 
   /**
    * Update portal generation status
-   */
+    */
   async updatePortalStatus(
     jobId: string, 
     updates: Partial<IntegrationStatus>
@@ -337,7 +338,7 @@ export class CVPortalIntegrationService {
 
   /**
    * Validate trigger data before processing
-   */
+    */
   private async validateTriggerData(trigger: CVPortalTrigger): Promise<{
     isValid: boolean;
     errors: string[];
@@ -395,7 +396,7 @@ export class CVPortalIntegrationService {
 
   /**
    * Check if portal should be generated based on user preferences and feature flags
-   */
+    */
   private async shouldGeneratePortal(trigger: CVPortalTrigger): Promise<boolean> {
     try {
       // Check global feature flag
@@ -437,7 +438,7 @@ export class CVPortalIntegrationService {
 
   /**
    * Initialize status tracking for portal generation
-   */
+    */
   private async initializeStatusTracking(
     trigger: CVPortalTrigger
   ): Promise<IntegrationStatus> {
@@ -472,7 +473,7 @@ export class CVPortalIntegrationService {
 
   /**
    * Update CV document with portal information
-   */
+    */
   private async updateCVIntegrations(
     trigger: CVPortalTrigger,
     portalConfig: PortalConfig
@@ -514,7 +515,7 @@ export class CVPortalIntegrationService {
 
   /**
    * Generate portal-specific QR codes
-   */
+    */
   private async generatePortalQRCodes(
     jobId: string,
     portalConfig: PortalConfig
@@ -575,7 +576,7 @@ export class CVPortalIntegrationService {
 
   /**
    * Finalize status tracking after portal generation
-   */
+    */
   private async finalizeStatusTracking(
     jobId: string,
     result: PortalGenerationResult
@@ -615,7 +616,7 @@ export class CVPortalIntegrationService {
 /**
  * Portal Generation Orchestrator
  * Manages the complete portal generation lifecycle
- */
+  */
 class PortalGenerationOrchestrator {
   private db: admin.firestore.Firestore;
   private logger: any;
@@ -630,7 +631,7 @@ class PortalGenerationOrchestrator {
 
   /**
    * Orchestrate the complete portal generation process
-   */
+    */
   async generatePortal(
     trigger: CVPortalTrigger,
     status: IntegrationStatus
@@ -953,7 +954,7 @@ class PortalGenerationOrchestrator {
 
   /**
    * Update generation progress
-   */
+    */
   private async updateProgress(
     jobId: string,
     progress: number,
@@ -976,7 +977,7 @@ class PortalGenerationOrchestrator {
 
   /**
    * Extract and structure CV data for portal generation
-   */
+    */
   private async extractCVData(cvData: ParsedCV): Promise<any> {
     // Implementation would extract and structure CV data
     // For now, return a structured format
@@ -996,7 +997,7 @@ class PortalGenerationOrchestrator {
 
   /**
    * Generate portal template configuration
-   */
+    */
   private async generatePortalTemplate(extractedData: any): Promise<any> {
     // Implementation would generate template based on CV data
     // For now, return a basic template configuration
@@ -1074,7 +1075,7 @@ class PortalGenerationOrchestrator {
 
   /**
    * Build RAG system configuration
-   */
+    */
   private async buildRAGSystem(extractedData: any): Promise<any> {
     // Implementation would build RAG system based on CV data
     // For now, return a basic configuration
@@ -1113,7 +1114,7 @@ class PortalGenerationOrchestrator {
 
   /**
    * Deploy portal to HuggingFace Spaces
-   */
+    */
   private async deployToHuggingFace(template: any, ragSystem: any): Promise<any> {
     // Implementation would deploy to HuggingFace
     // For now, return a mock deployment configuration
@@ -1145,7 +1146,7 @@ class PortalGenerationOrchestrator {
 
   /**
    * Configure portal URLs after deployment
-   */
+    */
   private async configurePortalUrls(deployment: any): Promise<any> {
     const baseUrl = `https://${deployment.spaceName}.hf.space`;
     
@@ -1165,7 +1166,7 @@ class PortalGenerationOrchestrator {
 
   /**
    * Calculate CV data completeness score
-   */
+    */
   private calculateCompleteness(cvData: ParsedCV): number {
     let score = 0;
     let maxScore = 0;

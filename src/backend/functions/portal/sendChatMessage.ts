@@ -6,7 +6,7 @@
  *
  * @author CVPlus Team
  * @version 1.0.0
- */
+  */
 
 import { https } from 'firebase-functions/v2';
 import { Request, Response } from 'express';
@@ -17,7 +17,7 @@ import { ClaudeService, ChatContext } from '@cvplus/public-profiles/backend/serv
 
 /**
  * Send Chat Message Request Body
- */
+  */
 interface SendChatMessageRequest {
   message: string;
   messageType?: 'text' | 'question' | 'feedback';
@@ -29,7 +29,7 @@ interface SendChatMessageRequest {
 
 /**
  * Send Chat Message Response
- */
+  */
 interface SendChatMessageResponse {
   success: boolean;
   messageId?: string;
@@ -49,7 +49,7 @@ interface SendChatMessageResponse {
 
 /**
  * Chat message processing handler
- */
+  */
 async function handleSendChatMessage(req: Request, res: Response): Promise<void> {
   try {
     // Validate request method
@@ -222,7 +222,7 @@ async function handleSendChatMessage(req: Request, res: Response): Promise<void>
 
 /**
  * Generate RAG-powered AI response using Claude
- */
+  */
 async function generateRAGResponse(
   userMessage: string,
   processedCvId: string,
@@ -287,7 +287,7 @@ async function generateRAGResponse(
 
 /**
  * Generate fallback response when RAG system is unavailable
- */
+  */
 function generateFallbackResponse(
   userMessage: string,
   cvData: any
@@ -317,7 +317,7 @@ function generateFallbackResponse(
 
 /**
  * Update chat analytics
- */
+  */
 async function updateChatAnalytics(
   db: FirebaseFirestore.Firestore,
   portalId: string,
@@ -354,7 +354,7 @@ async function updateChatAnalytics(
 /**
  * Firebase Function: Send Chat Message
  * Endpoint: POST /portal/{portalId}/chat/{sessionId}/message
- */
+  */
 export const sendChatMessage = https.onRequest(
   {
     cors: true,

@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Portal Configuration Types
  * 
  * Core configuration interfaces for portal generation system.
@@ -6,7 +7,7 @@
  * 
  * @author Gil Klainert
  * @version 1.0.0
- */
+  */
 
 import { RAGConfig } from './portal-rag';
 import { PortalTheme } from './portal-theme';
@@ -14,106 +15,106 @@ import { PortalTheme } from './portal-theme';
 /**
  * Main configuration interface for portal generation
  * Defines all settings needed to create a personalized web portal
- */
+  */
 export interface PortalConfig {
-  /** Unique identifier for the portal configuration */
+  /** Unique identifier for the portal configuration  */
   id: string;
   
-  /** Associated job/CV ID from CVPlus */
+  /** Associated job/CV ID from CVPlus  */
   jobId: string;
   
-  /** User ID who owns this portal */
+  /** User ID who owns this portal  */
   userId: string;
   
-  /** Custom domain name for the portal (optional) */
+  /** Custom domain name for the portal (optional)  */
   customDomain?: string;
   
-  /** Portal template selection */
+  /** Portal template selection  */
   template: PortalTemplate;
   
-  /** Customization settings */
+  /** Customization settings  */
   customization: PortalCustomization;
   
-  /** RAG system configuration */
+  /** RAG system configuration  */
   ragConfig: RAGConfig;
   
-  /** Features enabled for this portal */
+  /** Features enabled for this portal  */
   features: PortalFeatures;
   
-  /** SEO and metadata settings */
+  /** SEO and metadata settings  */
   metadata: PortalMetadata;
   
-  /** Portal status */
+  /** Portal status  */
   status: PortalStatus;
   
-  /** Creation timestamp */
+  /** Creation timestamp  */
   createdAt: Date;
   
-  /** Last update timestamp */
+  /** Last update timestamp  */
   updatedAt: Date;
   
-  /** Portal generation result (if completed) */
+  /** Portal generation result (if completed)  */
   generationResult?: PortalGenerationResult;
 }
 
 /**
  * Portal template definition
- */
+  */
 export interface PortalTemplate {
-  /** Template identifier */
+  /** Template identifier  */
   id: string;
   
-  /** Display name */
+  /** Display name  */
   name: string;
   
-  /** Template description */
+  /** Template description  */
   description: string;
   
-  /** Template category */
+  /** Template category  */
   category: PortalTemplateCategory;
   
-  /** Preview image URL */
+  /** Preview image URL  */
   previewUrl: string;
   
-  /** Whether this template is premium */
+  /** Whether this template is premium  */
   isPremium: boolean;
   
-  /** Template features */
+  /** Template features  */
   features: string[];
   
-  /** Default theme settings */
+  /** Default theme settings  */
   defaultTheme: PortalTheme;
 }
 
 /**
  * Portal customization options
- */
+  */
 export interface PortalCustomization {
-  /** Theme customization */
+  /** Theme customization  */
   theme: PortalTheme;
   
-  /** Layout preferences */
+  /** Layout preferences  */
   layout: {
-    /** Header style */
+    /** Header style  */
     headerStyle: 'minimal' | 'detailed' | 'hero';
     
-    /** Navigation style */
+    /** Navigation style  */
     navigationStyle: 'horizontal' | 'vertical' | 'hidden';
     
-    /** Content layout */
+    /** Content layout  */
     contentLayout: 'single' | 'two-column' | 'grid';
   };
   
-  /** Custom CSS (if allowed) */
+  /** Custom CSS (if allowed)  */
   customCSS?: string;
   
-  /** Custom JavaScript (if allowed) */
+  /** Custom JavaScript (if allowed)  */
   customJS?: string;
 }
 
 /**
  * Portal status enumeration
- */
+  */
 export enum PortalStatus {
   DRAFT = 'draft',
   CONFIGURING = 'configuring',
@@ -127,7 +128,7 @@ export enum PortalStatus {
 
 /**
  * Portal template categories
- */
+  */
 export enum PortalTemplateCategory {
   PROFESSIONAL = 'professional',
   CREATIVE = 'creative',
@@ -141,56 +142,56 @@ export enum PortalTemplateCategory {
 
 /**
  * Portal features configuration
- */
+  */
 export interface PortalFeatures {
-  /** RAG-based AI chat */
+  /** RAG-based AI chat  */
   aiChat: boolean;
   
-  /** Dynamic QR code generation */
+  /** Dynamic QR code generation  */
   qrCode: boolean;
   
-  /** Contact form */
+  /** Contact form  */
   contactForm: boolean;
   
-  /** Calendar integration */
+  /** Calendar integration  */
   calendar: boolean;
   
-  /** Portfolio showcase */
+  /** Portfolio showcase  */
   portfolio: boolean;
   
-  /** Social media links */
+  /** Social media links  */
   socialLinks: boolean;
   
-  /** Testimonials section */
+  /** Testimonials section  */
   testimonials: boolean;
   
-  /** Analytics integration */
+  /** Analytics integration  */
   analytics: boolean;
 }
 
 /**
  * Portal SEO and metadata
- */
+  */
 export interface PortalMetadata {
-  /** Page title */
+  /** Page title  */
   title: string;
   
-  /** Meta description */
+  /** Meta description  */
   description: string;
   
-  /** Keywords for SEO */
+  /** Keywords for SEO  */
   keywords: string[];
   
-  /** Open Graph image */
+  /** Open Graph image  */
   ogImage?: string;
   
-  /** Custom meta tags */
+  /** Custom meta tags  */
   customMeta?: Record<string, string>;
 }
 
 /**
  * Portal generation result
- */
+  */
 export interface PortalGenerationResult {
   portalUrl: string;
   spaceUrl?: string;
@@ -201,7 +202,7 @@ export interface PortalGenerationResult {
 
 /**
  * Error categories
- */
+  */
 export enum ErrorCategory {
   VALIDATION = 'validation',
   GENERATION = 'generation',

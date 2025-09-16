@@ -1,9 +1,10 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Testimonials Service - Simplified Version
  * Manages testimonials with Firestore integration
  * Author: Gil Klainert
  * Date: 2025-08-22
- */
+  */
 
 import * as admin from 'firebase-admin';
 import { https } from 'firebase-functions';

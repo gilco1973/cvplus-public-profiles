@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Portal Generation Types - Main Interface
  * 
  * Core portal configuration interfaces and main types.
@@ -6,7 +7,7 @@
  * 
  * @author Gil Klainert
  * @version 1.0.0
- */
+  */
 
 import { ParsedCV } from './job';
 import type { FieldValue } from 'firebase-admin/firestore';
@@ -19,141 +20,141 @@ import { PortalUrls } from './portal-analytics';
 
 /**
  * Main configuration interface for portal generation
- */
+  */
 export interface PortalConfig {
-  /** Unique identifier for the portal configuration */
+  /** Unique identifier for the portal configuration  */
   id: string;
   
-  /** Associated job/CV ID from CVPlus */
+  /** Associated job/CV ID from CVPlus  */
   jobId: string;
   
-  /** User ID who owns this portal */
+  /** User ID who owns this portal  */
   userId: string;
   
-  /** Portal template configuration */
+  /** Portal template configuration  */
   template: PortalTemplate;
   
-  /** User-specific customizations */
+  /** User-specific customizations  */
   customization: PortalCustomization;
   
-  /** RAG system configuration for AI chat */
+  /** RAG system configuration for AI chat  */
   ragConfig: RAGConfig;
   
-  /** HuggingFace deployment configuration */
+  /** HuggingFace deployment configuration  */
   huggingFaceConfig: HuggingFaceSpaceConfig;
   
-  /** Portal generation status */
+  /** Portal generation status  */
   status: PortalStatus;
   
-  /** Generated portal URLs */
+  /** Generated portal URLs  */
   urls: PortalUrls;
   
-  /** Portal analytics and tracking */
+  /** Portal analytics and tracking  */
   analytics: PortalAnalytics;
   
-  /** Privacy and security settings */
+  /** Privacy and security settings  */
   privacy: PortalPrivacySettings;
   
-  /** Error information if generation failed */
+  /** Error information if generation failed  */
   error?: PortalError;
   
-  /** Creation timestamp */
+  /** Creation timestamp  */
   createdAt: Date | FieldValue;
   
-  /** Last update timestamp */
+  /** Last update timestamp  */
   updatedAt: Date | FieldValue;
   
-  /** Optional expiration date */
+  /** Optional expiration date  */
   expiresAt?: Date;
 }
 
 /**
  * Portal template definitions
  * Defines the base template and theme for the generated portal
- */
+  */
 export interface PortalTemplate {
-  /** Template identifier */
+  /** Template identifier  */
   id: string;
   
-  /** Human-readable template name */
+  /** Human-readable template name  */
   name: string;
   
-  /** Template description */
+  /** Template description  */
   description: string;
   
-  /** Template category */
+  /** Template category  */
   category: PortalTemplateCategory;
   
-  /** Design theme */
+  /** Design theme  */
   theme: PortalTheme;
   
-  /** Template version */
+  /** Template version  */
   version: string;
   
-  /** Whether template is premium/paid */
+  /** Whether template is premium/paid  */
   isPremium: boolean;
   
-  /** Template configuration options */
+  /** Template configuration options  */
   config: TemplateConfig;
   
-  /** Required sections for this template */
+  /** Required sections for this template  */
   requiredSections: PortalSection[];
   
-  /** Optional sections available */
+  /** Optional sections available  */
   optionalSections: PortalSection[];
 }
 
 /**
  * User-specific portal customizations
  * Contains all user-defined customization options
- */
+  */
 export interface PortalCustomization {
-  /** Personal information display settings */
+  /** Personal information display settings  */
   personalInfo: any; // PersonalInfoConfig - simplified for now
   
-  /** Design theme customizations */
+  /** Design theme customizations  */
   theme: any; // ThemeCustomization - simplified for now
   
-  /** Section configurations */
+  /** Section configurations  */
   sections: any; // SectionCustomizations - simplified for now
   
-  /** Content preferences */
+  /** Content preferences  */
   content: any; // ContentCustomization - simplified for now
   
-  /** Layout preferences */
+  /** Layout preferences  */
   layout: any; // LayoutCustomization - simplified for now
   
-  /** Feature toggles */
+  /** Feature toggles  */
   features: FeatureToggles;
   
-  /** Custom branding options */
+  /** Custom branding options  */
   branding?: any; // CustomBranding - simplified for now
 }
 
 /**
  * RAG (Retrieval Augmented Generation) configuration for AI chat
  * Defines settings for the personalized AI chat functionality
- */
+  */
 export interface RAGConfig {
-  /** Whether RAG chat is enabled */
+  /** Whether RAG chat is enabled  */
   enabled: boolean;
   
-  /** Vector database configuration */
+  /** Vector database configuration  */
   vectorDatabase: VectorDatabaseConfig;
   
-  /** Embedding generation settings */
+  /** Embedding generation settings  */
   embeddings: EmbeddingConfig;
   
-  /** Chat service configuration */
+  /** Chat service configuration  */
   chatService: ChatServiceConfig;
   
-  /** Knowledge base settings */
+  /** Knowledge base settings  */
   knowledgeBase: any; // KnowledgeBaseConfig - simplified for now
   
-  /** Query processing configuration */
+  /** Query processing configuration  */
   queryProcessing: any; // QueryProcessingConfig - simplified for now
   
-  /** Response generation settings */
+  /** Response generation settings  */
   responseGeneration: any; // ResponseGenerationConfig - simplified for now
 }
 
@@ -165,66 +166,66 @@ export interface RAGConfig {
 
 /**
  * Portal generation status enumeration
- */
+  */
 export enum PortalStatus {
-  /** Initial state, not yet started */
+  /** Initial state, not yet started  */
   PENDING = 'pending',
   
-  /** Currently being generated */
+  /** Currently being generated  */
   GENERATING = 'generating',
   
-  /** Template customization in progress */
+  /** Template customization in progress  */
   CUSTOMIZING = 'customizing',
   
-  /** RAG system being set up */
+  /** RAG system being set up  */
   BUILDING_RAG = 'building_rag',
   
-  /** Deploying to HuggingFace */
+  /** Deploying to HuggingFace  */
   DEPLOYING = 'deploying',
   
-  /** Successfully completed */
+  /** Successfully completed  */
   COMPLETED = 'completed',
   
-  /** Generation failed */
+  /** Generation failed  */
   FAILED = 'failed',
   
-  /** Portal archived/deleted */
+  /** Portal archived/deleted  */
   ARCHIVED = 'archived'
 }
 
 /**
  * Portal generation result
  * Return type for portal generation functions
- */
+  */
 export interface PortalGenerationResult {
-  /** Whether generation was successful */
+  /** Whether generation was successful  */
   success: boolean;
   
-  /** Generated portal configuration */
+  /** Generated portal configuration  */
   portalConfig?: PortalConfig;
   
-  /** Portal URLs if successful */
+  /** Portal URLs if successful  */
   urls?: PortalUrls;
   
-  /** Generation metadata */
+  /** Generation metadata  */
   metadata: GenerationMetadata;
   
-  /** Error information if failed */
+  /** Error information if failed  */
   error?: PortalError;
   
-  /** Processing time in milliseconds */
+  /** Processing time in milliseconds  */
   processingTimeMs: number;
   
-  /** Generation steps completed */
+  /** Generation steps completed  */
   stepsCompleted: PortalGenerationStep[];
   
-  /** Warnings encountered during generation */
+  /** Warnings encountered during generation  */
   warnings?: string[];
 }
 
 /**
  * Portal generation steps for tracking progress
- */
+  */
 export enum PortalGenerationStep {
   VALIDATE_INPUT = 'validate_input',
   EXTRACT_CV_DATA = 'extract_cv_data',
@@ -246,7 +247,7 @@ export enum PortalGenerationStep {
 
 /**
  * Portal template categories
- */
+  */
 export enum PortalTemplateCategory {
   CORPORATE_PROFESSIONAL = 'corporate_professional',
   CREATIVE_PORTFOLIO = 'creative_portfolio',
@@ -260,42 +261,42 @@ export enum PortalTemplateCategory {
 
 /**
  * Design theme configuration
- */
+  */
 // PortalTheme is imported from './portal-theme'
 
 /**
  * Color scheme configuration
- */
+  */
 export interface ColorScheme {
-  /** Primary brand color */
+  /** Primary brand color  */
   primary: string;
   
-  /** Secondary accent color */
+  /** Secondary accent color  */
   secondary: string;
   
-  /** Background color */
+  /** Background color  */
   background: string;
   
-  /** Dark background color */
+  /** Dark background color  */
   backgroundDark?: string;
   
-  /** Text colors */
+  /** Text colors  */
   text: {
     primary: string;
     secondary: string;
     muted: string;
   };
   
-  /** Secondary text color (alias for text.secondary) */
+  /** Secondary text color (alias for text.secondary)  */
   textSecondary?: string;
   
-  /** Border colors */
+  /** Border colors  */
   border: {
     primary: string;
     secondary: string;
   };
   
-  /** Status colors */
+  /** Status colors  */
   status: {
     success: string;
     warning: string;
@@ -303,7 +304,7 @@ export interface ColorScheme {
     info: string;
   };
   
-  /** Gradient definitions */
+  /** Gradient definitions  */
   gradients?: {
     primary: string;
     secondary: string;
@@ -313,16 +314,16 @@ export interface ColorScheme {
 
 /**
  * Typography configuration
- */
+  */
 export interface TypographyConfig {
-  /** Font families */
+  /** Font families  */
   fontFamilies: {
     heading: string;
     body: string;
     code: string;
   };
   
-  /** Font sizes */
+  /** Font sizes  */
   fontSizes: {
     xs: string;
     sm: string;
@@ -334,14 +335,14 @@ export interface TypographyConfig {
     '4xl': string;
   };
   
-  /** Line heights */
+  /** Line heights  */
   lineHeights: {
     tight: number;
     normal: number;
     relaxed: number;
   };
   
-  /** Font weights */
+  /** Font weights  */
   fontWeights: {
     normal: number;
     medium: number;
@@ -352,7 +353,7 @@ export interface TypographyConfig {
 
 /**
  * Portal sections enumeration
- */
+  */
 export enum PortalSection {
   HERO = 'hero',
   ABOUT = 'about',
@@ -379,24 +380,24 @@ export enum PortalSection {
 
 /**
  * Vector database configuration
- */
+  */
 export interface VectorDatabaseConfig {
-  /** Database type/provider */
+  /** Database type/provider  */
   provider: VectorDatabaseProvider;
   
-  /** Index configuration */
+  /** Index configuration  */
   index: any; // VectorIndexConfig - simplified for now
   
-  /** Storage configuration */
+  /** Storage configuration  */
   storage: any; // VectorStorageConfig - simplified for now
   
-  /** Search configuration */
+  /** Search configuration  */
   search: any; // VectorSearchConfig - simplified for now
 }
 
 /**
  * Vector database providers
- */
+  */
 export enum VectorDatabaseProvider {
   FAISS = 'faiss',
   CHROMA = 'chroma',
@@ -406,27 +407,27 @@ export enum VectorDatabaseProvider {
 
 /**
  * Embedding configuration for RAG system
- */
+  */
 export interface EmbeddingConfig {
-  /** Embedding model provider */
+  /** Embedding model provider  */
   provider: EmbeddingProvider;
   
-  /** Specific model to use */
+  /** Specific model to use  */
   model: string;
   
-  /** Embedding dimensions */
+  /** Embedding dimensions  */
   dimensions: number;
   
-  /** Chunking strategy */
+  /** Chunking strategy  */
   chunking: any; // ChunkingConfig - simplified for now
   
-  /** Preprocessing settings */
+  /** Preprocessing settings  */
   preprocessing: any; // PreprocessingConfig - simplified for now
 }
 
 /**
  * Embedding providers
- */
+  */
 export enum EmbeddingProvider {
   HUGGINGFACE = 'huggingface',
   OPENAI = 'openai',
@@ -436,68 +437,68 @@ export enum EmbeddingProvider {
 
 /**
  * RAG embedding data structure
- */
+  */
 export interface RAGEmbedding {
-  /** Unique embedding ID */
+  /** Unique embedding ID  */
   id: string;
   
-  /** Text content */
+  /** Text content  */
   content: string;
   
-  /** Metadata about the content */
+  /** Metadata about the content  */
   metadata: EmbeddingMetadata;
   
-  /** Vector embedding array */
+  /** Vector embedding array  */
   vector: number[];
   
-  /** Token count */
+  /** Token count  */
   tokens: number;
   
-  /** Creation timestamp */
+  /** Creation timestamp  */
   createdAt: Date;
 }
 
 /**
  * Embedding metadata
- */
+  */
 export interface EmbeddingMetadata {
-  /** CV section this embedding belongs to */
+  /** CV section this embedding belongs to  */
   section: CVSection;
   
-  /** Subsection if applicable */
+  /** Subsection if applicable  */
   subsection?: string;
   
-  /** Importance score (1-10) */
+  /** Importance score (1-10)  */
   importance: number;
   
-  /** Date range if applicable */
+  /** Date range if applicable  */
   dateRange?: {
     start: Date;
     end?: Date;
   };
   
-  /** Associated technologies/skills */
+  /** Associated technologies/skills  */
   technologies?: string[];
   
-  /** Company/organization */
+  /** Company/organization  */
   company?: string;
   
-  /** Role/position */
+  /** Role/position  */
   role?: string;
   
-  /** Keywords extracted from content */
+  /** Keywords extracted from content  */
   keywords: string[];
   
-  /** Content type */
+  /** Content type  */
   contentType: ContentType;
   
-  /** Chunking strategy used */
+  /** Chunking strategy used  */
   chunkType?: string;
 }
 
 /**
  * CV sections for embedding categorization
- */
+  */
 export enum CVSection {
   PERSONAL = 'personal',
   SUMMARY = 'summary',
@@ -515,7 +516,7 @@ export enum CVSection {
 
 /**
  * Content types for embeddings
- */
+  */
 export enum ContentType {
   TEXT = 'text',
   BULLET_POINT = 'bullet_point',
@@ -529,30 +530,30 @@ export enum ContentType {
 
 /**
  * Chat service configuration
- */
+  */
 export interface ChatServiceConfig {
-  /** LLM provider */
+  /** LLM provider  */
   provider: LLMProvider;
   
-  /** Model to use */
+  /** Model to use  */
   model: string;
   
-  /** Generation parameters */
+  /** Generation parameters  */
   parameters: LLMParameters;
   
-  /** System prompt configuration */
+  /** System prompt configuration  */
   systemPrompt: any; // SystemPromptConfig - simplified for now
   
-  /** Response formatting */
+  /** Response formatting  */
   responseFormat: any; // ResponseFormatConfig - simplified for now
   
-  /** Rate limiting */
+  /** Rate limiting  */
   rateLimiting: any; // RateLimitConfig - simplified for now
 }
 
 /**
  * LLM providers
- */
+  */
 export enum LLMProvider {
   ANTHROPIC = 'anthropic',
   OPENAI = 'openai',
@@ -562,24 +563,24 @@ export enum LLMProvider {
 
 /**
  * LLM generation parameters
- */
+  */
 export interface LLMParameters {
-  /** Temperature for randomness (0-1) */
+  /** Temperature for randomness (0-1)  */
   temperature: number;
   
-  /** Maximum tokens to generate */
+  /** Maximum tokens to generate  */
   maxTokens: number;
   
-  /** Top-p sampling */
+  /** Top-p sampling  */
   topP: number;
   
-  /** Frequency penalty */
+  /** Frequency penalty  */
   frequencyPenalty?: number;
   
-  /** Presence penalty */
+  /** Presence penalty  */
   presencePenalty?: number;
   
-  /** Stop sequences */
+  /** Stop sequences  */
   stopSequences?: string[];
 }
 
@@ -589,12 +590,12 @@ export interface LLMParameters {
 
 /**
  * Portal URLs structure
- */
+  */
 // PortalUrls is imported from './portal-analytics'
 
 /**
  * HuggingFace visibility options
- */
+  */
 export enum HuggingFaceVisibility {
   PUBLIC = 'public',
   PRIVATE = 'private'
@@ -602,7 +603,7 @@ export enum HuggingFaceVisibility {
 
 /**
  * HuggingFace SDK options
- */
+  */
 export enum HuggingFaceSDK {
   GRADIO = 'gradio',
   STREAMLIT = 'streamlit',
@@ -612,7 +613,7 @@ export enum HuggingFaceSDK {
 
 /**
  * HuggingFace hardware options
- */
+  */
 export enum HuggingFaceHardware {
   CPU_BASIC = 'cpu-basic',
   CPU_UPGRADE = 'cpu-upgrade',
@@ -622,47 +623,47 @@ export enum HuggingFaceHardware {
 
 /**
  * Repository configuration for HuggingFace deployment
- */
+  */
 export interface RepositoryConfig {
-  /** Repository name */
+  /** Repository name  */
   name: string;
   
-  /** Repository description */
+  /** Repository description  */
   description: string;
   
-  /** Git configuration */
+  /** Git configuration  */
   git: {
     branch: string;
     commitMessage: string;
   };
   
-  /** File structure */
+  /** File structure  */
   files: RepositoryFile[];
   
-  /** Build configuration */
+  /** Build configuration  */
   build: any; // BuildConfig - simplified for now
 }
 
 /**
  * Repository file structure
- */
+  */
 export interface RepositoryFile {
-  /** File path */
+  /** File path  */
   path: string;
   
-  /** File content or reference */
+  /** File content or reference  */
   content: string | Buffer;
   
-  /** File type */
+  /** File type  */
   type: FileType;
   
-  /** Whether file is required */
+  /** Whether file is required  */
   required: boolean;
 }
 
 /**
  * File types
- */
+  */
 export enum FileType {
   JAVASCRIPT = 'javascript',
   TYPESCRIPT = 'typescript',
@@ -681,67 +682,67 @@ export enum FileType {
 
 /**
  * Portal analytics data
- */
+  */
 export interface PortalAnalytics {
-  /** Basic metrics */
+  /** Basic metrics  */
   metrics: PortalMetrics;
   
-  /** Visitor tracking */
+  /** Visitor tracking  */
   visitors: any; // VisitorAnalytics - simplified for now
   
-  /** Chat interactions */
+  /** Chat interactions  */
   chat: any; // ChatAnalytics - simplified for now
   
-  /** Feature usage */
+  /** Feature usage  */
   features: any; // FeatureUsageAnalytics - simplified for now
   
-  /** Performance metrics */
+  /** Performance metrics  */
   performance: any; // PerformanceMetrics - simplified for now
   
-  /** QR code specific analytics */
+  /** QR code specific analytics  */
   qrCodes: QRCodeAnalytics;
 }
 
 /**
  * Basic portal metrics
- */
+  */
 export interface PortalMetrics {
-  /** Total page views */
+  /** Total page views  */
   totalViews: number;
   
-  /** Unique visitors */
+  /** Unique visitors  */
   uniqueVisitors: number;
   
-  /** Average session duration */
+  /** Average session duration  */
   averageSessionDuration: number;
   
-  /** Bounce rate */
+  /** Bounce rate  */
   bounceRate: number;
   
-  /** Total chat sessions */
+  /** Total chat sessions  */
   chatSessions: number;
   
-  /** Contact form submissions */
+  /** Contact form submissions  */
   contactSubmissions: number;
   
-  /** CV downloads */
+  /** CV downloads  */
   cvDownloads: number;
   
-  /** Last updated */
+  /** Last updated  */
   lastUpdated: Date;
 }
 
 /**
  * QR code analytics
- */
+  */
 export interface QRCodeAnalytics {
-  /** Total QR code scans */
+  /** Total QR code scans  */
   totalScans: number;
   
-  /** Unique scan sessions */
+  /** Unique scan sessions  */
   uniqueScans: number;
   
-  /** Scan source breakdown */
+  /** Scan source breakdown  */
   sources: {
     primary: number;     // Main QR on CV
     chat: number;        // Chat-specific QR
@@ -749,21 +750,21 @@ export interface QRCodeAnalytics {
     menu: number;        // Multi-purpose QR menu
   };
   
-  /** Conversion rates */
+  /** Conversion rates  */
   conversions: {
     scanToView: number;      // % of scans that result in page view
     scanToChat: number;      // % of scans that result in chat
     scanToContact: number;   // % of scans that result in contact
   };
   
-  /** Device breakdown */
+  /** Device breakdown  */
   devices: {
     mobile: number;
     tablet: number;
     desktop: number;
   };
   
-  /** Geographic data */
+  /** Geographic data  */
   locations: Array<{
     country: string;
     city?: string;
@@ -777,33 +778,33 @@ export interface QRCodeAnalytics {
 
 /**
  * Portal privacy settings
- */
+  */
 export interface PortalPrivacySettings {
-  /** Privacy level */
+  /** Privacy level  */
   level: PrivacyLevel;
   
-  /** Data masking rules */
+  /** Data masking rules  */
   masking: DataMaskingRules;
   
-  /** Access controls */
+  /** Access controls  */
   access: any; // AccessControlSettings - simplified for now
   
-  /** Data retention settings */
+  /** Data retention settings  */
   retention: any; // DataRetentionSettings - simplified for now
   
-  /** GDPR compliance settings */
+  /** GDPR compliance settings  */
   gdpr: any; // GDPRSettings - simplified for now
   
-  /** Analytics consent */
+  /** Analytics consent  */
   analyticsConsent: boolean;
   
-  /** Chat data retention */
+  /** Chat data retention  */
   chatDataRetention: any; // ChatDataRetentionSettings - simplified for now
 }
 
 /**
  * Privacy levels
- */
+  */
 export enum PrivacyLevel {
   PUBLIC = 'public',
   UNLISTED = 'unlisted',
@@ -813,28 +814,28 @@ export enum PrivacyLevel {
 
 /**
  * Data masking rules
- */
+  */
 export interface DataMaskingRules {
-  /** Mask personal contact info */
+  /** Mask personal contact info  */
   maskContactInfo: boolean;
   
-  /** Mask specific companies */
+  /** Mask specific companies  */
   maskCompanies: string[];
   
-  /** Mask date ranges */
+  /** Mask date ranges  */
   maskDates: boolean;
   
-  /** Custom masking patterns */
+  /** Custom masking patterns  */
   customRules: Array<{
     pattern: string;
     replacement: string;
     description: string;
   }>;
   
-  /** Forwarding email for public contact */
+  /** Forwarding email for public contact  */
   publicEmail?: string;
   
-  /** Public phone number */
+  /** Public phone number  */
   publicPhone?: string;
 }
 
@@ -844,30 +845,30 @@ export interface DataMaskingRules {
 
 /**
  * Portal error information
- */
+  */
 export interface PortalError {
-  /** Error code */
+  /** Error code  */
   code: PortalErrorCode;
   
-  /** Error message */
+  /** Error message  */
   message: string;
   
-  /** Detailed error description */
+  /** Detailed error description  */
   details?: string;
   
-  /** Error context */
+  /** Error context  */
   context?: Record<string, any>;
   
-  /** Timestamp when error occurred */
+  /** Timestamp when error occurred  */
   timestamp: Date;
   
-  /** Whether error is recoverable */
+  /** Whether error is recoverable  */
   recoverable: boolean;
   
-  /** Stack trace for debugging */
+  /** Stack trace for debugging  */
   stack?: string;
   
-  /** Error category */
+  /** Error category  */
   category: ErrorCategory;
 }
 
@@ -875,7 +876,7 @@ export interface PortalError {
 
 /**
  * Error categories
- */
+  */
 export enum ErrorCategory {
   VALIDATION = 'validation',
   GENERATION = 'generation',
@@ -891,87 +892,87 @@ export enum ErrorCategory {
 
 /**
  * Generation metadata
- */
+  */
 export interface GenerationMetadata {
-  /** Generator version */
+  /** Generator version  */
   version: string;
   
-  /** Generation timestamp */
+  /** Generation timestamp  */
   timestamp: Date;
   
-  /** Processing statistics */
+  /** Processing statistics  */
   statistics: ProcessingStatistics;
   
-  /** Resource usage */
+  /** Resource usage  */
   resourceUsage: ResourceUsage;
   
-  /** Quality metrics */
+  /** Quality metrics  */
   quality: QualityMetrics;
 }
 
 /**
  * Processing statistics
- */
+  */
 export interface ProcessingStatistics {
-  /** Total processing time in ms */
+  /** Total processing time in ms  */
   totalTimeMs: number;
   
-  /** Time breakdown by step */
+  /** Time breakdown by step  */
   stepTimes: Record<PortalGenerationStep, number>;
   
-  /** Number of embeddings generated */
+  /** Number of embeddings generated  */
   embeddingsGenerated: number;
   
-  /** Vector database size in MB */
+  /** Vector database size in MB  */
   vectorDbSizeMB: number;
   
-  /** Template bundle size in KB */
+  /** Template bundle size in KB  */
   templateSizeKB: number;
   
-  /** Number of assets processed */
+  /** Number of assets processed  */
   assetsProcessed: number;
 }
 
 /**
  * Resource usage tracking
- */
+  */
 export interface ResourceUsage {
-  /** Memory usage in MB */
+  /** Memory usage in MB  */
   memoryUsageMB: number;
   
-  /** CPU time in seconds */
+  /** CPU time in seconds  */
   cpuTimeSeconds: number;
   
-  /** Network requests made */
+  /** Network requests made  */
   networkRequests: number;
   
-  /** Storage used in MB */
+  /** Storage used in MB  */
   storageUsedMB: number;
   
-  /** API calls made */
+  /** API calls made  */
   apiCalls: Record<string, number>;
 }
 
 /**
  * Quality metrics for generated portals
- */
+  */
 export interface QualityMetrics {
-  /** Content completeness score (0-1) */
+  /** Content completeness score (0-1)  */
   completenessScore: number;
   
-  /** Design consistency score (0-1) */
+  /** Design consistency score (0-1)  */
   designConsistencyScore: number;
   
-  /** RAG accuracy score (0-1) */
+  /** RAG accuracy score (0-1)  */
   ragAccuracyScore: number;
   
-  /** Performance score (0-1) */
+  /** Performance score (0-1)  */
   performanceScore: number;
   
-  /** Accessibility score (0-1) */
+  /** Accessibility score (0-1)  */
   accessibilityScore: number;
   
-  /** Overall quality score (0-1) */
+  /** Overall quality score (0-1)  */
   overallScore: number;
 }
 
@@ -981,30 +982,30 @@ export interface QualityMetrics {
 
 /**
  * Template configuration options
- */
+  */
 export interface TemplateConfig {
-  /** Supported languages */
+  /** Supported languages  */
   supportedLanguages: string[];
   
-  /** Default language */
+  /** Default language  */
   defaultLanguage: string;
   
-  /** Mobile optimization level */
+  /** Mobile optimization level  */
   mobileOptimization: MobileOptimizationLevel;
   
-  /** SEO configuration */
+  /** SEO configuration  */
   seo: SEOConfig;
   
-  /** Performance optimization */
+  /** Performance optimization  */
   performance: any; // PerformanceConfig - simplified for now
   
-  /** Accessibility features */
+  /** Accessibility features  */
   accessibility: any; // AccessibilityConfig - simplified for now
 }
 
 /**
  * Mobile optimization levels
- */
+  */
 export enum MobileOptimizationLevel {
   BASIC = 'basic',
   ENHANCED = 'enhanced',
@@ -1013,62 +1014,62 @@ export enum MobileOptimizationLevel {
 
 /**
  * SEO configuration
- */
+  */
 export interface SEOConfig {
-  /** Meta tags configuration */
+  /** Meta tags configuration  */
   metaTags: any; // MetaTagsConfig - simplified for now
   
-  /** OpenGraph settings */
+  /** OpenGraph settings  */
   openGraph: any; // OpenGraphConfig - simplified for now
   
-  /** Schema.org markup */
+  /** Schema.org markup  */
   schema: any; // SchemaConfig - simplified for now
   
-  /** Sitemap generation */
+  /** Sitemap generation  */
   sitemap: boolean;
   
-  /** Robots.txt configuration */
+  /** Robots.txt configuration  */
   robotsTxt: any; // RobotsTxtConfig - simplified for now
 }
 
 /**
  * Feature toggles for portal functionality
- */
+  */
 export interface FeatureToggles {
-  /** Enable AI chat feature */
+  /** Enable AI chat feature  */
   enableChat: boolean;
   
-  /** Enable contact form */
+  /** Enable contact form  */
   enableContactForm: boolean;
   
-  /** Enable portfolio gallery */
+  /** Enable portfolio gallery  */
   enablePortfolio: boolean;
   
-  /** Enable testimonials section */
+  /** Enable testimonials section  */
   enableTestimonials: boolean;
   
-  /** Enable blog/articles section */
+  /** Enable blog/articles section  */
   enableBlog: boolean;
   
-  /** Enable analytics tracking */
+  /** Enable analytics tracking  */
   enableAnalytics: boolean;
   
-  /** Enable social sharing */
+  /** Enable social sharing  */
   enableSocialSharing: boolean;
   
-  /** Enable CV download */
+  /** Enable CV download  */
   enableCVDownload: boolean;
   
-  /** Enable calendar integration */
+  /** Enable calendar integration  */
   enableCalendar: boolean;
   
-  /** Enable dark mode */
+  /** Enable dark mode  */
   enableDarkMode: boolean;
   
-  /** Enable multi-language support */
+  /** Enable multi-language support  */
   enableMultiLanguage: boolean;
   
-  /** Enable accessibility features */
+  /** Enable accessibility features  */
   enableAccessibility: boolean;
 }
 
@@ -1078,41 +1079,41 @@ export interface FeatureToggles {
 
 /**
  * Integration with existing CVPlus systems
- */
+  */
 export interface CVPlusIntegration {
-  /** Job/CV integration */
+  /** Job/CV integration  */
   job: JobIntegration;
   
-  /** QR code system integration */
+  /** QR code system integration  */
   qrCodes: any; // QRCodeIntegration - simplified for now
   
-  /** Analytics system integration */
+  /** Analytics system integration  */
   analytics: any; // AnalyticsIntegration - simplified for now
   
-  /** Notification system integration */
+  /** Notification system integration  */
   notifications: any; // NotificationIntegration - simplified for now
 }
 
 /**
  * Job integration settings
- */
+  */
 export interface JobIntegration {
-  /** Whether to automatically generate portal after CV completion */
+  /** Whether to automatically generate portal after CV completion  */
   autoGenerate: boolean;
   
-  /** Whether to update CV document with portal URL */
+  /** Whether to update CV document with portal URL  */
   updateCVDocument: boolean;
   
-  /** Portal URL placement in CV */
+  /** Portal URL placement in CV  */
   urlPlacement: URLPlacement[];
   
-  /** QR code integration options */
+  /** QR code integration options  */
   qrCodeOptions: QRCodeOptions;
 }
 
 /**
  * URL placement options in CV document
- */
+  */
 export enum URLPlacement {
   HEADER = 'header',
   FOOTER = 'footer',
@@ -1123,24 +1124,24 @@ export enum URLPlacement {
 
 /**
  * QR code integration options
- */
+  */
 export interface QRCodeOptions {
-  /** Update existing QR codes to point to portal */
+  /** Update existing QR codes to point to portal  */
   updateExisting: boolean;
   
-  /** Generate new portal-specific QR codes */
+  /** Generate new portal-specific QR codes  */
   generateNew: boolean;
   
-  /** QR code types to generate */
+  /** QR code types to generate  */
   types: QRCodeType[];
   
-  /** QR code styling options */
+  /** QR code styling options  */
   styling: QRCodeStyling;
 }
 
 /**
  * QR code types
- */
+  */
 export enum QRCodeType {
   PRIMARY_PORTAL = 'primary_portal',
   CHAT_DIRECT = 'chat_direct',
@@ -1151,24 +1152,24 @@ export enum QRCodeType {
 
 /**
  * QR code styling options
- */
+  */
 export interface QRCodeStyling {
-  /** Primary color */
+  /** Primary color  */
   primaryColor: string;
   
-  /** Background color */
+  /** Background color  */
   backgroundColor: string;
   
-  /** Logo/icon to embed */
+  /** Logo/icon to embed  */
   logo?: string;
   
-  /** Error correction level */
+  /** Error correction level  */
   errorCorrectionLevel: 'L' | 'M' | 'Q' | 'H';
   
-  /** Size in pixels */
+  /** Size in pixels  */
   size: number;
   
-  /** Border width */
+  /** Border width  */
   borderWidth: number;
 }
 
@@ -1178,7 +1179,7 @@ export interface QRCodeStyling {
 
 /**
  * Supported asset types for portal generation
- */
+  */
 export enum AssetType {
   PROFILE_IMAGE = 'profile-image',
   COMPANY_LOGO = 'company-logo',
@@ -1193,7 +1194,7 @@ export enum AssetType {
 
 /**
  * Source of the asset
- */
+  */
 export enum AssetSource {
   CV_EXTRACTION = 'cv-extraction',
   AI_GENERATED = 'ai-generated',
@@ -1204,37 +1205,37 @@ export enum AssetSource {
 
 /**
  * Result of asset processing operations
- */
+  */
 export interface AssetProcessingResult {
-  /** Original asset URL */
+  /** Original asset URL  */
   originalUrl: string;
   
-  /** Processed/optimized asset URL */
+  /** Processed/optimized asset URL  */
   processedUrl: string;
   
-  /** Asset type */
+  /** Asset type  */
   type: AssetType;
   
-  /** Processing status */
+  /** Processing status  */
   status: 'pending' | 'processing' | 'completed' | 'failed';
   
-  /** File size in bytes */
+  /** File size in bytes  */
   fileSize: number;
   
-  /** Image dimensions (if applicable) */
+  /** Image dimensions (if applicable)  */
   dimensions?: {
     width: number;
     height: number;
   };
   
-  /** Processing metadata */
+  /** Processing metadata  */
   metadata: {
     processingTime: number;
     compressionRatio?: number;
     optimizations: string[];
   };
   
-  /** Error information if processing failed */
+  /** Error information if processing failed  */
   error?: {
     code: string;
     message: string;
@@ -1243,24 +1244,24 @@ export interface AssetProcessingResult {
 
 /**
  * Configuration for asset optimization
- */
+  */
 export interface AssetOptimizationConfig {
-  /** Target image quality (0-100) */
+  /** Target image quality (0-100)  */
   quality: number;
   
-  /** Maximum width in pixels */
+  /** Maximum width in pixels  */
   maxWidth: number;
   
-  /** Maximum height in pixels */
+  /** Maximum height in pixels  */
   maxHeight: number;
   
-  /** Output format */
+  /** Output format  */
   format: 'jpeg' | 'png' | 'webp' | 'avif';
   
-  /** Enable progressive loading */
+  /** Enable progressive loading  */
   progressive: boolean;
   
-  /** Compression level */
+  /** Compression level  */
   compression: 'low' | 'medium' | 'high';
 }
 
@@ -1270,69 +1271,69 @@ export interface AssetOptimizationConfig {
 
 /**
  * Build configuration for deployment
- */
+  */
 export interface BuildConfig {
-  /** Build command to execute */
+  /** Build command to execute  */
   command?: string;
-  /** Output directory for build artifacts */
+  /** Output directory for build artifacts  */
   outputDir?: string;
-  /** Environment variables for build */
+  /** Environment variables for build  */
   env?: Record<string, string>;
-  /** Build dependencies */
+  /** Build dependencies  */
   dependencies?: string[];
-  /** Build steps */
+  /** Build steps  */
   steps?: string[];
 }
 
 /**
  * Deployment metadata
- */
+  */
 export interface DeploymentMetadata {
-  /** Unique deployment identifier */
+  /** Unique deployment identifier  */
   deploymentId?: string;
-  /** Deployment timestamp */
+  /** Deployment timestamp  */
   deployedAt?: Date;
-  /** Deployment status */
+  /** Deployment status  */
   status?: string;
-  /** Build logs */
+  /** Build logs  */
   buildLogs?: string[];
-  /** Deployed resources */
+  /** Deployed resources  */
   resources?: Record<string, any>;
 }
 
 /**
  * Result of deployment operations
- */
+  */
 export interface DeploymentResult {
-  /** Deployment ID */
+  /** Deployment ID  */
   deploymentId: string;
   
-  /** Target platform */
+  /** Target platform  */
   platform: 'huggingface' | 'vercel' | 'netlify' | 'custom';
   
-  /** Deployment status */
+  /** Deployment status  */
   status: 'pending' | 'building' | 'deployed' | 'failed';
   
-  /** Deployed URL */
+  /** Deployed URL  */
   url?: string;
   
-  /** Build logs */
+  /** Build logs  */
   buildLogs: string[];
   
-  /** Deployment start time */
+  /** Deployment start time  */
   startedAt: Date;
   
-  /** Deployment completion time */
+  /** Deployment completion time  */
   completedAt?: Date;
   
-  /** Error information if deployment failed */
+  /** Error information if deployment failed  */
   error?: {
     code: string;
     message: string;
     stack?: string;
   };
   
-  /** Deployment metrics */
+  /** Deployment metrics  */
   metrics: {
     buildTime: number;
     bundleSize: number;
@@ -1346,35 +1347,35 @@ export interface DeploymentResult {
 
 /**
  * Configuration for portal components
- */
+  */
 export interface ComponentConfiguration {
-  /** Component type identifier */
+  /** Component type identifier  */
   type: string;
   
-  /** Component display name */
+  /** Component display name  */
   name: string;
   
-  /** Whether component is enabled */
+  /** Whether component is enabled  */
   enabled: boolean;
   
-  /** Component-specific properties */
+  /** Component-specific properties  */
   props: Record<string, any>;
   
-  /** Layout configuration */
+  /** Layout configuration  */
   layout: {
     order: number;
     span: number;
     offset?: number;
   };
   
-  /** Responsive behavior */
+  /** Responsive behavior  */
   responsive: {
     mobile: boolean;
     tablet: boolean;
     desktop: boolean;
   };
   
-  /** Theme overrides for this component */
+  /** Theme overrides for this component  */
   themeOverrides?: Partial<PortalTheme>;
 }
 
@@ -1384,17 +1385,17 @@ export interface ComponentConfiguration {
 
 /**
  * Utility type for partial portal configuration updates
- */
+  */
 export type PartialPortalConfig = Partial<PortalConfig>;
 
 /**
  * Utility type for portal configuration creation (excludes computed fields)
- */
+  */
 export type CreatePortalConfig = Omit<PortalConfig, 'id' | 'createdAt' | 'updatedAt' | 'status' | 'urls'>;
 
 /**
  * Utility type for portal status updates
- */
+  */
 export type PortalStatusUpdate = Pick<PortalConfig, 'id' | 'status' | 'updatedAt'> & {
   error?: PortalError;
   progress?: number;
@@ -1403,7 +1404,7 @@ export type PortalStatusUpdate = Pick<PortalConfig, 'id' | 'status' | 'updatedAt
 
 /**
  * Utility type for portal URL updates
- */
+  */
 export type PortalUrlUpdate = Pick<PortalConfig, 'id'> & {
   urls: PortalUrls;
   updatedAt: Date | FieldValue;
@@ -1411,7 +1412,7 @@ export type PortalUrlUpdate = Pick<PortalConfig, 'id'> & {
 
 /**
  * Utility type for portal analytics updates
- */
+  */
 export type PortalAnalyticsUpdate = Pick<PortalConfig, 'id'> & {
   analytics: Partial<PortalAnalytics>;
   updatedAt: Date | FieldValue;

@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { useState, useCallback } from 'react';
+// @ts-ignore - Export conflicts
 
 export const usePortalNavigation = (
   onNavigationChange?: (sectionId: string) => void

@@ -6,7 +6,7 @@
  *
  * @author CVPlus Team
  * @version 1.0.0
- */
+  */
 
 import { https } from 'firebase-functions/v2';
 import { Request, Response } from 'express';
@@ -15,7 +15,7 @@ import { authenticateUser } from '../middleware/auth.middleware';
 
 /**
  * Portal Status Response
- */
+  */
 interface PortalStatusResponse {
   success: boolean;
   portalId?: string;
@@ -43,7 +43,7 @@ interface PortalStatusResponse {
 
 /**
  * Portal status retrieval handler
- */
+  */
 async function handleGetPortalStatus(req: Request, res: Response): Promise<void> {
   try {
     // Validate request method
@@ -151,7 +151,7 @@ async function handleGetPortalStatus(req: Request, res: Response): Promise<void>
 
 /**
  * Get human-readable status message
- */
+  */
 function getStatusMessage(status: string): string {
   switch (status) {
     case 'queued':
@@ -170,7 +170,7 @@ function getStatusMessage(status: string): string {
 /**
  * Firebase Function: Get Portal Status
  * Endpoint: GET /portal/{portalId}/status
- */
+  */
 export const getPortalStatus = https.onRequest(
   {
     cors: true,

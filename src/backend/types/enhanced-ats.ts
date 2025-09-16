@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Enhanced ATS Optimization Types
  * 
  * ATS (Applicant Tracking System) optimization and analysis types.
@@ -6,13 +7,13 @@
  * 
  * @author Gil Klainert
  * @version 1.0.0
- */
+  */
 
 import { ParsedCV } from './job';
 
 /**
  * Advanced ATS compatibility score
- */
+  */
 export interface AdvancedATSScore {
   overall: number;
   breakdown: {
@@ -36,7 +37,7 @@ export interface AdvancedATSScore {
 
 /**
  * Prioritized improvement recommendation
- */
+  */
 export interface PrioritizedRecommendation {
   id: string;
   category: string;
@@ -65,7 +66,7 @@ export interface PrioritizedRecommendation {
 
 /**
  * Competitor analysis data
- */
+  */
 export interface CompetitorAnalysis {
   similarProfiles: number;
   keywordGaps: string[];
@@ -78,7 +79,7 @@ export interface CompetitorAnalysis {
 
 /**
  * Semantic keyword analysis
- */
+  */
 export interface SemanticKeywordAnalysis {
   primaryKeywords: KeywordMatch[];
   secondaryKeywords: KeywordMatch[];
@@ -92,7 +93,7 @@ export interface SemanticKeywordAnalysis {
 
 /**
  * Keyword match analysis
- */
+  */
 export interface KeywordMatch {
   keyword: string;
   frequency: number;
@@ -103,7 +104,7 @@ export interface KeywordMatch {
 
 /**
  * ATS system simulation results
- */
+  */
 export interface ATSSystemSimulation {
   systemName: string;
   version: string;
@@ -116,7 +117,7 @@ export interface ATSSystemSimulation {
 
 /**
  * ATS optimization result
- */
+  */
 export interface ATSOptimizationResult {
   score: number; // 0-100 (maps to AdvancedATSScore.overall)
   overall: number; // Alias for score
@@ -174,7 +175,7 @@ export interface ATSOptimizationResult {
 
 /**
  * ATS parsing issue
- */
+  */
 export interface ATSIssue {
   type: string;
   severity: 'critical' | 'warning' | 'info';
@@ -184,7 +185,7 @@ export interface ATSIssue {
 
 /**
  * ATS improvement suggestion
- */
+  */
 export interface ATSSuggestion {
   category: string;
   suggestion: string;

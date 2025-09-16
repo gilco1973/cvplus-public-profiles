@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Enhanced Job Models - Main Interface
  * 
  * Core enhanced job interface and related models for CV enhancement features.
@@ -6,22 +7,22 @@
  * 
  * @author Gil Klainert
  * @version 1.0.0
- */
+  */
 
 // Temporary: Define types locally until core module is fully built
 // TODO: Import from @cvplus/core when core build is fixed
 
 /**
  * Enhanced Job interface with all enhancement features
- */
+  */
 export interface EnhancedJob {
-  /** Job ID */
+  /** Job ID  */
   id?: string;
   
-  /** User ID who owns this job */
+  /** User ID who owns this job  */
   userId: string;
   
-  /** Parsed CV data */
+  /** Parsed CV data  */
   parsedData: {
     personalInfo?: {
       name?: string;
@@ -62,60 +63,60 @@ export interface EnhancedJob {
     }>;
   };
   
-  /** Industry information for ATS optimization */
+  /** Industry information for ATS optimization  */
   industry?: string;
   
-  /** Company size for context */
+  /** Company size for context  */
   companySize?: string;
   
-  /** Job role level */
+  /** Job role level  */
   roleLevel?: 'entry' | 'mid' | 'senior' | 'executive';
   
-  /** Skills requirements */
+  /** Skills requirements  */
   skillsRequired?: string[];
   
-  /** Location information */
+  /** Location information  */
   location?: string;
   
-  /** Remote work availability */
+  /** Remote work availability  */
   remoteWork?: boolean;
   
-  /** Job status */
+  /** Job status  */
   status?: 'pending' | 'processing' | 'completed' | 'failed';
   
-  /** Created timestamp */
+  /** Created timestamp  */
   createdAt?: Date;
   
-  /** Updated timestamp */
+  /** Updated timestamp  */
   updatedAt?: Date;
 }
 
 /**
  * Portfolio image data structure
- */
+  */
 export interface PortfolioImage {
-  /** Unique identifier for the portfolio image */
+  /** Unique identifier for the portfolio image  */
   id: string;
   
-  /** Full-size image URL */
+  /** Full-size image URL  */
   url: string;
   
-  /** Thumbnail URL for faster loading */
+  /** Thumbnail URL for faster loading  */
   thumbnailUrl?: string;
   
-  /** Image title or caption */
+  /** Image title or caption  */
   title: string;
   
-  /** Detailed description of the image */
+  /** Detailed description of the image  */
   description?: string;
   
-  /** Categories or tags for organization */
+  /** Categories or tags for organization  */
   categories?: string[];
   
-  /** Upload timestamp */
+  /** Upload timestamp  */
   uploadedAt: Date;
   
-  /** File metadata */
+  /** File metadata  */
   metadata?: {
     size: number;
     format: string;
@@ -128,84 +129,84 @@ export interface PortfolioImage {
 
 /**
  * Calendar integration settings
- */
+  */
 export interface CalendarSettings {
-  /** Whether calendar integration is enabled */
+  /** Whether calendar integration is enabled  */
   enabled: boolean;
   
-  /** Calendar service provider */
+  /** Calendar service provider  */
   provider: 'google' | 'outlook' | 'apple';
   
-  /** Available time slots */
+  /** Available time slots  */
   availableSlots?: string[];
   
-  /** Meeting duration in minutes */
+  /** Meeting duration in minutes  */
   defaultDuration: number;
   
-  /** Buffer time between meetings in minutes */
+  /** Buffer time between meetings in minutes  */
   bufferTime: number;
   
-  /** Time zone */
+  /** Time zone  */
   timezone: string;
 }
 
 /**
  * Testimonial data structure
- */
+  */
 export interface Testimonial {
-  /** Unique identifier */
+  /** Unique identifier  */
   id: string;
   
-  /** Author's name */
+  /** Author's name  */
   authorName: string;
   
-  /** Author's title/position */
+  /** Author's title/position  */
   authorTitle?: string;
   
-  /** Author's company */
+  /** Author's company  */
   authorCompany?: string;
   
-  /** Author's profile image URL */
+  /** Author's profile image URL  */
   authorImage?: string;
   
-  /** Testimonial content */
+  /** Testimonial content  */
   content: string;
   
-  /** Rating (1-5 stars) */
+  /** Rating (1-5 stars)  */
   rating?: number;
   
-  /** Date when testimonial was given */
+  /** Date when testimonial was given  */
   date: Date;
   
-  /** Whether testimonial is approved for display */
+  /** Whether testimonial is approved for display  */
   approved: boolean;
   
-  /** Source of the testimonial */
+  /** Source of the testimonial  */
   source?: 'linkedin' | 'email' | 'direct' | 'other';
 }
 
 /**
  * Personality profile data
- */
+  */
 export interface PersonalityProfile {
-  /** Personality type (e.g., MBTI, Big Five) */
+  /** Personality type (e.g., MBTI, Big Five)  */
   type: string;
   
-  /** Personality traits scores */
+  /** Personality traits scores  */
   traits: {
     [key: string]: number;
   };
   
-  /** Generated insights */
+  /** Generated insights  */
   insights: string[];
   
-  /** Strengths identified */
+  /** Strengths identified  */
   strengths: string[];
   
-  /** Areas for development */
+  /** Areas for development  */
   developmentAreas: string[];
   
-  /** Work style preferences */
+  /** Work style preferences  */
   workStyle: {
     communication: string;
     teamwork: string;
@@ -213,7 +214,7 @@ export interface PersonalityProfile {
     problemSolving: string;
   };
   
-  /** Assessment date */
+  /** Assessment date  */
   assessmentDate: Date;
 }
 
@@ -227,53 +228,53 @@ export type {
 
 // Privacy settings type (kept here as it's small and job-specific)
 export interface PrivacySettings {
-  /** Show contact information publicly */
+  /** Show contact information publicly  */
   showContactInfo: boolean;
   
-  /** Show social media links */
+  /** Show social media links  */
   showSocialLinks: boolean;
   
-  /** Allow CV download by visitors */
+  /** Allow CV download by visitors  */
   allowCVDownload: boolean;
   
-  /** Show analytics data to profile visitors */
+  /** Show analytics data to profile visitors  */
   showAnalytics: boolean;
   
-  /** Allow visitors to send chat messages */
+  /** Allow visitors to send chat messages  */
   allowChatMessages: boolean;
   
-  /** Make profile publicly accessible */
+  /** Make profile publicly accessible  */
   publicProfile: boolean;
   
-  /** Allow profile to be found in search engines */
+  /** Allow profile to be found in search engines  */
   searchable: boolean;
   
-  /** Display personality profile section */
+  /** Display personality profile section  */
   showPersonalityProfile: boolean;
   
-  /** Display testimonials section */
+  /** Display testimonials section  */
   showTestimonials: boolean;
   
-  /** Display portfolio section */
+  /** Display portfolio section  */
   showPortfolio: boolean;
   
-  /** Privacy level enabled */
+  /** Privacy level enabled  */
   enabled?: boolean;
   
-  /** Masking rules for sensitive information */
+  /** Masking rules for sensitive information  */
   maskingRules?: {
     maskEmail?: boolean;
     maskPhone?: boolean;
     maskAddress?: boolean;
   };
   
-  /** Whether to show public email */
+  /** Whether to show public email  */
   publicEmail?: boolean;
   
-  /** Whether to show public phone */
+  /** Whether to show public phone  */
   publicPhone?: boolean;
   
-  /** Require contact form submission before allowing CV download */
+  /** Require contact form submission before allowing CV download  */
   requireContactFormForCV: boolean;
 }
 

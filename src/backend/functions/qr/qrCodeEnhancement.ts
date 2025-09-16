@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * QR Code Enhancement Firebase Functions
  * 
  * Provides Firebase callable functions for enhancing QR codes with portal functionality.
@@ -7,18 +8,19 @@
  * @author Gil Klainert
  * @created 2025-08-19
  * @version 1.0
- */
+  */
 
 import * as functions from 'firebase-functions/v1';
 import * as admin from 'firebase-admin';
 // TODO: Create qr-enhancement.service
-/*
+/* 
+  */
 import { 
   QRCodeEnhancementService, 
   QRCodeEnhancementOptions, 
   QRCodeUpdateResult 
 } from '../services/qr-enhancement.service';
-*/
+/*  */
 import { 
   QRCodeType, 
   QRCodeStyling, 
@@ -71,7 +73,7 @@ interface GetQRAnalyticsRequest {
 
 /**
  * Validate user access to job
- */
+  */
 async function validateJobAccess(jobId: string, userId?: string): Promise<{
   isValid: boolean;
   jobData?: any;
@@ -101,7 +103,7 @@ async function validateJobAccess(jobId: string, userId?: string): Promise<{
 
 /**
  * Get portal URLs for a job
- */
+  */
 async function getPortalUrls(jobId: string): Promise<PortalUrls | null> {
   try {
     const db = admin.firestore();
@@ -131,7 +133,7 @@ async function getPortalUrls(jobId: string): Promise<PortalUrls | null> {
  * Enhance QR Codes
  * 
  * Enhance existing QR codes and generate new portal-specific QR codes for a job.
- */
+  */
 export const enhanceQRCodes = functions
   .region('us-central1')
   .runWith({
@@ -239,7 +241,7 @@ export const enhanceQRCodes = functions
  * Get Enhanced QR Codes
  * 
  * Retrieve all enhanced QR codes for a job.
- */
+  */
 export const getEnhancedQRCodes = functions
   .region('us-central1')
   .https.onCall(async (data: GetQRCodesRequest, context) => {
@@ -314,7 +316,7 @@ export const getEnhancedQRCodes = functions
  * Track QR Code Scan
  * 
  * Track when a QR code is scanned for analytics purposes.
- */
+  */
 export const trackQRCodeScanEnhanced = functions
   .region('us-central1')
   .https.onCall(async (data: TrackQRCodeScanRequest, context) => {
@@ -366,7 +368,7 @@ export const trackQRCodeScanEnhanced = functions
  * Get QR Code Analytics
  * 
  * Retrieve QR code analytics for a job.
- */
+  */
 export const getQRCodeAnalytics = functions
   .region('us-central1')
   .https.onCall(async (data: GetQRAnalyticsRequest, context) => {
@@ -458,7 +460,7 @@ export const getQRCodeAnalytics = functions
  * 
  * Automatically enhance QR codes when a portal is generated.
  * This is called internally by the portal generation system.
- */
+  */
 export const autoEnhanceQRCodes = functions
   .region('us-central1')
   .runWith({
@@ -532,7 +534,7 @@ export const autoEnhanceQRCodes = functions
  * Generate QR Code Preview
  * 
  * Generate a preview of what QR codes would look like with portal enhancement.
- */
+  */
 export const generateQRCodePreview = functions
   .region('us-central1')
   .https.onCall(async (data: {

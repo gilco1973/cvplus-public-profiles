@@ -1,9 +1,10 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Public Profile Functions for Firebase Cloud Functions
  * 
  * These functions provide the Firebase Cloud Functions interface for public profile operations.
  * They serve as the entry point for public profile functionality.
- */
+  */
 
 import { CallableRequest } from 'firebase-functions/v2/https';
 import { HttpsError } from 'firebase-functions/v2/https';
@@ -40,7 +41,7 @@ export interface TrackQRScanRequest {
 
 /**
  * Create a public profile for a CV
- */
+  */
 export async function createPublicProfile(request: CallableRequest<CreatePublicProfileRequest>): Promise<any> {
   const { jobId } = request.data;
   
@@ -80,7 +81,7 @@ export async function createPublicProfile(request: CallableRequest<CreatePublicP
 
 /**
  * Get a public profile by slug
- */
+  */
 export async function getPublicProfile(request: CallableRequest<GetPublicProfileRequest>): Promise<any> {
   const { slug } = request.data;
 
@@ -125,7 +126,7 @@ export async function getPublicProfile(request: CallableRequest<GetPublicProfile
 
 /**
  * Update public profile settings
- */
+  */
 export async function updatePublicProfileSettings(request: CallableRequest<UpdateProfileSettingsRequest>): Promise<any> {
   const { profileId, settings } = request.data;
 
@@ -155,7 +156,7 @@ export async function updatePublicProfileSettings(request: CallableRequest<Updat
 
 /**
  * Submit contact form for a public profile
- */
+  */
 export async function submitContactForm(request: CallableRequest<SubmitContactFormRequest>): Promise<any> {
   const { profileSlug, name, email, message, subject } = request.data;
 
@@ -190,7 +191,7 @@ export async function submitContactForm(request: CallableRequest<SubmitContactFo
 
 /**
  * Track QR code scan for a public profile
- */
+  */
 export async function trackQRScan(request: CallableRequest<TrackQRScanRequest>): Promise<any> {
   const { profileSlug, location, metadata } = request.data;
 
@@ -224,7 +225,7 @@ export async function trackQRScan(request: CallableRequest<TrackQRScanRequest>):
 
 /**
  * Test email configuration
- */
+  */
 export async function testEmailConfiguration(_request: CallableRequest): Promise<any> {
   try {
     // Basic email configuration test

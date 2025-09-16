@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Claude AI Service for RAG-powered Chat
  *
  * Handles Anthropic Claude API integration for generating contextual
@@ -6,7 +7,7 @@
  *
  * @author CVPlus Team
  * @version 1.0.0
- */
+  */
 
 import Anthropic from '@anthropic-ai/sdk';
 import { RAGContextResult } from './rag.service';
@@ -49,7 +50,7 @@ export class ClaudeService {
 
   /**
    * Generate RAG-powered response using Claude
-   */
+    */
   async generateResponse(
     userQuery: string,
     ragContext: RAGContextResult,
@@ -116,7 +117,7 @@ export class ClaudeService {
 
   /**
    * Build system prompt for Claude
-   */
+    */
   private buildSystemPrompt(ragContext: RAGContextResult, chatContext: ChatContext): string {
     const cvOwnerName = chatContext.cvOwnerName || 'this professional';
     const responseStyle = chatContext.responseStyle || 'professional';
@@ -149,7 +150,7 @@ Available CV sections: ${ragContext.sources.join(', ')}`;
 
   /**
    * Build user message with RAG context
-   */
+    */
   private buildUserMessage(
     userQuery: string,
     ragContext: RAGContextResult,
@@ -176,7 +177,7 @@ Available CV sections: ${ragContext.sources.join(', ')}`;
 
   /**
    * Build message history for conversation context
-   */
+    */
   private buildMessageHistory(chatContext: ChatContext): Array<{ role: 'user' | 'assistant'; content: string }> {
     if (!chatContext.conversationHistory || chatContext.conversationHistory.length === 0) {
       return [];
@@ -193,7 +194,7 @@ Available CV sections: ${ragContext.sources.join(', ')}`;
 
   /**
    * Generate follow-up suggestions based on response and available content
-   */
+    */
   private generateFollowUpSuggestions(
     originalQuery: string,
     response: string,
@@ -263,7 +264,7 @@ Available CV sections: ${ragContext.sources.join(', ')}`;
 
   /**
    * Get language name from code
-   */
+    */
   private getLanguageName(languageCode: string): string {
     const languages: Record<string, string> = {
       'en': 'English',
@@ -282,7 +283,7 @@ Available CV sections: ${ragContext.sources.join(', ')}`;
 
   /**
    * Validate Claude API connection
-   */
+    */
   async validateConnection(): Promise<boolean> {
     try {
       const testResponse = await this.anthropic.messages.create({
@@ -304,7 +305,7 @@ Available CV sections: ${ragContext.sources.join(', ')}`;
 
   /**
    * Generate welcome message for chat sessions
-   */
+    */
   generateWelcomeMessage(chatContext: ChatContext = {}): string {
     const name = chatContext.cvOwnerName || 'this professional';
     const title = chatContext.cvTitle || 'professional';

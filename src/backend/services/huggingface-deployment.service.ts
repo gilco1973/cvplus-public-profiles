@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * HuggingFace Deployment Service
  * 
  * Comprehensive service for deploying web portals to HuggingFace Spaces.
@@ -15,7 +16,7 @@
  * @author Gil Klainert
  * @created 2025-08-19
  * @version 1.0
- */
+  */
 
 import * as admin from 'firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
@@ -39,7 +40,7 @@ import {
 
 /**
  * HuggingFace API configuration
- */
+  */
 interface HuggingFaceAPIConfig {
   baseURL: string;
   token: string;
@@ -50,7 +51,7 @@ interface HuggingFaceAPIConfig {
 
 /**
  * Space creation request
- */
+  */
 interface CreateSpaceRequest {
   id: string;
   sdk: HuggingFaceSDK;
@@ -63,7 +64,7 @@ interface CreateSpaceRequest {
 
 /**
  * Space creation response
- */
+  */
 interface CreateSpaceResponse {
   id: string;
   name: string;
@@ -82,7 +83,7 @@ interface CreateSpaceResponse {
 
 /**
  * File upload request
- */
+  */
 interface FileUploadRequest {
   files: Array<{
     path: string;
@@ -95,7 +96,7 @@ interface FileUploadRequest {
 
 /**
  * Space status response
- */
+  */
 interface SpaceStatusResponse {
   id: string;
   runtime: {
@@ -111,7 +112,7 @@ interface SpaceStatusResponse {
 
 /**
  * Deployment result
- */
+  */
 interface DeploymentResult {
   success: boolean;
   spaceId?: string;
@@ -131,7 +132,7 @@ interface DeploymentResult {
 
 /**
  * File map for easier file management
- */
+  */
 interface FileMap {
   [path: string]: {
     content: string | Buffer;
@@ -142,7 +143,7 @@ interface FileMap {
 
 /**
  * Space availability check result
- */
+  */
 interface SpaceAvailabilityResult {
   available: boolean;
   suggestion?: string;
@@ -232,7 +233,7 @@ export class HuggingFaceDeploymentService {
 
   /**
    * Create a new HuggingFace Space
-   */
+    */
   async createSpace(config: HuggingFaceSpaceConfig): Promise<DeploymentResult> {
     logger.info('[HUGGINGFACE-SERVICE] Creating HuggingFace Space', {
       spaceName: config.spaceName,
@@ -293,7 +294,7 @@ export class HuggingFaceDeploymentService {
 
   /**
    * Deploy portal to existing HuggingFace Space
-   */
+    */
   async deployPortal(portalData: PortalConfig, spaceConfig: HuggingFaceSpaceConfig): Promise<DeploymentResult> {
     logger.info('[HUGGINGFACE-SERVICE] Deploying portal to HuggingFace Space', {
       spaceName: spaceConfig.spaceName,
@@ -360,7 +361,7 @@ export class HuggingFaceDeploymentService {
 
   /**
    * Upload files to HuggingFace Space repository
-   */
+    */
   async uploadFiles(spaceId: string, files: FileMap): Promise<{ success: boolean; error?: string; filesUploaded?: number }> {
     logger.info('[HUGGINGFACE-SERVICE] Uploading files to Space', {
       spaceId,
@@ -432,7 +433,7 @@ export class HuggingFaceDeploymentService {
 
   /**
    * Update HuggingFace Space configuration
-   */
+    */
   async updateSpace(spaceId: string, updates: {
     secrets?: Record<string, string>;
     variables?: Record<string, string>;
@@ -498,7 +499,7 @@ export class HuggingFaceDeploymentService {
 
   /**
    * Get HuggingFace Space status
-   */
+    */
   async getSpaceStatus(spaceId: string): Promise<{ 
     success: boolean; 
     status?: string; 
@@ -534,7 +535,7 @@ export class HuggingFaceDeploymentService {
 
   /**
    * Generate unique Space name
-   */
+    */
   generateSpaceName(userName: string, suffix?: string): string {
     // Sanitize user name
     const sanitized = userName
@@ -558,7 +559,7 @@ export class HuggingFaceDeploymentService {
 
   /**
    * Validate Space name availability
-   */
+    */
   async validateSpaceAvailability(spaceName: string): Promise<SpaceAvailabilityResult> {
     try {
       // Check if space already exists
@@ -597,7 +598,7 @@ export class HuggingFaceDeploymentService {
   
   /**
    * Type guard for Python-based templates (Gradio/Streamlit)
-   */
+    */
   private isPythonTemplate(template: any): template is {
     type: 'python';
     appFile: string;
@@ -610,7 +611,7 @@ export class HuggingFaceDeploymentService {
   
   /**
    * Type guard for Docker-based templates
-   */
+    */
   private isDockerTemplate(template: any): template is {
     type: 'docker';
     appFile: string;
@@ -623,7 +624,7 @@ export class HuggingFaceDeploymentService {
   
   /**
    * Type guard for Static templates
-   */
+    */
   private isStaticTemplate(template: any): template is {
     type: 'static';
     indexFile: string;
@@ -639,7 +640,7 @@ export class HuggingFaceDeploymentService {
 
   /**
    * Generate portal files based on template and configuration
-   */
+    */
   private async generatePortalFiles(portalData: PortalConfig, spaceConfig: HuggingFaceSpaceConfig): Promise<FileMap> {
     logger.info('[HUGGINGFACE-SERVICE] Generating portal files', {
       sdk: spaceConfig.sdk,
@@ -742,7 +743,7 @@ export class HuggingFaceDeploymentService {
 
   /**
    * Generate Gradio application code
-   */
+    */
   private generateGradioApp(portalData: PortalConfig): string {
     const personalInfo = portalData.customization?.personalInfo || {};
     const name = personalInfo.name || 'Professional';
@@ -844,7 +845,7 @@ if __name__ == "__main__":
 
   /**
    * Generate Streamlit application code
-   */
+    */
   private generateStreamlitApp(portalData: PortalConfig): string {
     const personalInfo = portalData.customization?.personalInfo || {};
     const name = personalInfo.name || 'Professional';
@@ -972,7 +973,7 @@ if __name__ == "__main__":
 
   /**
    * Generate FastAPI application code for Docker deployment
-   */
+    */
   private generateFastAPIApp(portalData: PortalConfig): string {
     const personalInfo = portalData.customization?.personalInfo || {};
     const name = personalInfo.name || 'Professional';
@@ -1113,7 +1114,7 @@ if __name__ == "__main__":
 
   /**
    * Generate static HTML
-   */
+    */
   private generateStaticHTML(portalData: PortalConfig): string {
     const personalInfo = portalData.customization?.personalInfo || {};
     const name = personalInfo.name || 'Professional';
@@ -1167,7 +1168,7 @@ if __name__ == "__main__":
 
   /**
    * Generate static CSS
-   */
+    */
   private generateStaticCSS(portalData: PortalConfig): string {
     const colors = portalData.template?.theme?.colors || {
       primary: '#007bff',
@@ -1279,7 +1280,7 @@ footer {
 
   /**
    * Generate static JavaScript
-   */
+    */
   private generateStaticJS(portalData: PortalConfig): string {
     return `// Static portal JavaScript
 document.addEventListener('DOMContentLoaded', function() {
@@ -1321,7 +1322,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /**
    * Generate Dockerfile for Docker deployment
-   */
+    */
   private generateDockerfile(): string {
     return `FROM python:3.9-slim
 
@@ -1339,7 +1340,7 @@ CMD ["python", "app.py"]`;
 
   /**
    * Generate README file
-   */
+    */
   private generateReadme(portalData: PortalConfig, spaceConfig: HuggingFaceSpaceConfig): string {
     const personalInfo = portalData.customization?.personalInfo || {};
     const name = personalInfo.name || 'Professional';
@@ -1380,7 +1381,7 @@ This portal was automatically generated by CVPlus, an AI-powered CV transformati
 
   /**
    * Generate .gitignore file
-   */
+    */
   private generateGitignore(): string {
     return `# Python
 __pycache__/
@@ -1415,7 +1416,7 @@ config.local.yml`;
 
   /**
    * Prepare secrets from environment variables
-   */
+    */
   private prepareSecrets(environmentVariables: Record<string, string>): Record<string, string> {
     const secrets: Record<string, string> = {};
     
@@ -1433,7 +1434,7 @@ config.local.yml`;
 
   /**
    * Prepare public variables from environment variables
-   */
+    */
   private prepareVariables(environmentVariables: Record<string, string>): Record<string, string> {
     const variables: Record<string, string> = {};
     
@@ -1451,7 +1452,7 @@ config.local.yml`;
 
   /**
    * Monitor deployment status with retry logic
-   */
+    */
   private async monitorDeployment(spaceId: string, maxAttempts = 30, intervalMs = 10000): Promise<{
     success: boolean;
     status?: string;
@@ -1543,7 +1544,7 @@ config.local.yml`;
 
   /**
    * Make authenticated API request with retry logic
-   */
+    */
   private async makeAPIRequest<T = any>(
     method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE',
     endpoint: string,
@@ -1621,7 +1622,7 @@ config.local.yml`;
 
   /**
    * Split array into chunks
-   */
+    */
   private chunkArray<T>(array: T[], chunkSize: number): T[][] {
     const chunks: T[][] = [];
     for (let i = 0; i < array.length; i += chunkSize) {

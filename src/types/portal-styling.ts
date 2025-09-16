@@ -1,47 +1,48 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Portal Styling Types
  *
  * Styling configuration types for portal theming and layout.
  *
  * @author Gil Klainert
  * @version 1.0.0
- */
+  */
 
 /**
  * Color scheme configuration
- */
+  */
 export interface ColorScheme {
-  /** Primary brand color */
+  /** Primary brand color  */
   primary: string;
 
-  /** Secondary accent color */
+  /** Secondary accent color  */
   secondary: string;
 
-  /** Background color */
+  /** Background color  */
   background: string;
 
-  /** Surface color for cards/components */
+  /** Surface color for cards/components  */
   surface: string;
 
-  /** Primary text color */
+  /** Primary text color  */
   textPrimary: string;
 
-  /** Secondary text color */
+  /** Secondary text color  */
   textSecondary: string;
 
-  /** Border color */
+  /** Border color  */
   border: string;
 
-  /** Success color for positive actions */
+  /** Success color for positive actions  */
   success: string;
 
-  /** Warning color for cautions */
+  /** Warning color for cautions  */
   warning: string;
 
-  /** Error color for errors */
+  /** Error color for errors  */
   error: string;
 
-  /** Gradient configurations */
+  /** Gradient configurations  */
   gradients?: {
     primary: string;
     secondary: string;
@@ -51,18 +52,18 @@ export interface ColorScheme {
 
 /**
  * Typography configuration
- */
+  */
 export interface TypographyConfig {
-  /** Font family for headings */
+  /** Font family for headings  */
   headingFontFamily: string;
 
-  /** Font family for body text */
+  /** Font family for body text  */
   bodyFontFamily: string;
 
-  /** Base font size */
+  /** Base font size  */
   baseFontSize: string;
 
-  /** Font weight scale */
+  /** Font weight scale  */
   fontWeights: {
     light: number;
     regular: number;
@@ -71,14 +72,14 @@ export interface TypographyConfig {
     bold: number;
   };
 
-  /** Line height settings */
+  /** Line height settings  */
   lineHeights: {
     tight: number;
     normal: number;
     relaxed: number;
   };
 
-  /** Font size scale */
+  /** Font size scale  */
   fontSizes?: {
     xs: string;
     sm: string;
@@ -90,7 +91,7 @@ export interface TypographyConfig {
     '4xl': string;
   };
 
-  /** Letter spacing settings */
+  /** Letter spacing settings  */
   letterSpacing?: {
     tight: string;
     normal: string;
@@ -100,286 +101,286 @@ export interface TypographyConfig {
 
 /**
  * Portal layout configuration
- */
+  */
 export interface PortalLayout {
-  /** Enable sidebar */
+  /** Enable sidebar  */
   sidebar: boolean;
 
-  /** Navigation type */
+  /** Navigation type  */
   navigation: 'top' | 'side' | 'both';
 
-  /** Sections to include */
+  /** Sections to include  */
   sections: string[];
 
-  /** Layout grid settings */
+  /** Layout grid settings  */
   grid?: GridConfig;
 
-  /** Container settings */
+  /** Container settings  */
   container?: ContainerConfig;
 
-  /** Responsive breakpoints */
+  /** Responsive breakpoints  */
   breakpoints?: BreakpointConfig;
 }
 
 /**
  * Grid configuration
- */
+  */
 export interface GridConfig {
-  /** Number of columns */
+  /** Number of columns  */
   columns: number;
 
-  /** Grid gap */
+  /** Grid gap  */
   gap: string;
 
-  /** Auto-fit columns */
+  /** Auto-fit columns  */
   autoFit: boolean;
 
-  /** Minimum column width */
+  /** Minimum column width  */
   minColumnWidth?: string;
 }
 
 /**
  * Container configuration
- */
+  */
 export interface ContainerConfig {
-  /** Maximum width */
+  /** Maximum width  */
   maxWidth: string;
 
-  /** Padding */
+  /** Padding  */
   padding: string;
 
-  /** Margin */
+  /** Margin  */
   margin: string;
 
-  /** Center container */
+  /** Center container  */
   centered: boolean;
 }
 
 /**
  * Responsive breakpoint configuration
- */
+  */
 export interface BreakpointConfig {
-  /** Mobile breakpoint */
+  /** Mobile breakpoint  */
   mobile: string;
 
-  /** Tablet breakpoint */
+  /** Tablet breakpoint  */
   tablet: string;
 
-  /** Desktop breakpoint */
+  /** Desktop breakpoint  */
   desktop: string;
 
-  /** Large desktop breakpoint */
+  /** Large desktop breakpoint  */
   large: string;
 }
 
 /**
  * Component visibility settings
- */
+  */
 export interface ComponentVisibility {
-  /** Show header */
+  /** Show header  */
   header: boolean;
 
-  /** Show footer */
+  /** Show footer  */
   footer: boolean;
 
-  /** Show sidebar */
+  /** Show sidebar  */
   sidebar: boolean;
 
-  /** Show chat widget */
+  /** Show chat widget  */
   chat: boolean;
 
-  /** Show analytics */
+  /** Show analytics  */
   analytics: boolean;
 
-  /** Show navigation */
+  /** Show navigation  */
   navigation: boolean;
 
-  /** Show search */
+  /** Show search  */
   search: boolean;
 
-  /** Show social links */
+  /** Show social links  */
   socialLinks: boolean;
 
-  /** Show contact form */
+  /** Show contact form  */
   contactForm: boolean;
 }
 
 /**
  * Template-specific styling
- */
+  */
 export interface TemplateStyling {
-  /** Border radius for components */
+  /** Border radius for components  */
   borderRadius: string;
 
-  /** Enable shadows */
+  /** Enable shadows  */
   shadows: boolean;
 
-  /** Enable animations */
+  /** Enable animations  */
   animations: boolean;
 
-  /** Animation duration */
+  /** Animation duration  */
   animationDuration?: string;
 
-  /** Animation timing function */
+  /** Animation timing function  */
   animationTimingFunction?: string;
 
-  /** Custom CSS variables */
+  /** Custom CSS variables  */
   cssVariables?: Record<string, string>;
 
-  /** Component-specific styles */
+  /** Component-specific styles  */
   componentStyles?: ComponentStyleConfig;
 }
 
 /**
  * Component style configuration
- */
+  */
 export interface ComponentStyleConfig {
-  /** Button styles */
+  /** Button styles  */
   button?: ButtonStyleConfig;
 
-  /** Card styles */
+  /** Card styles  */
   card?: CardStyleConfig;
 
-  /** Input styles */
+  /** Input styles  */
   input?: InputStyleConfig;
 
-  /** Navigation styles */
+  /** Navigation styles  */
   navigation?: NavigationStyleConfig;
 }
 
 /**
  * Button style configuration
- */
+  */
 export interface ButtonStyleConfig {
-  /** Border radius */
+  /** Border radius  */
   borderRadius: string;
 
-  /** Padding */
+  /** Padding  */
   padding: string;
 
-  /** Font weight */
+  /** Font weight  */
   fontWeight: number;
 
-  /** Text transform */
+  /** Text transform  */
   textTransform: 'none' | 'uppercase' | 'lowercase' | 'capitalize';
 
-  /** Hover effects */
+  /** Hover effects  */
   hoverEffects: boolean;
 
-  /** Shadow settings */
+  /** Shadow settings  */
   shadow?: ShadowConfig;
 }
 
 /**
  * Card style configuration
- */
+  */
 export interface CardStyleConfig {
-  /** Background color */
+  /** Background color  */
   backgroundColor: string;
 
-  /** Border radius */
+  /** Border radius  */
   borderRadius: string;
 
-  /** Padding */
+  /** Padding  */
   padding: string;
 
-  /** Shadow settings */
+  /** Shadow settings  */
   shadow?: ShadowConfig;
 
-  /** Border settings */
+  /** Border settings  */
   border?: BorderConfig;
 }
 
 /**
  * Input style configuration
- */
+  */
 export interface InputStyleConfig {
-  /** Border radius */
+  /** Border radius  */
   borderRadius: string;
 
-  /** Padding */
+  /** Padding  */
   padding: string;
 
-  /** Border settings */
+  /** Border settings  */
   border?: BorderConfig;
 
-  /** Focus effects */
+  /** Focus effects  */
   focusEffects: boolean;
 
-  /** Placeholder styling */
+  /** Placeholder styling  */
   placeholder?: PlaceholderConfig;
 }
 
 /**
  * Navigation style configuration
- */
+  */
 export interface NavigationStyleConfig {
-  /** Background color */
+  /** Background color  */
   backgroundColor: string;
 
-  /** Text color */
+  /** Text color  */
   textColor: string;
 
-  /** Active link color */
+  /** Active link color  */
   activeLinkColor: string;
 
-  /** Hover effects */
+  /** Hover effects  */
   hoverEffects: boolean;
 
-  /** Spacing between items */
+  /** Spacing between items  */
   itemSpacing: string;
 }
 
 /**
  * Shadow configuration
- */
+  */
 export interface ShadowConfig {
-  /** Enable shadow */
+  /** Enable shadow  */
   enabled: boolean;
 
-  /** Shadow color */
+  /** Shadow color  */
   color: string;
 
-  /** Shadow blur */
+  /** Shadow blur  */
   blur: string;
 
-  /** Shadow spread */
+  /** Shadow spread  */
   spread: string;
 
-  /** Shadow offset X */
+  /** Shadow offset X  */
   offsetX: string;
 
-  /** Shadow offset Y */
+  /** Shadow offset Y  */
   offsetY: string;
 }
 
 /**
  * Border configuration
- */
+  */
 export interface BorderConfig {
-  /** Border width */
+  /** Border width  */
   width: string;
 
-  /** Border style */
+  /** Border style  */
   style: 'solid' | 'dashed' | 'dotted' | 'none';
 
-  /** Border color */
+  /** Border color  */
   color: string;
 
-  /** Border radius */
+  /** Border radius  */
   radius?: string;
 }
 
 /**
  * Placeholder styling configuration
- */
+  */
 export interface PlaceholderConfig {
-  /** Text color */
+  /** Text color  */
   color: string;
 
-  /** Font style */
+  /** Font style  */
   fontStyle: 'normal' | 'italic';
 
-  /** Opacity */
+  /** Opacity  */
   opacity: number;
 }

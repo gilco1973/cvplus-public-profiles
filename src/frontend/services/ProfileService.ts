@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport {
+// @ts-ignore - Export conflicts
   PublicProfileData,
   PublicProfileResult,
   ProfileUpdateResult,
@@ -46,7 +46,7 @@ import { doc, getDoc, collection, query, where, orderBy, limit, getDocs, Firesto
  * - Privacy and access controls
  * - Custom domain management
  * - Version control
- */
+  */
 export class ProfileService {
   private functions = getFunctions();
   private firestore: Firestore;
@@ -64,7 +64,7 @@ export class ProfileService {
 
   /**
    * Create a new public profile
-   */
+    */
   async createProfile(
     data: PublicProfileData,
     options: ProfileOptions = {}
@@ -94,7 +94,7 @@ export class ProfileService {
 
   /**
    * Get public profile by ID
-   */
+    */
   async getProfile(profileId: string): Promise<PublicProfileData> {
     try {
       const cacheKey = `profile-${profileId}`;
@@ -118,7 +118,7 @@ export class ProfileService {
 
   /**
    * Update existing public profile
-   */
+    */
   async updateProfile(
     profileId: string,
     updates: ProfileUpdate
@@ -150,7 +150,7 @@ export class ProfileService {
 
   /**
    * Delete public profile
-   */
+    */
   async deleteProfile(profileId: string): Promise<void> {
     try {
       const user = this.getCurrentUser();
@@ -176,7 +176,7 @@ export class ProfileService {
 
   /**
    * Get all profiles for current user
-   */
+    */
   async getUserProfiles(userId?: string): Promise<PublicProfileData[]> {
     try {
       const user = this.getCurrentUser();
@@ -216,7 +216,7 @@ export class ProfileService {
 
   /**
    * Get available profile templates
-   */
+    */
   async getTemplates(): Promise<ProfileTemplate[]> {
     try {
       const cacheKey = 'profile-templates';
@@ -236,7 +236,7 @@ export class ProfileService {
 
   /**
    * Apply template to profile
-   */
+    */
   async applyTemplate(
     profileId: string,
     templateId: string
@@ -266,7 +266,7 @@ export class ProfileService {
 
   /**
    * Customize profile template
-   */
+    */
   async customizeTemplate(
     profileId: string,
     customizations: TemplateCustomization
@@ -300,7 +300,7 @@ export class ProfileService {
 
   /**
    * Generate SEO data for profile
-   */
+    */
   async generateSEOData(profileId: string): Promise<SEOData> {
     try {
       const cacheKey = `seo-data-${profileId}`;
@@ -320,7 +320,7 @@ export class ProfileService {
 
   /**
    * Update profile meta tags
-   */
+    */
   async updateMetaTags(profileId: string, metaTags: MetaTags): Promise<void> {
     try {
       const user = this.getCurrentUser();
@@ -345,7 +345,7 @@ export class ProfileService {
 
   /**
    * Generate structured data for profile
-   */
+    */
   async generateStructuredData(profileId: string): Promise<StructuredData> {
     try {
       const cacheKey = `structured-data-${profileId}`;
@@ -369,7 +369,7 @@ export class ProfileService {
 
   /**
    * Generate social sharing URL
-   */
+    */
   async generateShareURL(
     profileId: string,
     platform: SocialPlatform
@@ -390,7 +390,7 @@ export class ProfileService {
 
   /**
    * Generate QR code for profile
-   */
+    */
   async generateQRCode(
     profileId: string,
     options: QROptions = {}
@@ -411,7 +411,7 @@ export class ProfileService {
 
   /**
    * Generate embed code for profile
-   */
+    */
   async generateEmbedCode(
     profileId: string,
     options: EmbedOptions = {}
@@ -436,7 +436,7 @@ export class ProfileService {
 
   /**
    * Track profile view
-   */
+    */
   async trackProfileView(profileId: string, viewData: ViewData): Promise<void> {
     try {
       const trackViewFn = httpsCallable(this.functions, 'trackProfileView');
@@ -457,7 +457,7 @@ export class ProfileService {
 
   /**
    * Get profile analytics
-   */
+    */
   async getProfileAnalytics(
     profileId: string,
     dateRange: DateRange = { days: 30 }
@@ -483,7 +483,7 @@ export class ProfileService {
 
   /**
    * Track user engagement
-   */
+    */
   async trackEngagement(
     profileId: string,
     engagement: EngagementData
@@ -509,7 +509,7 @@ export class ProfileService {
 
   /**
    * Update profile privacy settings
-   */
+    */
   async updatePrivacySettings(
     profileId: string,
     settings: PrivacySettings
@@ -537,7 +537,7 @@ export class ProfileService {
 
   /**
    * Get profile access controls
-   */
+    */
   async getAccessControls(profileId: string): Promise<AccessControl[]> {
     try {
       const user = this.getCurrentUser();
@@ -565,7 +565,7 @@ export class ProfileService {
 
   /**
    * Generate profile access token
-   */
+    */
   async generateAccessToken(
     profileId: string,
     permissions: Permission[]
@@ -596,7 +596,7 @@ export class ProfileService {
 
   /**
    * Map custom domain to profile
-   */
+    */
   async mapCustomDomain(
     profileId: string,
     domain: string
@@ -623,7 +623,7 @@ export class ProfileService {
 
   /**
    * Validate custom domain
-   */
+    */
   async validateDomain(domain: string): Promise<DomainValidation> {
     try {
       const validateDomainFn = httpsCallable(this.functions, 'validateCustomDomain');
@@ -642,7 +642,7 @@ export class ProfileService {
 
   /**
    * Save profile version
-   */
+    */
   async saveProfileVersion(
     profileId: string,
     version: VersionData
@@ -672,7 +672,7 @@ export class ProfileService {
 
   /**
    * Get profile versions
-   */
+    */
   async getProfileVersions(profileId: string): Promise<ProfileVersion[]> {
     try {
       const user = this.getCurrentUser();
@@ -700,7 +700,7 @@ export class ProfileService {
 
   /**
    * Rollback to previous version
-   */
+    */
   async rollbackToVersion(
     profileId: string,
     versionId: string
@@ -736,7 +736,7 @@ export class ProfileService {
 
   /**
    * Get current authenticated user
-   */
+    */
   private getCurrentUser(): User | null {
     const auth = getAuth();
     return auth.currentUser;
@@ -744,7 +744,7 @@ export class ProfileService {
 
   /**
    * Get item from cache if not expired
-   */
+    */
   private getFromCache<T>(key: string): T | null {
     const expiry = this.cacheExpiry.get(key);
     if (expiry && Date.now() > expiry) {
@@ -757,7 +757,7 @@ export class ProfileService {
 
   /**
    * Set item in cache with expiry
-   */
+    */
   private setCache<T>(key: string, value: T, duration?: number): void {
     this.cache.set(key, value);
     this.cacheExpiry.set(key, Date.now() + (duration || this.CACHE_DURATION));
@@ -765,7 +765,7 @@ export class ProfileService {
 
   /**
    * Clear specific cache entry
-   */
+    */
   private clearCache(key: string): void {
     this.cache.delete(key);
     this.cacheExpiry.delete(key);
@@ -773,7 +773,7 @@ export class ProfileService {
 
   /**
    * Clear all cache entries
-   */
+    */
   public clearAllCache(): void {
     this.cache.clear();
     this.cacheExpiry.clear();
@@ -781,7 +781,7 @@ export class ProfileService {
 
   /**
    * Get cache stats for debugging
-   */
+    */
   public getCacheStats(): { size: number; entries: string[] } {
     return {
       size: this.cache.size,

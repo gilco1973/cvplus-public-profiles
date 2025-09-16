@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Portal Generation Service
  * 
  * Comprehensive service for generating personalized web portals with RAG-based AI chat functionality.
@@ -7,7 +8,7 @@
  * @author Gil Klainert
  * @created 2025-08-19
  * @version 1.0
- */
+  */
 
 import * as admin from 'firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
@@ -52,24 +53,24 @@ import { HuggingFaceApiService } from './huggingface-api.service';
 
 /**
  * Portal generation configuration options
- */
+  */
 interface GenerationOptions {
-  /** Force regeneration even if portal exists */
+  /** Force regeneration even if portal exists  */
   forceRegenerate?: boolean;
   
-  /** Skip certain steps for testing */
+  /** Skip certain steps for testing  */
   skipSteps?: PortalGenerationStep[];
   
-  /** Custom timeout in milliseconds */
+  /** Custom timeout in milliseconds  */
   timeoutMs?: number;
   
-  /** Enable debug mode with detailed logging */
+  /** Enable debug mode with detailed logging  */
   debugMode?: boolean;
 }
 
 /**
  * Template generation context
- */
+  */
 interface TemplateContext {
   cvData: ParsedCV;
   template: PortalTemplate;
@@ -80,7 +81,7 @@ interface TemplateContext {
 
 /**
  * RAG system components
- */
+  */
 interface RAGSystemComponents {
   embeddings: RAGEmbedding[];
   vectorDatabase: any;
@@ -90,7 +91,7 @@ interface RAGSystemComponents {
 
 /**
  * HuggingFace deployment result
- */
+  */
 interface DeploymentResult {
   success: boolean;
   spaceUrl?: string;
@@ -167,7 +168,7 @@ export class PortalGenerationService {
 
   /**
    * Main orchestration method for portal generation
-   */
+    */
   async generatePortal(
     jobId: string,
     config?: Partial<PortalConfig>,
@@ -512,7 +513,7 @@ export class PortalGenerationService {
 
   /**
    * Validate input and extract CV data from Firestore
-   */
+    */
   private async validateAndExtractCVData(jobId: string): Promise<ParsedCV> {
     logger.info(`[PORTAL-SERVICE] Validating input and extracting CV data for job ${jobId}`);
 
@@ -544,7 +545,7 @@ export class PortalGenerationService {
 
   /**
    * Build RAG system with real embeddings and vector database
-   */
+    */
   async buildRAGSystem(cvData: ParsedCV): Promise<RAGSystemComponents> {
     logger.info('[PORTAL-SERVICE] Building production RAG system with real embeddings');
 
@@ -599,7 +600,7 @@ export class PortalGenerationService {
 
   /**
    * Generate personalized template based on CV data
-   */
+    */
   async generateTemplate(
     cvData: ParsedCV,
     template: PortalTemplate,
@@ -654,7 +655,7 @@ export class PortalGenerationService {
   /**
    * Deploy portal to HuggingFace Spaces (DEPRECATED - using HuggingFaceApiService)
    * This method is kept for backward compatibility but delegates to the new service
-   */
+    */
   async deployToHuggingFace(portalConfig: PortalConfig): Promise<DeploymentResult> {
     logger.info('[PORTAL-SERVICE] Deploying portal to HuggingFace Spaces via HuggingFaceApiService', {
       spaceName: portalConfig.huggingFaceConfig.spaceName
@@ -703,7 +704,7 @@ export class PortalGenerationService {
 
   /**
    * Generate portal URL structure
-   */
+    */
   generatePortalURLs(userName: string, jobId: string): PortalUrls {
     const sanitizedName = userName.toLowerCase().replace(/[^a-z0-9]/g, '-');
     const baseUrl = `https://${sanitizedName}-cv-portal.hf.space`;
@@ -724,7 +725,7 @@ export class PortalGenerationService {
 
   /**
    * Integrate portal links into CV document
-   */
+    */
   async integrateCVDocument(jobId: string, portalURLs: PortalUrls): Promise<void> {
     logger.info('[PORTAL-SERVICE] Integrating portal links into CV document', {
       jobId,
@@ -752,7 +753,7 @@ export class PortalGenerationService {
 
   /**
    * Update existing QR codes to point to portal
-   */
+    */
   async updateQRCodes(jobId: string, portalURLs: PortalUrls): Promise<void> {
     logger.info('[PORTAL-SERVICE] Updating QR codes to point to portal', {
       jobId,
@@ -1632,7 +1633,7 @@ Return as JSON with theme, config, and content customizations.`;
 
   /**
    * Prepare vector database for HuggingFace deployment
-   */
+    */
   private prepareVectorDatabaseForDeployment(portalConfig: PortalConfig): any {
     // For now, we'll store the vector database in the portal config metadata
     // In a real implementation, this would be stored separately
@@ -1665,7 +1666,7 @@ Return as JSON with theme, config, and content customizations.`;
 
   /**
    * Generate portal application files for deployment
-   */
+    */
   private generatePortalFiles(portalConfig: PortalConfig, vectorDbData: any): Array<{ name: string; content: string; type: string }> {
     const files = [];
 
@@ -1713,7 +1714,7 @@ Return as JSON with theme, config, and content customizations.`;
 
   /**
    * Generate Gradio application code
-   */
+    */
   private generateGradioApp(portalConfig: PortalConfig, vectorDbData: any): string {
     const personalName = portalConfig.customization.personalInfo?.name || 'Professional';
     
@@ -1794,7 +1795,7 @@ if __name__ == "__main__":
 
   /**
    * Generate requirements.txt for Python dependencies
-   */
+    */
   private generateRequirements(): string {
     return `gradio>=4.0.0
 numpy>=1.24.0
@@ -1806,7 +1807,7 @@ scikit-learn>=1.3.0`;
 
   /**
    * Generate README for the HuggingFace Space
-   */
+    */
   private generateReadme(portalConfig: PortalConfig): string {
     const personalName = portalConfig.customization.personalInfo?.name || 'Professional';
     const title = portalConfig.customization.personalInfo?.summary || 'Professional';

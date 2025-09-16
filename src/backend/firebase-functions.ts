@@ -1,9 +1,10 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Firebase Cloud Functions for Public Profiles
  * 
  * This file provides Firebase Cloud Function wrappers for public profile functionality.
  * These functions can be imported and used in the main Firebase Functions deployment.
- */
+  */
 
 // Export function implementations that can be wrapped with onCall in the main functions directory
 export * from './functions/profile.functions';

@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport {
+// @ts-ignore - Export conflicts
   PublicProfile,
   PublicProfileSettings,
   ContactInfo,
@@ -90,7 +90,7 @@ export class ProfileManagerService {
 
   /**
    * Create a new public profile from CV data
-   */
+    */
   async createProfile(options: ProfileCreationOptions): Promise<PublicProfile> {
     console.log(`Creating public profile for user ${options.userId}, CV ${options.cvId}`);
 
@@ -209,7 +209,7 @@ export class ProfileManagerService {
 
   /**
    * Update an existing public profile
-   */
+    */
   async updateProfile(options: ProfileUpdateOptions): Promise<PublicProfile> {
     console.log(`Updating public profile ${options.profileId}`);
 
@@ -257,7 +257,7 @@ export class ProfileManagerService {
 
   /**
    * View a public profile with analytics tracking
-   */
+    */
   async viewProfile(slug: string, context: ProfileViewContext = {}): Promise<PublicProfile> {
     console.log(`Profile view for slug: ${slug}`);
 
@@ -299,7 +299,7 @@ export class ProfileManagerService {
 
   /**
    * Search public profiles
-   */
+    */
   async searchProfiles(options: ProfileSearchOptions = {}): Promise<{
     profiles: PublicProfile[];
     totalCount: number;
@@ -321,7 +321,7 @@ export class ProfileManagerService {
 
   /**
    * Delete a public profile
-   */
+    */
   async deleteProfile(profileId: string, userId: string): Promise<void> {
     console.log(`Deleting public profile ${profileId}`);
 
@@ -351,7 +351,7 @@ export class ProfileManagerService {
 
   /**
    * Export profile data
-   */
+    */
   async exportProfile(
     profileId: string,
     userId: string,
@@ -379,7 +379,7 @@ export class ProfileManagerService {
 
   /**
    * Add testimonial to profile
-   */
+    */
   async addTestimonial(
     profileId: string,
     userId: string,
@@ -419,7 +419,7 @@ export class ProfileManagerService {
 
   /**
    * Get profile analytics
-   */
+    */
   async getProfileAnalytics(profileId: string, userId: string): Promise<ProfileAnalytics> {
     console.log(`Getting analytics for profile ${profileId}`);
 

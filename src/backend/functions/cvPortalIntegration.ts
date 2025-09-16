@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * CV-Portal Integration Firebase Functions
  * 
  * Provides Firebase callable functions for integrating portal generation with CV completion.
@@ -7,7 +8,7 @@
  * @author Gil Klainert
  * @created 2025-08-19
  * @version 1.0
- */
+  */
 
 import * as functions from 'firebase-functions/v1';
 import * as admin from 'firebase-admin';
@@ -56,7 +57,7 @@ interface RetryPortalGenerationRequest {
 
 /**
  * Validate user access to job
- */
+  */
 async function validateJobAccess(jobId: string, userId?: string): Promise<{
   isValid: boolean;
   jobData?: any;
@@ -86,7 +87,7 @@ async function validateJobAccess(jobId: string, userId?: string): Promise<{
 
 /**
  * Get user preferences for portal generation (internal helper)
- */
+  */
 async function getUserPortalPreferencesInternal(userId: string): Promise<PortalGenerationPreferences> {
   try {
     const db = admin.firestore();
@@ -127,7 +128,7 @@ async function getUserPortalPreferencesInternal(userId: string): Promise<PortalG
 
 /**
  * Convert CV document to ParsedCV format
- */
+  */
 function convertToParsedCV(cvData: any): ParsedCV {
   return {
     personalInfo: cvData.personalInfo || {},
@@ -150,7 +151,7 @@ function convertToParsedCV(cvData: any): ParsedCV {
  * 
  * Main function to trigger portal generation for a completed CV.
  * Can be called automatically after CV completion or manually by user.
- */
+  */
 export const generatePortal = functions
   .region('us-central1')
   .runWith({
@@ -275,7 +276,7 @@ export const generatePortal = functions
  * Get Portal Status
  * 
  * Retrieve the current status of portal generation for a job.
- */
+  */
 export const getPortalStatus = functions
   .region('us-central1')
   .https.onCall(async (data: GetPortalStatusRequest, context) => {
@@ -354,7 +355,7 @@ export const getPortalStatus = functions
  * Update Portal Preferences
  * 
  * Update user preferences for portal generation.
- */
+  */
 export const updatePortalPreferences = functions
   .region('us-central1')
   .https.onCall(async (data: UpdatePortalPreferencesRequest, context) => {
@@ -419,7 +420,7 @@ export const updatePortalPreferences = functions
  * Retry Portal Generation
  * 
  * Retry failed portal generation for a job.
- */
+  */
 export const retryPortalGeneration = functions
   .region('us-central1')
   .runWith({
@@ -540,7 +541,7 @@ export const retryPortalGeneration = functions
  * Get User Portal Preferences
  * 
  * Retrieve current portal generation preferences for a user.
- */
+  */
 export const getUserPortalPreferences = functions
   .region('us-central1')
   .https.onCall(async (data: { userId?: string }, context) => {
@@ -583,7 +584,7 @@ export const getUserPortalPreferences = functions
  * List User Portals
  * 
  * Get all portals generated for a user.
- */
+  */
 export const listUserPortals = functions
   .region('us-central1')
   .https.onCall(async (data: { userId?: string; limit?: number }, context) => {
@@ -647,7 +648,7 @@ export const listUserPortals = functions
  * Automatic Portal Generation Trigger
  * 
  * Firestore trigger that automatically starts portal generation when a CV job is completed.
- */
+  */
 export const onCVCompletionTriggerPortal = functions
   .region('us-central1')
   .runWith({

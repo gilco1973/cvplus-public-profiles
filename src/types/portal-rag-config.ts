@@ -1,11 +1,12 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Portal RAG Configuration Types
  *
  * Core RAG system configuration interfaces for portal generation.
  *
  * @author Gil Klainert
  * @version 1.0.0
- */
+  */
 
 export { VectorDatabaseConfig, VectorDatabaseProvider } from './portal-vector-db';
 export { EmbeddingConfig, EmbeddingProvider } from './portal-embeddings';
@@ -13,44 +14,44 @@ export { ChatServiceConfig, ChatModelConfig } from './portal-chat-config';
 
 /**
  * Main RAG system configuration for AI-powered chat
- */
+  */
 export interface RAGConfig {
-  /** Vector database configuration */
+  /** Vector database configuration  */
   vectorDb: VectorDatabaseConfig;
 
-  /** Embedding configuration for document processing */
+  /** Embedding configuration for document processing  */
   embeddings: EmbeddingConfig;
 
-  /** Chat service configuration */
+  /** Chat service configuration  */
   chatService: ChatServiceConfig;
 
-  /** Content processing settings */
+  /** Content processing settings  */
   contentProcessing: ContentProcessingConfig;
 
-  /** RAG-specific metadata */
+  /** RAG-specific metadata  */
   metadata: RAGMetadata;
 
-  /** Performance and optimization settings */
+  /** Performance and optimization settings  */
   optimization: RAGOptimizationConfig;
 }
 
 /**
  * Content processing configuration
- */
+  */
 export interface ContentProcessingConfig {
-  /** CV sections to include */
+  /** CV sections to include  */
   includedSections: CVSection[];
 
-  /** Content filtering settings */
+  /** Content filtering settings  */
   filtering: ContentFilteringConfig;
 
-  /** Content enhancement settings */
+  /** Content enhancement settings  */
   enhancement: ContentEnhancementConfig;
 }
 
 /**
  * CV sections for processing
- */
+  */
 export enum CVSection {
   PERSONAL_INFO = 'personal_info',
   SUMMARY = 'summary',
@@ -66,21 +67,21 @@ export enum CVSection {
 
 /**
  * Content filtering configuration
- */
+  */
 export interface ContentFilteringConfig {
-  /** Filter sensitive information */
+  /** Filter sensitive information  */
   filterSensitiveInfo: boolean;
 
-  /** Allowed content types */
+  /** Allowed content types  */
   allowedContentTypes: ContentType[];
 
-  /** Content quality threshold */
+  /** Content quality threshold  */
   qualityThreshold: number;
 }
 
 /**
  * Content types
- */
+  */
 export enum ContentType {
   TEXT = 'text',
   IMAGE = 'image',
@@ -91,110 +92,110 @@ export enum ContentType {
 
 /**
  * Content enhancement configuration
- */
+  */
 export interface ContentEnhancementConfig {
-  /** Generate summaries */
+  /** Generate summaries  */
   generateSummaries: boolean;
 
-  /** Extract keywords */
+  /** Extract keywords  */
   extractKeywords: boolean;
 
-  /** Enhance with external data */
+  /** Enhance with external data  */
   externalDataEnhancement: boolean;
 }
 
 /**
  * RAG metadata
- */
+  */
 export interface RAGMetadata {
-  /** Content source information */
+  /** Content source information  */
   sources: ContentSourceInfo[];
 
-  /** Processing timestamps */
+  /** Processing timestamps  */
   timestamps: RAGTimestamps;
 
-  /** Content statistics */
+  /** Content statistics  */
   statistics: ContentStatistics;
 
-  /** Quality metrics */
+  /** Quality metrics  */
   qualityMetrics: QualityMetrics;
 }
 
 /**
  * Content source information
- */
+  */
 export interface ContentSourceInfo {
-  /** Source identifier */
+  /** Source identifier  */
   id: string;
 
-  /** Source type */
+  /** Source type  */
   type: 'cv' | 'document' | 'url' | 'manual';
 
-  /** Source metadata */
+  /** Source metadata  */
   metadata: Record<string, any>;
 
-  /** Processing status */
+  /** Processing status  */
   status: 'pending' | 'processed' | 'failed';
 }
 
 /**
  * RAG processing timestamps
- */
+  */
 export interface RAGTimestamps {
-  /** When content was first indexed */
+  /** When content was first indexed  */
   indexed: Date;
 
-  /** Last update timestamp */
+  /** Last update timestamp  */
   lastUpdated: Date;
 
-  /** Last query timestamp */
+  /** Last query timestamp  */
   lastQueried?: Date;
 }
 
 /**
  * Content statistics
- */
+  */
 export interface ContentStatistics {
-  /** Total number of chunks */
+  /** Total number of chunks  */
   totalChunks: number;
 
-  /** Total tokens */
+  /** Total tokens  */
   totalTokens: number;
 
-  /** Average chunk size */
+  /** Average chunk size  */
   averageChunkSize: number;
 
-  /** Content coverage percentage */
+  /** Content coverage percentage  */
   coveragePercentage: number;
 }
 
 /**
  * Quality metrics
- */
+  */
 export interface QualityMetrics {
-  /** Embedding quality score */
+  /** Embedding quality score  */
   embeddingQuality: number;
 
-  /** Content completeness score */
+  /** Content completeness score  */
   completenessScore: number;
 
-  /** Processing success rate */
+  /** Processing success rate  */
   successRate: number;
 }
 
 /**
  * RAG optimization configuration
- */
+  */
 export interface RAGOptimizationConfig {
-  /** Enable caching */
+  /** Enable caching  */
   enableCaching: boolean;
 
-  /** Cache TTL in seconds */
+  /** Cache TTL in seconds  */
   cacheTTL: number;
 
-  /** Enable compression */
+  /** Enable compression  */
   enableCompression: boolean;
 
-  /** Performance monitoring */
+  /** Performance monitoring  */
   performanceMonitoring: boolean;
 }

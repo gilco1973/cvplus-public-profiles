@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Enhanced RAG and Chat Types
  * 
  * RAG system and chat functionality types for enhanced CV features.
@@ -6,11 +7,11 @@
  * 
  * @author Gil Klainert
  * @version 1.0.0
- */
+  */
 
 /**
  * User RAG profile for AI chat
- */
+  */
 export interface UserRAGProfile {
   userId: string;
   jobId: string;
@@ -39,7 +40,7 @@ export interface UserRAGProfile {
 
 /**
  * CV content chunk for RAG
- */
+  */
 export interface CVChunk {
   id: string;
   jobId: string;
@@ -57,7 +58,7 @@ export interface CVChunk {
 
 /**
  * Chat session data
- */
+  */
 export interface ChatSession {
   id: string;
   jobId: string;
@@ -86,7 +87,7 @@ export interface ChatSession {
 
 /**
  * Individual chat message
- */
+  */
 export interface ChatMessage {
   id: string;
   sessionId: string;

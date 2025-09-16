@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { onRequest } from 'firebase-functions/v2/https';
+// @ts-ignore - Export conflicts/v2/https';
 import { Request, Response } from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import { getPublicProfile } from '../../models/public-profile.service';
@@ -227,7 +227,7 @@ export const contactProfileOwner = onRequest(
 
 /**
  * Validate contact request data
- */
+  */
 function validateContactRequest(data: ContactRequest): string[] {
   const errors: string[] = [];
 
@@ -264,7 +264,7 @@ function validateContactRequest(data: ContactRequest): string[] {
 
 /**
  * Check rate limiting for contact requests
- */
+  */
 async function checkRateLimit(clientIP: string, senderEmail: string): Promise<{
   allowed: boolean;
   message?: string;
@@ -318,7 +318,7 @@ async function checkRateLimit(clientIP: string, senderEmail: string): Promise<{
 
 /**
  * Calculate spam score for the message
- */
+  */
 async function calculateSpamScore(data: ContactRequest, clientIP: string): Promise<number> {
   let score = 0;
 
@@ -356,7 +356,7 @@ async function calculateSpamScore(data: ContactRequest, clientIP: string): Promi
 
 /**
  * Generate contact email content
- */
+  */
 async function generateContactEmail(
   data: ContactRequest,
   profile: any,
@@ -434,7 +434,7 @@ Sent via CVPlus Public Profile
 
 /**
  * Send contact notification email
- */
+  */
 async function sendContactNotification(
   recipientEmail: string,
   emailContent: any,
@@ -458,7 +458,7 @@ async function sendContactNotification(
 
 /**
  * Store contact message in Firestore
- */
+  */
 async function storeContactMessage(
   profileId: string,
   messageId: string,
@@ -491,7 +491,7 @@ async function storeContactMessage(
 
 /**
  * Update profile contact analytics
- */
+  */
 async function updateContactAnalytics(profileId: string): Promise<void> {
   const firestore = admin.firestore();
 
@@ -503,7 +503,7 @@ async function updateContactAnalytics(profileId: string): Promise<void> {
 
 /**
  * Get estimated response time based on subscription tier
- */
+  */
 function getEstimatedResponseTime(tier: string): string {
   const responseTimes = {
     enterprise: '24 hours',
@@ -517,7 +517,7 @@ function getEstimatedResponseTime(tier: string): string {
 
 /**
  * Validate email format
- */
+  */
 function isValidEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -525,7 +525,7 @@ function isValidEmail(email: string): boolean {
 
 /**
  * Validate phone number format
- */
+  */
 function isValidPhone(phone: string): boolean {
   const phoneRegex = /^\+?[\d\s\-\(\)]{10,}$/;
   return phoneRegex.test(phone);
@@ -533,7 +533,7 @@ function isValidPhone(phone: string): boolean {
 
 /**
  * Get client IP address
- */
+  */
 function getClientIP(req: Request): string {
   return (
     req.headers['x-forwarded-for'] as string ||

@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsexport class UrlGenerator {
+// @ts-ignore - Export conflicts
   private static readonly BASE_URL = 'https://profiles.cvplus.com';
   private static readonly RESERVED_SLUGS = [
     'admin', 'api', 'www', 'mail', 'ftp', 'help', 'support', 'about',
@@ -9,7 +9,7 @@
 
   /**
    * Generate a URL-friendly slug from a name
-   */
+    */
   static generateSlug(name: string, fallbackId?: string): string {
     if (!name) {
       return fallbackId ? `user-${fallbackId}` : 'profile';
@@ -48,7 +48,7 @@
 
   /**
    * Generate optimized slug considering SEO
-   */
+    */
   static generateSeoOptimizedSlug(
     name: string,
     title?: string,
@@ -91,7 +91,7 @@
 
   /**
    * Generate public profile URL
-   */
+    */
   static generatePublicUrl(slug: string, customDomain?: string): string {
     const domain = customDomain || this.BASE_URL;
 
@@ -103,7 +103,7 @@
 
   /**
    * Generate QR code URL
-   */
+    */
   static generateQrCodeUrl(profileUrl: string): string {
     const encodedUrl = encodeURIComponent(profileUrl);
     return `${this.BASE_URL}/api/qr?url=${encodedUrl}`;
@@ -111,7 +111,7 @@
 
   /**
    * Generate embed widget URL
-   */
+    */
   static generateEmbedUrl(slug: string, options?: {
     width?: number;
     height?: number;
@@ -135,7 +135,7 @@
 
   /**
    * Generate social sharing URLs
-   */
+    */
   static generateSocialSharingUrls(profileUrl: string, name: string, title?: string) {
     const text = title ? `${name} - ${title}` : name;
     const encodedUrl = encodeURIComponent(profileUrl);
@@ -153,7 +153,7 @@
 
   /**
    * Generate PDF export URL
-   */
+    */
   static generatePdfUrl(slug: string, options?: {
     format?: 'A4' | 'Letter';
     orientation?: 'portrait' | 'landscape';
@@ -175,21 +175,21 @@
 
   /**
    * Generate analytics URL
-   */
+    */
   static generateAnalyticsUrl(slug: string, timeRange = '30d'): string {
     return `${this.BASE_URL}/api/analytics/${slug}?range=${timeRange}`;
   }
 
   /**
    * Generate contact form submission URL
-   */
+    */
   static generateContactUrl(slug: string): string {
     return `${this.BASE_URL}/api/contact/${slug}`;
   }
 
   /**
    * Validate slug format
-   */
+    */
   static isValidSlug(slug: string): boolean {
     // Check basic format
     const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -206,7 +206,7 @@
 
   /**
    * Check if slug is available
-   */
+    */
   static async checkSlugAvailability(slug: string): Promise<boolean> {
     if (!this.isValidSlug(slug)) return false;
 
@@ -222,7 +222,7 @@
 
   /**
    * Generate alternative slugs if original is taken
-   */
+    */
   static generateAlternativeSlugs(originalSlug: string, count = 5): string[] {
     const alternatives = [];
 
@@ -241,7 +241,7 @@
 
   /**
    * Parse profile URL to extract slug
-   */
+    */
   static extractSlugFromUrl(url: string): string | null {
     try {
       const urlObj = new URL(url);
@@ -260,7 +260,7 @@
 
   /**
    * Generate canonical URL for SEO
-   */
+    */
   static generateCanonicalUrl(slug: string, customDomain?: string): string {
     const domain = customDomain || this.BASE_URL;
     return `${domain}/${slug}`;
@@ -268,7 +268,7 @@
 
   /**
    * Generate sitemap entry URL
-   */
+    */
   static generateSitemapUrl(slug: string): string {
     return `${this.BASE_URL}/${slug}`;
   }

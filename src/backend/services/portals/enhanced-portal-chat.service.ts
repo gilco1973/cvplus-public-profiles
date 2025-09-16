@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Enhanced Portal Chat Service - One Click Portal Implementation
  *
  * Implements enhanced RAG chat with confidence scoring and source citations
@@ -7,7 +8,7 @@
  * @author Gil Klainert
  * @created 2025-09-13
  * @version 1.0
- */
+  */
 
 import { logger } from 'firebase-functions';
 import * as admin from 'firebase-admin';
@@ -49,7 +50,7 @@ export class EnhancedPortalChatService {
 
   /**
    * Process chat message with enhanced RAG (FR-005)
-   */
+    */
   async processMessage(request: ChatRequest): Promise<ChatResponse> {
     const startTime = Date.now();
 
@@ -127,7 +128,7 @@ export class EnhancedPortalChatService {
 
   /**
    * Initialize chat session for portal
-   */
+    */
   async initializeChatSession(jobId: string): Promise<string> {
     const sessionId = this.generateSessionId();
 
@@ -153,7 +154,7 @@ export class EnhancedPortalChatService {
 
   /**
    * Get chat analytics for portal
-   */
+    */
   async getChatAnalytics(jobId: string, timeRange: string = 'last_7_days'): Promise<any> {
     try {
       const endDate = new Date();

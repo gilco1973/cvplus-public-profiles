@@ -1,11 +1,12 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Test Data Utilities for Public Profiles Contract Tests
  *
  * Provides typed test data and utilities for contract testing
  * that leverage local constants and types from the public-profiles submodule.
  *
  * @fileoverview Test data utilities for public profiles tests
- */
+  */
 
 import {
   PROFILE_CONSTANTS,

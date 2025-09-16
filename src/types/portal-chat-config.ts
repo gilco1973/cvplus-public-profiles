@@ -1,38 +1,39 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Portal Chat Configuration Types
  *
  * Chat service configuration for RAG-powered conversations in portals.
  *
  * @author Gil Klainert
  * @version 1.0.0
- */
+  */
 
 /**
  * Chat service configuration
- */
+  */
 export interface ChatServiceConfig {
-  /** LLM provider */
+  /** LLM provider  */
   provider: ChatProvider;
 
-  /** Model configuration */
+  /** Model configuration  */
   model: ChatModelConfig;
 
-  /** Response configuration */
+  /** Response configuration  */
   response: ChatResponseConfig;
 
-  /** Context management */
+  /** Context management  */
   context: ChatContextConfig;
 
-  /** Safety and moderation settings */
+  /** Safety and moderation settings  */
   safety: ChatSafetyConfig;
 
-  /** Performance settings */
+  /** Performance settings  */
   performance: ChatPerformanceConfig;
 }
 
 /**
  * Supported chat providers
- */
+  */
 export enum ChatProvider {
   OPENAI = 'openai',
   ANTHROPIC = 'anthropic',
@@ -45,176 +46,176 @@ export enum ChatProvider {
 
 /**
  * Chat model configuration
- */
+  */
 export interface ChatModelConfig {
-  /** Model name */
+  /** Model name  */
   name: string;
 
-  /** Maximum tokens for response */
+  /** Maximum tokens for response  */
   maxTokens: number;
 
-  /** Temperature for response generation (0.0 to 1.0) */
+  /** Temperature for response generation (0.0 to 1.0)  */
   temperature: number;
 
-  /** Top-p for nucleus sampling (0.0 to 1.0) */
+  /** Top-p for nucleus sampling (0.0 to 1.0)  */
   topP: number;
 
-  /** Top-k for top-k sampling */
+  /** Top-k for top-k sampling  */
   topK?: number;
 
-  /** Frequency penalty (-2.0 to 2.0) */
+  /** Frequency penalty (-2.0 to 2.0)  */
   frequencyPenalty?: number;
 
-  /** Presence penalty (-2.0 to 2.0) */
+  /** Presence penalty (-2.0 to 2.0)  */
   presencePenalty?: number;
 
-  /** Stop sequences */
+  /** Stop sequences  */
   stopSequences?: string[];
 
-  /** Model-specific parameters */
+  /** Model-specific parameters  */
   parameters?: Record<string, any>;
 
-  /** Custom model configuration */
+  /** Custom model configuration  */
   custom?: CustomChatModelConfig;
 }
 
 /**
  * Custom chat model configuration
- */
+  */
 export interface CustomChatModelConfig {
-  /** Model endpoint URL */
+  /** Model endpoint URL  */
   endpoint: string;
 
-  /** Authentication configuration */
+  /** Authentication configuration  */
   authentication: AuthenticationConfig;
 
-  /** Request format */
+  /** Request format  */
   requestFormat: ChatRequestFormat;
 
-  /** Response format */
+  /** Response format  */
   responseFormat: ChatResponseFormat;
 
-  /** Model capabilities */
+  /** Model capabilities  */
   capabilities: ModelCapabilities;
 }
 
 /**
  * Authentication configuration
- */
+  */
 export interface AuthenticationConfig {
-  /** Authentication type */
+  /** Authentication type  */
   type: 'api_key' | 'bearer_token' | 'oauth' | 'custom';
 
-  /** API key or token */
+  /** API key or token  */
   token?: string;
 
-  /** Custom headers */
+  /** Custom headers  */
   headers?: Record<string, string>;
 
-  /** OAuth configuration */
+  /** OAuth configuration  */
   oauth?: OAuthConfig;
 }
 
 /**
  * OAuth configuration
- */
+  */
 export interface OAuthConfig {
-  /** Client ID */
+  /** Client ID  */
   clientId: string;
 
-  /** Client secret */
+  /** Client secret  */
   clientSecret: string;
 
-  /** Token endpoint */
+  /** Token endpoint  */
   tokenEndpoint: string;
 
-  /** Scope */
+  /** Scope  */
   scope?: string;
 }
 
 /**
  * Chat request format
- */
+  */
 export interface ChatRequestFormat {
-  /** Messages field name */
+  /** Messages field name  */
   messagesField: string;
 
-  /** System message field name */
+  /** System message field name  */
   systemField?: string;
 
-  /** Parameters field name */
+  /** Parameters field name  */
   parametersField?: string;
 
-  /** Custom field mappings */
+  /** Custom field mappings  */
   fieldMappings?: Record<string, string>;
 }
 
 /**
  * Chat response format
- */
+  */
 export interface ChatResponseFormat {
-  /** Response content path */
+  /** Response content path  */
   contentPath: string;
 
-  /** Token usage path */
+  /** Token usage path  */
   usagePath?: string;
 
-  /** Metadata path */
+  /** Metadata path  */
   metadataPath?: string;
 
-  /** Error path */
+  /** Error path  */
   errorPath?: string;
 }
 
 /**
  * Model capabilities
- */
+  */
 export interface ModelCapabilities {
-  /** Supports streaming */
+  /** Supports streaming  */
   streaming: boolean;
 
-  /** Supports function calling */
+  /** Supports function calling  */
   functionCalling: boolean;
 
-  /** Supports image input */
+  /** Supports image input  */
   imageInput: boolean;
 
-  /** Supports file upload */
+  /** Supports file upload  */
   fileUpload: boolean;
 
-  /** Maximum context length */
+  /** Maximum context length  */
   maxContextLength: number;
 }
 
 /**
  * Chat response configuration
- */
+  */
 export interface ChatResponseConfig {
-  /** Maximum response length */
+  /** Maximum response length  */
   maxLength: number;
 
-  /** Response format */
+  /** Response format  */
   format: ResponseFormat;
 
-  /** Include citations */
+  /** Include citations  */
   includeCitations: boolean;
 
-  /** Include confidence scores */
+  /** Include confidence scores  */
   includeConfidenceScores: boolean;
 
-  /** Include source references */
+  /** Include source references  */
   includeSourceReferences: boolean;
 
-  /** Response streaming */
+  /** Response streaming  */
   streaming: boolean;
 
-  /** Response validation */
+  /** Response validation  */
   validation: ResponseValidationConfig;
 }
 
 /**
  * Response format options
- */
+  */
 export enum ResponseFormat {
   TEXT = 'text',
   MARKDOWN = 'markdown',
@@ -225,67 +226,67 @@ export enum ResponseFormat {
 
 /**
  * Response validation configuration
- */
+  */
 export interface ResponseValidationConfig {
-  /** Enable response validation */
+  /** Enable response validation  */
   enabled: boolean;
 
-  /** Minimum response length */
+  /** Minimum response length  */
   minLength: number;
 
-  /** Maximum response length */
+  /** Maximum response length  */
   maxLength: number;
 
-  /** Check for harmful content */
+  /** Check for harmful content  */
   checkHarmfulContent: boolean;
 
-  /** Check for factual accuracy */
+  /** Check for factual accuracy  */
   checkFactualAccuracy: boolean;
 
-  /** Custom validation rules */
+  /** Custom validation rules  */
   customRules?: ValidationRule[];
 }
 
 /**
  * Custom validation rule
- */
+  */
 export interface ValidationRule {
-  /** Rule name */
+  /** Rule name  */
   name: string;
 
-  /** Rule type */
+  /** Rule type  */
   type: 'regex' | 'function' | 'ai_check';
 
-  /** Rule configuration */
+  /** Rule configuration  */
   config: Record<string, any>;
 
-  /** Action on violation */
+  /** Action on violation  */
   action: 'reject' | 'warn' | 'modify';
 }
 
 /**
  * Chat context management
- */
+  */
 export interface ChatContextConfig {
-  /** Maximum context length */
+  /** Maximum context length  */
   maxContextLength: number;
 
-  /** Context retention strategy */
+  /** Context retention strategy  */
   retentionStrategy: ContextRetentionStrategy;
 
-  /** Number of previous messages to retain */
+  /** Number of previous messages to retain  */
   maxPreviousMessages: number;
 
-  /** Context compression */
+  /** Context compression  */
   compression: ContextCompressionConfig;
 
-  /** Memory management */
+  /** Memory management  */
   memory: MemoryManagementConfig;
 }
 
 /**
  * Context retention strategies
- */
+  */
 export enum ContextRetentionStrategy {
   SLIDING_WINDOW = 'sliding_window',
   SUMMARIZATION = 'summarization',
@@ -296,218 +297,218 @@ export enum ContextRetentionStrategy {
 
 /**
  * Context compression configuration
- */
+  */
 export interface ContextCompressionConfig {
-  /** Enable compression */
+  /** Enable compression  */
   enabled: boolean;
 
-  /** Compression ratio target */
+  /** Compression ratio target  */
   targetRatio: number;
 
-  /** Compression method */
+  /** Compression method  */
   method: 'summarization' | 'extraction' | 'semantic';
 
-  /** Preserve important messages */
+  /** Preserve important messages  */
   preserveImportant: boolean;
 }
 
 /**
  * Memory management configuration
- */
+  */
 export interface MemoryManagementConfig {
-  /** Enable long-term memory */
+  /** Enable long-term memory  */
   longTermMemory: boolean;
 
-  /** Memory storage type */
+  /** Memory storage type  */
   storageType: 'local' | 'database' | 'vector_store';
 
-  /** Memory consolidation interval */
+  /** Memory consolidation interval  */
   consolidationInterval: number;
 
-  /** Memory retention period */
+  /** Memory retention period  */
   retentionPeriod: number;
 }
 
 /**
  * Chat safety configuration
- */
+  */
 export interface ChatSafetyConfig {
-  /** Enable content filtering */
+  /** Enable content filtering  */
   contentFiltering: boolean;
 
-  /** Profanity filtering */
+  /** Profanity filtering  */
   profanityFilter: boolean;
 
-  /** Personal information protection */
+  /** Personal information protection  */
   piiProtection: boolean;
 
-  /** Harmful content detection */
+  /** Harmful content detection  */
   harmfulContentDetection: boolean;
 
-  /** Custom safety rules */
+  /** Custom safety rules  */
   customRules: SafetyRule[];
 
-  /** Moderation settings */
+  /** Moderation settings  */
   moderation: ModerationConfig;
 }
 
 /**
  * Safety rule configuration
- */
+  */
 export interface SafetyRule {
-  /** Rule identifier */
+  /** Rule identifier  */
   id: string;
 
-  /** Rule description */
+  /** Rule description  */
   description: string;
 
-  /** Rule pattern or condition */
+  /** Rule pattern or condition  */
   condition: string | Record<string, any>;
 
-  /** Action when rule is triggered */
+  /** Action when rule is triggered  */
   action: 'block' | 'warn' | 'moderate' | 'log';
 
-  /** Rule severity */
+  /** Rule severity  */
   severity: 'low' | 'medium' | 'high' | 'critical';
 }
 
 /**
  * Moderation configuration
- */
+  */
 export interface ModerationConfig {
-  /** Enable human moderation */
+  /** Enable human moderation  */
   humanModeration: boolean;
 
-  /** Auto-moderation rules */
+  /** Auto-moderation rules  */
   autoModeration: AutoModerationConfig;
 
-  /** Escalation rules */
+  /** Escalation rules  */
   escalation: EscalationConfig[];
 }
 
 /**
  * Auto-moderation configuration
- */
+  */
 export interface AutoModerationConfig {
-  /** Enable auto-moderation */
+  /** Enable auto-moderation  */
   enabled: boolean;
 
-  /** Confidence threshold for auto-action */
+  /** Confidence threshold for auto-action  */
   confidenceThreshold: number;
 
-  /** Auto-moderation actions */
+  /** Auto-moderation actions  */
   actions: AutoModerationAction[];
 }
 
 /**
  * Auto-moderation action
- */
+  */
 export interface AutoModerationAction {
-  /** Trigger condition */
+  /** Trigger condition  */
   condition: string;
 
-  /** Action to take */
+  /** Action to take  */
   action: 'block' | 'flag' | 'sanitize' | 'replace';
 
-  /** Action parameters */
+  /** Action parameters  */
   parameters?: Record<string, any>;
 }
 
 /**
  * Escalation configuration
- */
+  */
 export interface EscalationConfig {
-  /** Escalation trigger */
+  /** Escalation trigger  */
   trigger: string;
 
-  /** Escalation target */
+  /** Escalation target  */
   target: 'human' | 'admin' | 'system';
 
-  /** Escalation delay */
+  /** Escalation delay  */
   delay: number;
 
-  /** Escalation message */
+  /** Escalation message  */
   message?: string;
 }
 
 /**
  * Chat performance configuration
- */
+  */
 export interface ChatPerformanceConfig {
-  /** Response timeout (ms) */
+  /** Response timeout (ms)  */
   timeout: number;
 
-  /** Request rate limiting */
+  /** Request rate limiting  */
   rateLimiting: RateLimitingConfig;
 
-  /** Caching configuration */
+  /** Caching configuration  */
   caching: CachingConfig;
 
-  /** Load balancing */
+  /** Load balancing  */
   loadBalancing: LoadBalancingConfig;
 }
 
 /**
  * Rate limiting configuration
- */
+  */
 export interface RateLimitingConfig {
-  /** Enable rate limiting */
+  /** Enable rate limiting  */
   enabled: boolean;
 
-  /** Requests per minute */
+  /** Requests per minute  */
   requestsPerMinute: number;
 
-  /** Tokens per minute */
+  /** Tokens per minute  */
   tokensPerMinute: number;
 
-  /** Burst allowance */
+  /** Burst allowance  */
   burstAllowance: number;
 }
 
 /**
  * Caching configuration
- */
+  */
 export interface CachingConfig {
-  /** Enable response caching */
+  /** Enable response caching  */
   enabled: boolean;
 
-  /** Cache TTL in seconds */
+  /** Cache TTL in seconds  */
   ttl: number;
 
-  /** Cache key strategy */
+  /** Cache key strategy  */
   keyStrategy: 'full' | 'semantic' | 'hash';
 
-  /** Cache size limit */
+  /** Cache size limit  */
   sizeLimit: number;
 }
 
 /**
  * Load balancing configuration
- */
+  */
 export interface LoadBalancingConfig {
-  /** Enable load balancing */
+  /** Enable load balancing  */
   enabled: boolean;
 
-  /** Load balancing strategy */
+  /** Load balancing strategy  */
   strategy: 'round_robin' | 'least_connections' | 'weighted' | 'random';
 
-  /** Health check configuration */
+  /** Health check configuration  */
   healthCheck: HealthCheckConfig;
 }
 
 /**
  * Health check configuration
- */
+  */
 export interface HealthCheckConfig {
-  /** Health check interval (ms) */
+  /** Health check interval (ms)  */
   interval: number;
 
-  /** Health check timeout (ms) */
+  /** Health check timeout (ms)  */
   timeout: number;
 
-  /** Failure threshold */
+  /** Failure threshold  */
   failureThreshold: number;
 
-  /** Recovery threshold */
+  /** Recovery threshold  */
   recoveryThreshold: number;
 }

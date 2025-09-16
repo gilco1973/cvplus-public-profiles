@@ -1,8 +1,9 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * CVPlus Public Profiles Backend Functions
  * 
  * This module exports Firebase Cloud Functions for public profile functionality.
- */
+  */
 
 // Public Profile Functions
 export {

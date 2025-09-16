@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { onRequest } from 'firebase-functions/v2/https';
+// @ts-ignore - Export conflicts/v2/https';
 import { Request, Response } from 'firebase-functions';
 import { profileManagerService } from '../../services/profile-manager.service';
 import { getProcessedCV } from '../../models/processed-cv.service';
@@ -265,7 +265,7 @@ export const createPublicProfile = onRequest(
 
 /**
  * Get profile limits based on subscription tier
- */
+  */
 function getProfileLimits(tier: string) {
   const limits = {
     free: {
@@ -307,7 +307,7 @@ function getProfileLimits(tier: string) {
 
 /**
  * Check if theme is allowed for subscription tier
- */
+  */
 function isThemeAllowed(theme: ProfileTheme, tier: string): boolean {
   const limits = getProfileLimits(tier);
   return limits.availableThemes.includes(theme);
@@ -315,7 +315,7 @@ function isThemeAllowed(theme: ProfileTheme, tier: string): boolean {
 
 /**
  * Get default profile sections
- */
+  */
 function getDefaultSections(): ProfileSection[] {
   return [
     ProfileSection.ABOUT,
@@ -327,7 +327,7 @@ function getDefaultSections(): ProfileSection[] {
 
 /**
  * Get available themes for subscription tier
- */
+  */
 export function getAvailableThemes(tier: string): Array<{ id: ProfileTheme; name: string; description: string; preview?: string }> {
   const themeDatabase = {
     [ProfileTheme.PROFESSIONAL]: {
@@ -364,7 +364,7 @@ export function getAvailableThemes(tier: string): Array<{ id: ProfileTheme; name
 
 /**
  * Get available sections for profiles
- */
+  */
 export function getAvailableSections(): Array<{ id: ProfileSection; name: string; description: string; required: boolean }> {
   return [
     {

@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { CVFeature } from '../types';
+// @ts-ignore - Export conflicts/types';
 import { ParsedCV } from '../../cvParser';
 // Note: We implement our own portfolio extraction logic instead of using the service's private methods
 import * as admin from 'firebase-admin';
@@ -6,7 +6,7 @@ import * as admin from 'firebase-admin';
 /**
  * Portfolio Gallery Feature - Generates interactive portfolio gallery for CV
  * Converted from legacy HTML generation to React component integration
- */
+  */
 export class PortfolioGalleryFeature implements CVFeature {
   
   async generate(cv: ParsedCV, jobId: string, options?: any): Promise<string> {
@@ -23,7 +23,7 @@ export class PortfolioGalleryFeature implements CVFeature {
   
   /**
    * Extract portfolio data from CV using existing service methods
-   */
+    */
   private async extractPortfolioData(cv: ParsedCV, jobId: string): Promise<any> {
     const items: any[] = [];
     const categories = new Set<string>();
@@ -110,7 +110,7 @@ export class PortfolioGalleryFeature implements CVFeature {
   
   /**
    * Generate React component placeholder for modern CV rendering
-   */
+    */
   private generateReactComponentPlaceholder(jobId: string, portfolioData: any, options?: any): string {
     const componentProps = {
       profileId: jobId,
@@ -147,7 +147,7 @@ export class PortfolioGalleryFeature implements CVFeature {
   
   /**
    * Generate error fallback when portfolio generation fails
-   */
+    */
   private generateErrorFallback(jobId: string): string {
     return `
       <div class="cv-feature-container portfolio-gallery-feature error-state">
@@ -491,7 +491,7 @@ export class PortfolioGalleryFeature implements CVFeature {
   
   /**
    * Extract projects from work experience
-   */
+    */
   private async extractProjectsFromExperience(exp: any): Promise<any[]> {
     const projects: any[] = [];
     
@@ -522,7 +522,7 @@ export class PortfolioGalleryFeature implements CVFeature {
   
   /**
    * Create achievement portfolio item
-   */
+    */
   private async createAchievementItem(achievement: string, exp: any): Promise<any> {
     const impact = this.extractImpactMetrics(achievement);
     
@@ -674,7 +674,7 @@ export class PortfolioGalleryFeature implements CVFeature {
   
   /**
    * Get CSS styles for the feature
-   */
+    */
   getStyles(): string {
     return `
       .cv-feature-container.portfolio-gallery-feature {
@@ -740,7 +740,7 @@ export class PortfolioGalleryFeature implements CVFeature {
   
   /**
    * Get JavaScript scripts for the feature
-   */
+    */
   getScripts(): string {
     return `
       // Portfolio Gallery Feature Scripts

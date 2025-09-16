@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Portal Theme and Styling Types
  * 
  * Theme, color scheme, and typography definitions for portal customization.
@@ -6,233 +7,233 @@
  * 
  * @author Gil Klainert
  * @version 1.0.0
- */
+  */
 
 /**
  * Portal theme configuration
- */
+  */
 export interface PortalTheme {
-  /** Theme identifier */
+  /** Theme identifier  */
   id: string;
   
-  /** Theme display name */
+  /** Theme display name  */
   name: string;
   
-  /** Color scheme */
+  /** Color scheme  */
   colors: ColorScheme;
   
-  /** Typography settings */
+  /** Typography settings  */
   typography: TypographyConfig;
   
-  /** Spacing configuration */
+  /** Spacing configuration  */
   spacing: {
-    /** Base unit for spacing (in rem) */
+    /** Base unit for spacing (in rem)  */
     baseUnit: number;
     
-    /** Section padding */
+    /** Section padding  */
     sectionPadding: number;
     
-    /** Element margins */
+    /** Element margins  */
     elementMargin: number;
   };
   
-  /** Border radius settings */
+  /** Border radius settings  */
   borderRadius: {
-    /** Small radius (buttons, inputs) */
+    /** Small radius (buttons, inputs)  */
     sm: string;
     
-    /** Medium radius (cards, panels) */
+    /** Medium radius (cards, panels)  */
     md: string;
     
-    /** Large radius (hero sections) */
+    /** Large radius (hero sections)  */
     lg: string;
   };
   
-  /** Shadow settings */
+  /** Shadow settings  */
   shadows: {
-    /** Light shadow */
+    /** Light shadow  */
     sm: string;
     
-    /** Medium shadow */
+    /** Medium shadow  */
     md: string;
     
-    /** Heavy shadow */
+    /** Heavy shadow  */
     lg: string;
   };
   
-  /** Background images */
+  /** Background images  */
   backgroundImages?: {
-    /** Hero section background */
+    /** Hero section background  */
     hero?: string;
     
-    /** Section backgrounds */
+    /** Section backgrounds  */
     sections?: string[];
     
-    /** Pattern overlays */
+    /** Pattern overlays  */
     patterns?: string[];
   };
 }
 
 /**
  * Color scheme definition
- */
+  */
 export interface ColorScheme {
-  /** Primary brand color */
+  /** Primary brand color  */
   primary: string;
   
-  /** Secondary accent color */
+  /** Secondary accent color  */
   secondary: string;
   
-  /** Secondary text color (legacy alias) */
+  /** Secondary text color (legacy alias)  */
   textSecondary?: string;
   
-  /** Dark background color (legacy alias) */
+  /** Dark background color (legacy alias)  */
   backgroundDark?: string;
   
-  /** Background colors */
+  /** Background colors  */
   background: {
-    /** Main background */
+    /** Main background  */
     primary: string;
     
-    /** Secondary background (cards, panels) */
+    /** Secondary background (cards, panels)  */
     secondary: string;
     
-    /** Accent background */
+    /** Accent background  */
     accent: string;
   };
   
-  /** Text colors */
+  /** Text colors  */
   text: {
-    /** Primary text */
+    /** Primary text  */
     primary: string;
     
-    /** Secondary text */
+    /** Secondary text  */
     secondary: string;
     
-    /** Muted text */
+    /** Muted text  */
     muted: string;
     
-    /** Accent text */
+    /** Accent text  */
     accent: string;
   };
   
-  /** Border colors */
+  /** Border colors  */
   border: {
-    /** Primary border */
+    /** Primary border  */
     primary: string;
     
-    /** Light border */
+    /** Light border  */
     light: string;
     
-    /** Accent border */
+    /** Accent border  */
     accent: string;
   };
   
-  /** Status colors */
+  /** Status colors  */
   status: {
-    /** Success color */
+    /** Success color  */
     success: string;
     
-    /** Warning color */
+    /** Warning color  */
     warning: string;
     
-    /** Error color */
+    /** Error color  */
     error: string;
     
-    /** Info color */
+    /** Info color  */
     info: string;
   };
   
-  /** Gradient colors */
+  /** Gradient colors  */
   gradients?: {
-    /** Primary gradient */
+    /** Primary gradient  */
     primary: string;
     
-    /** Secondary gradient */
+    /** Secondary gradient  */
     secondary: string;
     
-    /** Hero gradient */
+    /** Hero gradient  */
     hero: string;
   };
 }
 
 /**
  * Typography configuration
- */
+  */
 export interface TypographyConfig {
-  /** Font family definitions */
+  /** Font family definitions  */
   fontFamilies: {
-    /** Heading font */
+    /** Heading font  */
     heading: string;
     
-    /** Body text font */
+    /** Body text font  */
     body: string;
     
-    /** Monospace font */
+    /** Monospace font  */
     mono: string;
   };
   
-  /** Font sizes */
+  /** Font sizes  */
   fontSizes: {
-    /** Extra small text */
+    /** Extra small text  */
     xs: string;
     
-    /** Small text */
+    /** Small text  */
     sm: string;
     
-    /** Base text size */
+    /** Base text size  */
     base: string;
     
-    /** Large text */
+    /** Large text  */
     lg: string;
     
-    /** Extra large text */
+    /** Extra large text  */
     xl: string;
     
-    /** 2X large text */
+    /** 2X large text  */
     '2xl': string;
     
-    /** 3X large text */
+    /** 3X large text  */
     '3xl': string;
     
-    /** 4X large text */
+    /** 4X large text  */
     '4xl': string;
   };
   
-  /** Font weights */
+  /** Font weights  */
   fontWeights: {
-    /** Light weight */
+    /** Light weight  */
     light: number;
     
-    /** Normal weight */
+    /** Normal weight  */
     normal: number;
     
-    /** Medium weight */
+    /** Medium weight  */
     medium: number;
     
-    /** Semi-bold weight */
+    /** Semi-bold weight  */
     semibold: number;
     
-    /** Bold weight */
+    /** Bold weight  */
     bold: number;
   };
   
-  /** Line heights */
+  /** Line heights  */
   lineHeights: {
-    /** Tight line height */
+    /** Tight line height  */
     tight: number;
     
-    /** Normal line height */
+    /** Normal line height  */
     normal: number;
     
-    /** Relaxed line height */
+    /** Relaxed line height  */
     relaxed: number;
   };
 }
 
 /**
  * Predefined theme presets
- */
+  */
 export const THEME_PRESETS = {
   PROFESSIONAL: 'professional',
   CREATIVE: 'creative',
@@ -244,7 +245,7 @@ export const THEME_PRESETS = {
 
 /**
  * Portal sections that can be styled
- */
+  */
 export enum PortalSection {
   HEADER = 'header',
   HERO = 'hero',

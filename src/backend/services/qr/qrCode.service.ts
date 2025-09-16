@@ -1,9 +1,10 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Advanced QR Code Service
  * Handles QR code generation with branding and analytics
  * Author: Gil Klainert
  * Date: 2025-08-22
- */
+  */
 
 import * as admin from 'firebase-admin';
 import * as QRCode from 'qrcode';
@@ -53,7 +54,7 @@ export class QRCodeService {
 
   /**
    * Generate QR code with custom branding
-   */
+    */
   async generateQRCode(options: QRCodeOptions): Promise<string> {
     try {
       // Generate unique QR ID for tracking
@@ -125,7 +126,7 @@ export class QRCodeService {
 
   /**
    * Add logo to QR code center
-   */
+    */
   private async addLogoToQR(qrBuffer: Buffer, logoUrl: string): Promise<Buffer> {
     try {
       // Download logo
@@ -156,7 +157,7 @@ export class QRCodeService {
 
   /**
    * Generate vCard data
-   */
+    */
   generateVCard(vcard: VCard): string {
     const lines = [
       'BEGIN:VCARD',
@@ -182,7 +183,7 @@ export class QRCodeService {
 
   /**
    * Create QR tracking entry
-   */
+    */
   private async createQRTracking(qrId: string, options: QRCodeOptions): Promise<void> {
     await this.db.collection('qr_tracking').doc(qrId).set({
       userId: options.userId,
@@ -196,7 +197,7 @@ export class QRCodeService {
 
   /**
    * Track QR code scan
-   */
+    */
   async trackQRScan(
     qrId: string,
     metadata: {
@@ -240,7 +241,7 @@ export class QRCodeService {
 
   /**
    * Get QR code analytics
-   */
+    */
   async getQRAnalytics(userId: string, qrId?: string): Promise<QRAnalytics[]> {
     let query = this.db.collection('qr_tracking').where('userId', '==', userId);
     
@@ -291,7 +292,7 @@ export class QRCodeService {
 
   /**
    * Update dynamic QR code destination
-   */
+    */
   async updateQRDestination(qrId: string, newData: string): Promise<void> {
     await this.db.collection('qr_codes').doc(qrId).update({
       data: newData,
@@ -301,14 +302,14 @@ export class QRCodeService {
 
   /**
    * Generate unique QR ID
-   */
+    */
   private generateQRId(): string {
     return Math.random().toString(36).substring(2, 15);
   }
 
   /**
    * Parse device type from user agent
-   */
+    */
   private parseDeviceType(userAgent?: string): string {
     if (!userAgent) return 'Unknown';
     
@@ -321,7 +322,7 @@ export class QRCodeService {
 
   /**
    * Delete QR code
-   */
+    */
   async deleteQRCode(userId: string, qrId: string): Promise<void> {
     // Delete from storage
     const fileName = `qr-codes/${userId}/${qrId}.png`;

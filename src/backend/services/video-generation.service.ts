@@ -1,7 +1,8 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Video Generation Service
  * Creates professional video introductions with AI avatars
- */
+  */
 
 import { ParsedCV } from '../types/enhanced-models';
 import * as admin from 'firebase-admin';
@@ -89,7 +90,7 @@ export class VideoGenerationService {
 
   /**
    * Helper function to safely extract technical skills
-   */
+    */
   private getTechnicalSkills(skills: string[] | { [key: string]: string[]; technical?: string[]; soft?: string[]; languages?: string[]; tools?: string[]; frontend?: string[]; backend?: string[]; databases?: string[]; cloud?: string[]; competencies?: string[]; frameworks?: string[]; expertise?: string[]; } | undefined): string[] {
     if (!skills) return [];
     if (Array.isArray(skills)) return skills;
@@ -109,7 +110,7 @@ export class VideoGenerationService {
   
   /**
    * Generate a complete video introduction
-   */
+    */
   async generateVideoIntroduction(
     parsedCV: ParsedCV,
     jobId: string,
@@ -184,7 +185,7 @@ export class VideoGenerationService {
 
   /**
    * Generate enhanced script with quality metrics (without video creation)
-   */
+    */
   async generateEnhancedScriptOnly(
     parsedCV: ParsedCV,
     options: VideoGenerationOptions = {}
@@ -204,7 +205,7 @@ export class VideoGenerationService {
 
   /**
    * Get industry template recommendations for a CV
-   */
+    */
   getIndustryRecommendations(parsedCV: ParsedCV): any[] {
     try {
       const { industryTemplatesService } = require('./industry-templates.service');
@@ -216,7 +217,7 @@ export class VideoGenerationService {
   
   /**
    * Generate video script optimized for AI avatar delivery
-   */
+    */
   private async generateVideoScript(
     cv: ParsedCV,
     options: VideoGenerationOptions
@@ -283,7 +284,7 @@ Keep it exactly ${targetWords} words.`;
   
   /**
    * Optimize script for avatar delivery
-   */
+    */
   private optimizeScriptForAvatar(script: string): string {
     // Add natural pauses and emphasis
     let optimized = script
@@ -301,7 +302,7 @@ Keep it exactly ${targetWords} words.`;
   
   /**
    * Create video using D-ID API
-   */
+    */
   async createVideoWithAvatar(
     script: string,
     jobId: string,
@@ -395,7 +396,7 @@ Keep it exactly ${targetWords} words.`;
   
   /**
    * Create fallback video using alternative method
-   */
+    */
   private async createFallbackVideo(
     script: string,
     jobId: string,
@@ -412,7 +413,7 @@ Keep it exactly ${targetWords} words.`;
   
   /**
    * Create video using Synthesia API
-   */
+    */
   private async createSynthesiaVideo(
     script: string,
     jobId: string,
@@ -491,7 +492,7 @@ Keep it exactly ${targetWords} words.`;
   
   /**
    * Create animated text video as last resort
-   */
+    */
   private async createAnimatedTextVideo(
     script: string,
     jobId: string,
@@ -530,7 +531,7 @@ Keep it exactly ${targetWords} words.`;
   
   /**
    * Generate video thumbnail
-   */
+    */
   async generateThumbnail(videoUrl: string, jobId: string): Promise<string> {
     // In production, use FFmpeg or a video processing service to extract frame
     // For now, generate a branded thumbnail
@@ -547,7 +548,7 @@ Keep it exactly ${targetWords} words.`;
   
   /**
    * Generate subtitles in WebVTT format
-   */
+    */
   private async generateSubtitles(script: string, duration: number): Promise<string> {
     const words = script.split(' ');
     const wordsPerSecond = words.length / duration;
@@ -581,7 +582,7 @@ Keep it exactly ${targetWords} words.`;
   
   /**
    * Format time for WebVTT
-   */
+    */
   private formatTime(seconds: number): string {
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
@@ -593,7 +594,7 @@ Keep it exactly ${targetWords} words.`;
   
   /**
    * Store video in Firebase Storage
-   */
+    */
   private async storeVideo(
     videoData: { videoUrl: string; duration: number; size: number },
     jobId: string
@@ -631,7 +632,7 @@ Keep it exactly ${targetWords} words.`;
   
   /**
    * Generate template video script
-   */
+    */
   private generateTemplateVideoScript(cv: ParsedCV, targetWords: number): string {
     const name = cv.personalInfo?.name || 'I';
     const role = cv.experience?.[0]?.position || 'professional';

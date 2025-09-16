@@ -1,6 +1,7 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Cloud Functions for public CV profiles
- */
+  */
 
 import { onCall, HttpsError, CallableRequest } from 'firebase-functions/v2/https';
 import { integrationsService } from '../services/integrations.service';
@@ -49,7 +50,7 @@ interface TrackQRScanRequest {
 
 /**
  * Create public profile for a CV
- */
+  */
 export const createPublicProfile = onCall<CreatePublicProfileRequest>(
   {
     timeoutSeconds: 120,
@@ -199,7 +200,7 @@ export const createPublicProfile = onCall<CreatePublicProfileRequest>(
 
 /**
  * Get public profile by slug
- */
+  */
 export const getPublicProfile = onCall<GetPublicProfileRequest>(
   {
     timeoutSeconds: 60,
@@ -255,7 +256,7 @@ export const getPublicProfile = onCall<GetPublicProfileRequest>(
 
 /**
  * Update public profile settings
- */
+  */
 export const updatePublicProfileSettings = onCall<UpdateProfileSettingsRequest>(
   {
     timeoutSeconds: 60,
@@ -326,7 +327,7 @@ export const updatePublicProfileSettings = onCall<UpdateProfileSettingsRequest>(
 
 /**
  * Submit contact form for public profile
- */
+  */
 export const submitContactForm = onCall<SubmitContactFormRequest>(
   {
     timeoutSeconds: 60,
@@ -644,7 +645,7 @@ export const submitContactForm = onCall<SubmitContactFormRequest>(
 
 /**
  * Track QR code scan
- */
+  */
 export const trackQRScan = onCall<TrackQRScanRequest>(
   {
     timeoutSeconds: 30,
@@ -693,7 +694,7 @@ export const trackQRScan = onCall<TrackQRScanRequest>(
 
 /**
  * Test email configuration (admin only)
- */
+  */
 export const testEmailConfiguration = onCall(
   {
     timeoutSeconds: 30,

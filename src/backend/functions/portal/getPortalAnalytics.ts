@@ -6,7 +6,7 @@
  *
  * @author CVPlus Team
  * @version 1.0.0
- */
+  */
 
 import { https } from 'firebase-functions/v2';
 import { Request, Response } from 'express';
@@ -15,7 +15,7 @@ import { authenticateUser } from '../middleware/auth.middleware';
 
 /**
  * Portal Analytics Response
- */
+  */
 interface PortalAnalyticsResponse {
   success: boolean;
   portalId?: string;
@@ -96,7 +96,7 @@ interface PortalAnalyticsResponse {
 
 /**
  * Portal analytics retrieval handler
- */
+  */
 async function handleGetPortalAnalytics(req: Request, res: Response): Promise<void> {
   try {
     // Validate request method
@@ -229,7 +229,7 @@ async function handleGetPortalAnalytics(req: Request, res: Response): Promise<vo
 
 /**
  * Get overview analytics from Firestore
- */
+  */
 async function getOverviewAnalytics(
   db: FirebaseFirestore.Firestore,
   portalId: string,
@@ -243,7 +243,7 @@ async function getOverviewAnalytics(
 
 /**
  * Get chat session analytics
- */
+  */
 async function getChatSessionAnalytics(
   db: FirebaseFirestore.Firestore,
   portalId: string,
@@ -265,7 +265,7 @@ async function getChatSessionAnalytics(
 
 /**
  * Get view analytics
- */
+  */
 async function getViewAnalytics(
   db: FirebaseFirestore.Firestore,
   portalId: string,
@@ -287,7 +287,7 @@ async function getViewAnalytics(
 
 /**
  * Get feedback analytics
- */
+  */
 async function getFeedbackAnalytics(
   db: FirebaseFirestore.Firestore,
   portalId: string,
@@ -312,7 +312,7 @@ async function getFeedbackAnalytics(
 
 /**
  * Calculate engagement metrics
- */
+  */
 function calculateEngagementMetrics(chatSessions: any[]) {
   const questionCounts: Record<string, number> = {};
   const topicCounts: Record<string, number> = {};
@@ -351,7 +351,7 @@ function calculateEngagementMetrics(chatSessions: any[]) {
 
 /**
  * Calculate average session duration
- */
+  */
 function calculateAverageSessionDuration(chatSessions: any[]): number {
   if (chatSessions.length === 0) return 0;
 
@@ -370,14 +370,14 @@ function calculateAverageSessionDuration(chatSessions: any[]): number {
 
 /**
  * Calculate conversion rate (chat sessions / views)
- */
+  */
 function calculateConversionRate(views: number, sessions: number): number {
   return views > 0 ? (sessions / views) * 100 : 0;
 }
 
 /**
  * Generate timeline data
- */
+  */
 function generateTimelineData(viewEvents: any[], chatSessions: any[], from: Date, to: Date) {
   const daily: Array<{ date: string; views: number; sessions: number; messages: number }> = [];
 
@@ -416,7 +416,7 @@ function generateTimelineData(viewEvents: any[], chatSessions: any[], from: Date
 
 /**
  * Get geographic data (mock implementation)
- */
+  */
 async function getGeographicData(
   db: FirebaseFirestore.Firestore,
   portalId: string,
@@ -436,7 +436,7 @@ async function getGeographicData(
 
 /**
  * Get technology data (mock implementation)
- */
+  */
 async function getTechnologyData(
   db: FirebaseFirestore.Firestore,
   portalId: string,
@@ -462,7 +462,7 @@ async function getTechnologyData(
 /**
  * Firebase Function: Get Portal Analytics
  * Endpoint: GET /portal/{portalId}/analytics
- */
+  */
 export const getPortalAnalytics = https.onRequest(
   {
     cors: true,

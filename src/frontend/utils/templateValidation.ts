@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { TemplateDefinition, TemplateValidationResult } from '../types/template.types';
+// @ts-ignore - Export conflicts/types/template.types';
 import { PublicProfileData } from '../../types/profile.types';
 import { BrandingSettings } from '../types/creator.types';
 import { TemplateValidationCore } from './templateValidationCore';
@@ -7,7 +7,7 @@ import { BrandingValidation } from './brandingValidation';
 export class TemplateValidator {
   /**
    * Validate template compatibility with profile data
-   */
+    */
   static validateTemplateWithProfile(
     template: TemplateDefinition,
     profileData: Partial<PublicProfileData>
@@ -17,14 +17,14 @@ export class TemplateValidator {
 
   /**
    * Validate branding settings compatibility
-   */
+    */
   static validateBrandingSettings(branding: BrandingSettings): TemplateValidationResult {
     return BrandingValidation.validateBrandingSettings(branding);
   }
 
   /**
    * Comprehensive validation for template and branding together
-   */
+    */
   static validateComplete(
     template: TemplateDefinition,
     profileData: Partial<PublicProfileData>,
@@ -44,7 +44,7 @@ export class TemplateValidator {
 
   /**
    * Quick validation check for basic requirements
-   */
+    */
   static isValidForTemplate(
     template: TemplateDefinition,
     profileData: Partial<PublicProfileData>
@@ -55,7 +55,7 @@ export class TemplateValidator {
 
   /**
    * Get validation summary for UI display
-   */
+    */
   static getValidationSummary(
     template: TemplateDefinition,
     profileData: Partial<PublicProfileData>,

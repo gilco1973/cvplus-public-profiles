@@ -6,7 +6,7 @@
  *
  * @author CVPlus Team
  * @version 1.0.0
- */
+  */
 
 import { https } from 'firebase-functions/v2';
 import { Request, Response } from 'express';
@@ -17,7 +17,7 @@ import { ClaudeService } from '@cvplus/public-profiles/backend/services/claude.s
 
 /**
  * Start Chat Session Request Body
- */
+  */
 interface StartChatSessionRequest {
   userMessage?: string; // Optional initial message
   context?: {
@@ -33,7 +33,7 @@ interface StartChatSessionRequest {
 
 /**
  * Start Chat Session Response
- */
+  */
 interface StartChatSessionResponse {
   success: boolean;
   sessionId?: string;
@@ -51,7 +51,7 @@ interface StartChatSessionResponse {
 
 /**
  * Chat session initialization handler
- */
+  */
 async function handleStartChatSession(req: Request, res: Response): Promise<void> {
   try {
     // Validate request method
@@ -203,7 +203,7 @@ async function handleStartChatSession(req: Request, res: Response): Promise<void
 
 /**
  * Generate welcome message based on CV data
- */
+  */
 function generateWelcomeMessage(cvData: any, language = 'en'): string {
   const name = cvData?.personalInfo?.name || 'this professional';
   const title = cvData?.personalInfo?.title || cvData?.summary?.title || 'professional';
@@ -219,7 +219,7 @@ function generateWelcomeMessage(cvData: any, language = 'en'): string {
 
 /**
  * Extract available topics from CV data
- */
+  */
 function extractAvailableTopics(cvData: any): string[] {
   const topics = ['Experience', 'Skills', 'Education'];
 
@@ -233,7 +233,7 @@ function extractAvailableTopics(cvData: any): string[] {
 
 /**
  * Update portal analytics
- */
+  */
 async function updatePortalAnalytics(
   db: FirebaseFirestore.Firestore,
   portalId: string,
@@ -270,7 +270,7 @@ async function updatePortalAnalytics(
 /**
  * Firebase Function: Start Chat Session
  * Endpoint: POST /portal/{portalId}/chat/start
- */
+  */
 export const startChatSession = https.onRequest(
   {
     cors: true,

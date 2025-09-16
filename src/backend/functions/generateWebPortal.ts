@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { onCall } from 'firebase-functions/v2/https';
+// @ts-ignore - Export conflicts/v2/https';
 import * as admin from 'firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
 import { corsOptions } from '../config/cors';
@@ -28,7 +28,7 @@ import { GenerationMetadata } from '../types/portal-original';
  * @param request.data.jobId - The CV job ID to generate portal for
  * @param request.data.portalConfig - Optional portal configuration overrides
  * @returns PortalGenerationResult with portal URLs and status
- */
+  */
 export const generateWebPortal = onCall(
   {
     timeoutSeconds: 300, // 5 minutes for complex generation process
@@ -210,7 +210,8 @@ export const generateWebPortal = onCall(
       const processingTimeMs = Date.now() - startTime;
       
       // Generate metadata for the portal generation (currently unused)
-      /*
+      /* 
+  */
       const _generationMetadata: GenerationMetadata = {
         version: '1.0.0',
         timestamp: new Date(),
@@ -238,7 +239,7 @@ export const generateWebPortal = onCall(
           overallScore: 0.90
         }
       };
-      */
+       */
       
       // Final portal configuration (minimal for Firestore storage)
       const finalPortalConfig = {

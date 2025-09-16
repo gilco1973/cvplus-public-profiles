@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { onRequest } from 'firebase-functions/v2/https';
+// @ts-ignore - Export conflicts/v2/https';
 import { Request, Response } from 'firebase-functions';
 import { profileManagerService } from '../../services/profile-manager.service';
 import { getPublicProfile } from '../../models/public-profile.service';
@@ -251,7 +251,7 @@ export const viewPublicProfile = onRequest(
 
 /**
  * Filter contact information based on privacy settings
- */
+  */
 function filterContactInfo(contactInfo: any, allowContact: boolean) {
   if (!allowContact) {
     // Return limited contact info
@@ -266,7 +266,7 @@ function filterContactInfo(contactInfo: any, allowContact: boolean) {
 
 /**
  * Generate ETag for caching
- */
+  */
 function generateETag(profile: any): string {
   const hash = require('crypto')
     .createHash('md5')
@@ -282,7 +282,7 @@ function generateETag(profile: any): string {
 
 /**
  * Get client IP address
- */
+  */
 function getClientIP(req: Request): string {
   return (
     req.headers['x-forwarded-for'] as string ||

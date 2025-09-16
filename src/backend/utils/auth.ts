@@ -1,6 +1,7 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Authentication utilities for Google-only authentication migration
- */
+  */
 
 import * as admin from 'firebase-admin';
 import { CallableRequest } from 'firebase-functions/v2/https';
@@ -16,7 +17,7 @@ export interface AuthenticatedUser {
 
 /**
  * Validates that the user is authenticated with Google and has proper permissions
- */
+  */
 export async function requireGoogleAuth(request: CallableRequest): Promise<AuthenticatedUser> {
   // Check if user is authenticated
   if (!request.auth) {
@@ -85,7 +86,7 @@ export async function requireGoogleAuth(request: CallableRequest): Promise<Authe
 
 /**
  * Validates that the user has calendar permissions for calendar-related features
- */
+  */
 export async function requireCalendarPermissions(request: CallableRequest): Promise<AuthenticatedUser> {
   const user = await requireGoogleAuth(request);
   
@@ -98,7 +99,7 @@ export async function requireCalendarPermissions(request: CallableRequest): Prom
 
 /**
  * Gets the user's Google access token for calendar operations
- */
+  */
 export async function getGoogleAccessToken(uid: string): Promise<string | null> {
   try {
     const userDoc = await admin.firestore()
@@ -115,7 +116,7 @@ export async function getGoogleAccessToken(uid: string): Promise<string | null> 
 
 /**
  * Updates user's last login time and ensures user document exists
- */
+  */
 export async function updateUserLastLogin(uid: string, email: string, name?: string, picture?: string): Promise<void> {
   try {
     // Ensure Firebase Admin is properly initialized

@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// Simple import test for PublicProfileCreator components
+// @ts-ignore - Export conflicts// Simple import test for PublicProfileCreator components
 // This file tests that all components and hooks can be imported correctly
 
 // Import all the new components and hooks

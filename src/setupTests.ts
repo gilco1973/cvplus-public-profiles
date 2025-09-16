@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport '@testing-library/jest-dom';
+// @ts-ignore - Export conflicts/jest-dom';
 
 // Mock Firebase modules globally
 jest.mock('firebase/functions', () => ({

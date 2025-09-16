@@ -1,8 +1,9 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Web Portal Functions for Firebase Cloud Functions
  * 
  * These functions handle web portal generation and management for public profiles.
- */
+  */
 
 import { CallableRequest } from 'firebase-functions/v2/https';
 import { HttpsError } from 'firebase-functions/v2/https';
@@ -31,7 +32,7 @@ export interface UpdatePortalPreferencesRequest {
 
 /**
  * Generate a web portal for a CV
- */
+  */
 export async function generateWebPortal(request: CallableRequest<GenerateWebPortalRequest>): Promise<any> {
   const { jobId, options } = request.data;
 
@@ -72,7 +73,7 @@ export async function generateWebPortal(request: CallableRequest<GenerateWebPort
 
 /**
  * Get portal generation status
- */
+  */
 export async function getPortalStatus(request: CallableRequest<PortalStatusRequest>): Promise<any> {
   const { portalId } = request.data;
 
@@ -111,7 +112,7 @@ export async function getPortalStatus(request: CallableRequest<PortalStatusReque
 
 /**
  * Update portal preferences
- */
+  */
 export async function updatePortalPreferences(request: CallableRequest<UpdatePortalPreferencesRequest>): Promise<any> {
   const { portalId, preferences } = request.data;
 
@@ -141,7 +142,7 @@ export async function updatePortalPreferences(request: CallableRequest<UpdatePor
 
 /**
  * Retry portal generation
- */
+  */
 export async function retryPortalGeneration(request: CallableRequest<PortalStatusRequest>): Promise<any> {
   const { portalId } = request.data;
 
@@ -176,7 +177,7 @@ export async function retryPortalGeneration(request: CallableRequest<PortalStatu
 
 /**
  * Get user portal preferences
- */
+  */
 export async function getUserPortalPreferences(_request: CallableRequest): Promise<any> {
   try {
     // This would typically get user-specific preferences
@@ -202,7 +203,7 @@ export async function getUserPortalPreferences(_request: CallableRequest): Promi
 
 /**
  * List user portals
- */
+  */
 export async function listUserPortals(_request: CallableRequest): Promise<any> {
   try {
     // This would typically list portals for the authenticated user
@@ -243,7 +244,7 @@ export interface PortalAnalyticsRequest {
 /**
  * One Click Portal Generation (FR-001)
  * Generate a complete web portal with a single click for premium users
- */
+  */
 export async function generateOneClickPortal(request: CallableRequest<OneClickPortalRequest>): Promise<any> {
   const { jobId, premiumFeatures = true, customBranding = false } = request.data;
 
@@ -300,7 +301,7 @@ export async function generateOneClickPortal(request: CallableRequest<OneClickPo
 /**
  * Enhanced Portal Chat (FR-005, FR-007, FR-008)
  * Process chat messages with RAG, confidence scoring, and source citations
- */
+  */
 export async function processPortalChat(request: CallableRequest<PortalChatRequest>): Promise<any> {
   const { jobId, message, sessionId } = request.data;
 
@@ -347,7 +348,7 @@ export async function processPortalChat(request: CallableRequest<PortalChatReque
 
 /**
  * Initialize Portal Chat Session
- */
+  */
 export async function initializePortalChatSession(request: CallableRequest<{ jobId: string }>): Promise<any> {
   const { jobId } = request.data;
 
@@ -380,7 +381,7 @@ export async function initializePortalChatSession(request: CallableRequest<{ job
 /**
  * Get Portal Analytics (FR-012)
  * Retrieve analytics for portal performance and chat interactions
- */
+  */
 export async function getPortalAnalytics(request: CallableRequest<PortalAnalyticsRequest>): Promise<any> {
   const { jobId, timeRange = 'last_7_days' } = request.data;
 
@@ -430,7 +431,7 @@ export async function getPortalAnalytics(request: CallableRequest<PortalAnalytic
 /**
  * Update Portal Content (FR-010)
  * Update portal content when underlying CV is modified
- */
+  */
 export async function updatePortalContent(request: CallableRequest<{ jobId: string; updateType: string }>): Promise<any> {
   const { jobId, updateType = 'full' } = request.data;
 
@@ -463,7 +464,7 @@ export async function updatePortalContent(request: CallableRequest<{ jobId: stri
 
 /**
  * Validate Premium Access for One Click Portal (FR-014)
- */
+  */
 export async function validatePremiumPortalAccess(request: CallableRequest<{ jobId: string }>): Promise<any> {
   const { jobId } = request.data;
 

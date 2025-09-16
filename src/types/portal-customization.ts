@@ -1,98 +1,99 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Portal Customization Types
  *
  * User customization and branding types for portal configuration.
  *
  * @author Gil Klainert
  * @version 1.0.0
- */
+  */
 
 /**
  * Portal SEO metadata
- */
+  */
 export interface PortalSEOMetadata {
-  /** Page title */
+  /** Page title  */
   title?: string;
 
-  /** Meta description */
+  /** Meta description  */
   description?: string;
 
-  /** Keywords for SEO */
+  /** Keywords for SEO  */
   keywords?: string[];
 
-  /** Open Graph image URL */
+  /** Open Graph image URL  */
   ogImage?: string;
 
-  /** Twitter card type */
+  /** Twitter card type  */
   twitterCard?: 'summary' | 'summary_large_image' | 'app' | 'player';
 
-  /** Canonical URL */
+  /** Canonical URL  */
   canonicalUrl?: string;
 
-  /** Additional meta tags */
+  /** Additional meta tags  */
   additionalMeta?: MetaTag[];
 
-  /** Schema.org structured data */
+  /** Schema.org structured data  */
   structuredData?: Record<string, any>;
 }
 
 /**
  * Meta tag configuration
- */
+  */
 export interface MetaTag {
-  /** Meta tag name */
+  /** Meta tag name  */
   name?: string;
 
-  /** Meta tag property */
+  /** Meta tag property  */
   property?: string;
 
-  /** Meta tag content */
+  /** Meta tag content  */
   content: string;
 
-  /** Meta tag type */
+  /** Meta tag type  */
   type?: 'name' | 'property' | 'http-equiv';
 }
 
 /**
  * Portal branding configuration
- */
+  */
 export interface PortalBranding {
-  /** Logo URL */
+  /** Logo URL  */
   logoUrl?: string;
 
-  /** Favicon URL */
+  /** Favicon URL  */
   faviconUrl?: string;
 
-  /** Company/organization name */
+  /** Company/organization name  */
   companyName?: string;
 
-  /** Brand tagline */
+  /** Brand tagline  */
   tagline?: string;
 
-  /** Brand colors */
+  /** Brand colors  */
   brandColors?: BrandColorScheme;
 
-  /** Custom fonts */
+  /** Custom fonts  */
   customFonts?: CustomFontConfig[];
 
-  /** Brand assets */
+  /** Brand assets  */
   assets?: BrandAsset[];
 }
 
 /**
  * Brand color scheme
- */
+  */
 export interface BrandColorScheme {
-  /** Primary brand color */
+  /** Primary brand color  */
   primary: string;
 
-  /** Secondary brand color */
+  /** Secondary brand color  */
   secondary: string;
 
-  /** Accent color */
+  /** Accent color  */
   accent: string;
 
-  /** Neutral colors */
+  /** Neutral colors  */
   neutral?: {
     light: string;
     medium: string;
@@ -102,208 +103,208 @@ export interface BrandColorScheme {
 
 /**
  * Custom font configuration
- */
+  */
 export interface CustomFontConfig {
-  /** Font family name */
+  /** Font family name  */
   name: string;
 
-  /** Font source URL or provider */
+  /** Font source URL or provider  */
   source: string;
 
-  /** Font weights available */
+  /** Font weights available  */
   weights: number[];
 
-  /** Font styles available */
+  /** Font styles available  */
   styles: ('normal' | 'italic')[];
 
-  /** Font display property */
+  /** Font display property  */
   display?: 'auto' | 'block' | 'swap' | 'fallback' | 'optional';
 }
 
 /**
  * Brand asset configuration
- */
+  */
 export interface BrandAsset {
-  /** Asset type */
+  /** Asset type  */
   type: 'logo' | 'icon' | 'background' | 'pattern' | 'image';
 
-  /** Asset name/identifier */
+  /** Asset name/identifier  */
   name: string;
 
-  /** Asset URL */
+  /** Asset URL  */
   url: string;
 
-  /** Asset dimensions */
+  /** Asset dimensions  */
   dimensions?: {
     width: number;
     height: number;
   };
 
-  /** Asset format */
+  /** Asset format  */
   format: 'png' | 'jpg' | 'svg' | 'webp' | 'gif';
 
-  /** Asset usage context */
+  /** Asset usage context  */
   context?: string[];
 }
 
 /**
  * Header customization configuration
- */
+  */
 export interface HeaderCustomization {
-  /** Show logo in header */
+  /** Show logo in header  */
   showLogo: boolean;
 
-  /** Show navigation in header */
+  /** Show navigation in header  */
   showNavigation: boolean;
 
-  /** Header background color */
+  /** Header background color  */
   backgroundColor?: string;
 
-  /** Header text color */
+  /** Header text color  */
   textColor?: string;
 
-  /** Header height */
+  /** Header height  */
   height?: string;
 
-  /** Header padding */
+  /** Header padding  */
   padding?: string;
 
-  /** Header position */
+  /** Header position  */
   position?: 'static' | 'sticky' | 'fixed';
 
-  /** Custom header content */
+  /** Custom header content  */
   customContent?: HeaderContent[];
 
-  /** Header animation */
+  /** Header animation  */
   animation?: AnimationConfig;
 }
 
 /**
  * Header content configuration
- */
+  */
 export interface HeaderContent {
-  /** Content type */
+  /** Content type  */
   type: 'text' | 'image' | 'link' | 'button' | 'custom';
 
-  /** Content value */
+  /** Content value  */
   content: string;
 
-  /** Content positioning */
+  /** Content positioning  */
   position: 'left' | 'center' | 'right';
 
-  /** Content styling */
+  /** Content styling  */
   styling?: ContentStyling;
 
-  /** Content order */
+  /** Content order  */
   order: number;
 }
 
 /**
  * Footer customization configuration
- */
+  */
 export interface FooterCustomization {
-  /** Show social links in footer */
+  /** Show social links in footer  */
   showSocialLinks: boolean;
 
-  /** Show contact information in footer */
+  /** Show contact information in footer  */
   showContact: boolean;
 
-  /** Footer background color */
+  /** Footer background color  */
   backgroundColor?: string;
 
-  /** Footer text color */
+  /** Footer text color  */
   textColor?: string;
 
-  /** Footer padding */
+  /** Footer padding  */
   padding?: string;
 
-  /** Copyright text */
+  /** Copyright text  */
   copyright?: string;
 
-  /** Custom footer content */
+  /** Custom footer content  */
   customContent?: FooterContent[];
 
-  /** Footer columns configuration */
+  /** Footer columns configuration  */
   columns?: FooterColumn[];
 }
 
 /**
  * Footer content configuration
- */
+  */
 export interface FooterContent {
-  /** Content type */
+  /** Content type  */
   type: 'text' | 'link' | 'links' | 'custom';
 
-  /** Content title */
+  /** Content title  */
   title?: string;
 
-  /** Content value */
+  /** Content value  */
   content: string | string[];
 
-  /** Content column */
+  /** Content column  */
   column: number;
 
-  /** Content order within column */
+  /** Content order within column  */
   order: number;
 }
 
 /**
  * Footer column configuration
- */
+  */
 export interface FooterColumn {
-  /** Column identifier */
+  /** Column identifier  */
   id: number;
 
-  /** Column title */
+  /** Column title  */
   title?: string;
 
-  /** Column width */
+  /** Column width  */
   width?: string;
 
-  /** Column alignment */
+  /** Column alignment  */
   alignment?: 'left' | 'center' | 'right';
 }
 
 /**
  * Logo configuration
- */
+  */
 export interface LogoConfiguration {
-  /** Logo image URL */
+  /** Logo image URL  */
   url: string;
 
-  /** Logo width */
+  /** Logo width  */
   width?: number;
 
-  /** Logo height */
+  /** Logo height  */
   height?: number;
 
-  /** Logo alt text */
+  /** Logo alt text  */
   alt?: string;
 
-  /** Logo link URL */
+  /** Logo link URL  */
   linkUrl?: string;
 
-  /** Logo position */
+  /** Logo position  */
   position?: 'left' | 'center' | 'right';
 
-  /** Logo variants for different contexts */
+  /** Logo variants for different contexts  */
   variants?: LogoVariant[];
 }
 
 /**
  * Logo variant configuration
- */
+  */
 export interface LogoVariant {
-  /** Variant name */
+  /** Variant name  */
   name: string;
 
-  /** Variant URL */
+  /** Variant URL  */
   url: string;
 
-  /** Usage context */
+  /** Usage context  */
   context: 'dark' | 'light' | 'mobile' | 'print' | 'favicon';
 
-  /** Variant dimensions */
+  /** Variant dimensions  */
   dimensions?: {
     width: number;
     height: number;
@@ -312,247 +313,247 @@ export interface LogoVariant {
 
 /**
  * Social media links configuration
- */
+  */
 export interface SocialLinks {
-  /** LinkedIn profile URL */
+  /** LinkedIn profile URL  */
   linkedin?: string;
 
-  /** GitHub profile URL */
+  /** GitHub profile URL  */
   github?: string;
 
-  /** Twitter profile URL */
+  /** Twitter profile URL  */
   twitter?: string;
 
-  /** Personal website URL */
+  /** Personal website URL  */
   website?: string;
 
-  /** Email address */
+  /** Email address  */
   email?: string;
 
-  /** Instagram profile URL */
+  /** Instagram profile URL  */
   instagram?: string;
 
-  /** Facebook profile URL */
+  /** Facebook profile URL  */
   facebook?: string;
 
-  /** YouTube channel URL */
+  /** YouTube channel URL  */
   youtube?: string;
 
-  /** Medium profile URL */
+  /** Medium profile URL  */
   medium?: string;
 
-  /** Custom social links */
+  /** Custom social links  */
   custom?: CustomSocialLink[];
 }
 
 /**
  * Custom social link configuration
- */
+  */
 export interface CustomSocialLink {
-  /** Platform name */
+  /** Platform name  */
   platform: string;
 
-  /** Profile URL */
+  /** Profile URL  */
   url: string;
 
-  /** Icon URL or identifier */
+  /** Icon URL or identifier  */
   icon?: string;
 
-  /** Display name */
+  /** Display name  */
   displayName?: string;
 }
 
 /**
  * Contact information configuration
- */
+  */
 export interface ContactInformation {
-  /** Email address */
+  /** Email address  */
   email?: string;
 
-  /** Phone number */
+  /** Phone number  */
   phone?: string;
 
-  /** Physical address */
+  /** Physical address  */
   address?: AddressConfig;
 
-  /** Website URL */
+  /** Website URL  */
   website?: string;
 
-  /** Additional contact methods */
+  /** Additional contact methods  */
   additional?: AdditionalContact[];
 
-  /** Contact form configuration */
+  /** Contact form configuration  */
   contactForm?: ContactFormConfig;
 }
 
 /**
  * Address configuration
- */
+  */
 export interface AddressConfig {
-  /** Street address */
+  /** Street address  */
   street?: string;
 
-  /** City */
+  /** City  */
   city?: string;
 
-  /** State/Province */
+  /** State/Province  */
   state?: string;
 
-  /** Postal code */
+  /** Postal code  */
   postalCode?: string;
 
-  /** Country */
+  /** Country  */
   country?: string;
 
-  /** Full formatted address */
+  /** Full formatted address  */
   formatted?: string;
 }
 
 /**
  * Additional contact method
- */
+  */
 export interface AdditionalContact {
-  /** Contact type */
+  /** Contact type  */
   type: string;
 
-  /** Contact label */
+  /** Contact label  */
   label: string;
 
-  /** Contact value */
+  /** Contact value  */
   value: string;
 
-  /** Contact icon */
+  /** Contact icon  */
   icon?: string;
 }
 
 /**
  * Contact form configuration
- */
+  */
 export interface ContactFormConfig {
-  /** Enable contact form */
+  /** Enable contact form  */
   enabled: boolean;
 
-  /** Form fields to include */
+  /** Form fields to include  */
   fields: ContactFormField[];
 
-  /** Form submission endpoint */
+  /** Form submission endpoint  */
   endpoint?: string;
 
-  /** Success message */
+  /** Success message  */
   successMessage?: string;
 
-  /** Email notification settings */
+  /** Email notification settings  */
   emailNotification?: EmailNotificationConfig;
 }
 
 /**
  * Contact form field configuration
- */
+  */
 export interface ContactFormField {
-  /** Field type */
+  /** Field type  */
   type: 'text' | 'email' | 'tel' | 'textarea' | 'select' | 'checkbox';
 
-  /** Field name */
+  /** Field name  */
   name: string;
 
-  /** Field label */
+  /** Field label  */
   label: string;
 
-  /** Field placeholder */
+  /** Field placeholder  */
   placeholder?: string;
 
-  /** Field is required */
+  /** Field is required  */
   required: boolean;
 
-  /** Field validation rules */
+  /** Field validation rules  */
   validation?: FieldValidationConfig;
 
-  /** Field options (for select fields) */
+  /** Field options (for select fields)  */
   options?: string[];
 }
 
 /**
  * Field validation configuration
- */
+  */
 export interface FieldValidationConfig {
-  /** Minimum length */
+  /** Minimum length  */
   minLength?: number;
 
-  /** Maximum length */
+  /** Maximum length  */
   maxLength?: number;
 
-  /** Validation pattern (regex) */
+  /** Validation pattern (regex)  */
   pattern?: string;
 
-  /** Custom validation message */
+  /** Custom validation message  */
   message?: string;
 }
 
 /**
  * Email notification configuration
- */
+  */
 export interface EmailNotificationConfig {
-  /** Notification recipient */
+  /** Notification recipient  */
   recipient: string;
 
-  /** Email subject template */
+  /** Email subject template  */
   subject: string;
 
-  /** Email body template */
+  /** Email body template  */
   template: string;
 
-  /** Send confirmation to submitter */
+  /** Send confirmation to submitter  */
   sendConfirmation: boolean;
 }
 
 /**
  * Animation configuration
- */
+  */
 export interface AnimationConfig {
-  /** Animation type */
+  /** Animation type  */
   type: 'fade' | 'slide' | 'bounce' | 'scale' | 'rotate' | 'custom';
 
-  /** Animation duration */
+  /** Animation duration  */
   duration: string;
 
-  /** Animation delay */
+  /** Animation delay  */
   delay?: string;
 
-  /** Animation timing function */
+  /** Animation timing function  */
   timingFunction?: string;
 
-  /** Animation iterations */
+  /** Animation iterations  */
   iterations?: number | 'infinite';
 
-  /** Animation direction */
+  /** Animation direction  */
   direction?: 'normal' | 'reverse' | 'alternate' | 'alternate-reverse';
 }
 
 /**
  * Content styling configuration
- */
+  */
 export interface ContentStyling {
-  /** Font size */
+  /** Font size  */
   fontSize?: string;
 
-  /** Font weight */
+  /** Font weight  */
   fontWeight?: number;
 
-  /** Text color */
+  /** Text color  */
   color?: string;
 
-  /** Background color */
+  /** Background color  */
   backgroundColor?: string;
 
-  /** Padding */
+  /** Padding  */
   padding?: string;
 
-  /** Margin */
+  /** Margin  */
   margin?: string;
 
-  /** Border radius */
+  /** Border radius  */
   borderRadius?: string;
 
-  /** Custom CSS properties */
+  /** Custom CSS properties  */
   customCss?: Record<string, string>;
 }

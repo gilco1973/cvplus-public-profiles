@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Enhanced Data Models - Main Interface
  * 
  * Core enhanced models with imports from modular files.
@@ -6,7 +7,7 @@
  * 
  * @author Gil Klainert
  * @version 1.0.0
- */
+  */
 
 // Core types
 import type { ParsedCV } from './job';
@@ -41,31 +42,31 @@ export type {
 
 // Session and processing management types
 export interface EnhancedSessionState {
-  /** Session ID */
+  /** Session ID  */
   sessionId: string;
   
-  /** User ID who owns the session */
+  /** User ID who owns the session  */
   userId: string;
   
-  /** Current processing step */
+  /** Current processing step  */
   currentStep: CVStep;
   
-  /** Session status */
+  /** Session status  */
   status: 'active' | 'paused' | 'completed' | 'failed';
   
-  /** Processing checkpoints */
+  /** Processing checkpoints  */
   processingCheckpoints?: ProcessingCheckpoint[];
   
-  /** Action queue */
+  /** Action queue  */
   actionQueue?: QueuedAction[];
   
-  /** Feature states */
+  /** Feature states  */
   featureStates?: Record<string, any>;
   
-  /** Step progress tracking */
+  /** Step progress tracking  */
   stepProgress?: Record<CVStep, number>;
   
-  /** Session metadata */
+  /** Session metadata  */
   metadata: {
     startedAt: Date;
     lastActivity: Date;
@@ -73,10 +74,10 @@ export interface EnhancedSessionState {
     completedSteps: number;
   };
   
-  /** Current processing data */
+  /** Current processing data  */
   processingData?: any;
   
-  /** Error information if session failed */
+  /** Error information if session failed  */
   error?: {
     message: string;
     step: CVStep;
@@ -85,103 +86,103 @@ export interface EnhancedSessionState {
 }
 
 export interface ProcessingCheckpoint {
-  /** Checkpoint ID */
+  /** Checkpoint ID  */
   id: string;
   
-  /** Session ID this checkpoint belongs to */
+  /** Session ID this checkpoint belongs to  */
   sessionId: string;
   
-  /** Processing step when checkpoint was created */
+  /** Processing step when checkpoint was created  */
   step: CVStep;
   
-  /** Step ID (legacy alias) */
+  /** Step ID (legacy alias)  */
   stepId?: string;
   
-  /** Function name that created the checkpoint */
+  /** Function name that created the checkpoint  */
   functionName?: string;
   
-  /** Checkpoint parameters */
+  /** Checkpoint parameters  */
   parameters?: Record<string, any>;
   
-  /** Last attempt timestamp */
+  /** Last attempt timestamp  */
   lastAttemptAt?: Date;
   
-  /** Checkpoint result */
+  /** Checkpoint result  */
   result?: any;
   
-  /** Maximum retry attempts */
+  /** Maximum retry attempts  */
   maxRetries?: number;
   
-  /** Checkpoint priority */
+  /** Checkpoint priority  */
   priority?: 'low' | 'normal' | 'high';
   
-  /** Processing state */
+  /** Processing state  */
   state?: 'pending' | 'processing' | 'completed' | 'failed';
   
-  /** Estimated duration for completion */
+  /** Estimated duration for completion  */
   estimatedDuration?: number;
   
-  /** When checkpoint was completed */
+  /** When checkpoint was completed  */
   completedAt?: Date;
   
-  /** Execution time in milliseconds */
+  /** Execution time in milliseconds  */
   executionTime?: number;
   
-  /** Number of retry attempts */
+  /** Number of retry attempts  */
   retryCount?: number;
   
-  /** Error information if checkpoint failed */
+  /** Error information if checkpoint failed  */
   error?: {
     message: string;
     code?: string;
     timestamp: Date;
   };
   
-  /** Checkpoint data */
+  /** Checkpoint data  */
   data: any;
   
-  /** Timestamp when checkpoint was created */
+  /** Timestamp when checkpoint was created  */
   createdAt: Date;
   
-  /** Whether checkpoint can be restored */
+  /** Whether checkpoint can be restored  */
   isRestorable: boolean;
 }
 
 export interface QueuedAction {
-  /** Action ID */
+  /** Action ID  */
   id: string;
   
-  /** Session ID this action belongs to */
+  /** Session ID this action belongs to  */
   sessionId: string;
   
-  /** Action type */
+  /** Action type  */
   type: 'retry' | 'skip' | 'manual_intervention' | 'rollback' | 'session_update' | 'form_save' | 'feature_toggle';
   
-  /** Target step for the action */
+  /** Target step for the action  */
   targetStep: CVStep;
   
-  /** Action parameters */
+  /** Action parameters  */
   parameters?: any;
   
-  /** Action payload */
+  /** Action payload  */
   payload?: Record<string, any>;
   
-  /** Action priority */
+  /** Action priority  */
   priority: 'low' | 'normal' | 'high';
   
-  /** When action was queued */
+  /** When action was queued  */
   queuedAt: Date;
   
-  /** Action status */
+  /** Action status  */
   status: 'pending' | 'processing' | 'completed' | 'failed';
   
-  /** Number of attempts made */
+  /** Number of attempts made  */
   attempts?: number;
   
-  /** Maximum allowed attempts */
+  /** Maximum allowed attempts  */
   maxAttempts?: number;
   
-  /** Whether action requires network */
+  /** Whether action requires network  */
   requiresNetwork?: boolean;
 }
 

@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { useState, useEffect, useCallback, useRef } from 'react';
+// @ts-ignore - Export conflicts
 import { profileService } from '../services/ProfileService';
 import {
   PublicProfileData,
@@ -19,7 +19,7 @@ import {
 /**
  * Custom hook for ProfileService operations
  * Provides state management and easy access to all profile operations
- */
+  */
 export function useProfileService() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -309,7 +309,7 @@ export function useProfileService() {
 /**
  * Hook for profile-specific operations
  * Pre-loads profile data and provides profile-scoped operations
- */
+  */
 export function useProfile(profileId: string) {
   const [profile, setProfile] = useState<PublicProfileData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -428,7 +428,7 @@ export function useProfile(profileId: string) {
 /**
  * Hook for analytics-focused operations
  * Provides analytics-specific state and operations
- */
+  */
 export function useProfileAnalytics(profileId: string, dateRange?: DateRange) {
   const [analytics, setAnalytics] = useState<ProfileAnalytics | null>(null);
   const [loading, setLoading] = useState(true);

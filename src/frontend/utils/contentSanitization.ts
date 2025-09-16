@@ -1,7 +1,7 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsexport class ContentSanitizer {
+// @ts-ignore - Export conflicts
   /**
    * Sanitize HTML content to prevent XSS attacks
-   */
+    */
   static sanitizeHtml(html: string): string {
     // Remove script tags and their content
     html = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
@@ -23,7 +23,7 @@
 
   /**
    * Sanitize text content
-   */
+    */
   static sanitizeText(text: string): string {
     if (!text) return '';
 
@@ -36,7 +36,7 @@
 
   /**
    * Sanitize URL
-   */
+    */
   static sanitizeUrl(url: string): string {
     if (!url) return '';
 
@@ -63,7 +63,7 @@
 
   /**
    * Sanitize email address
-   */
+    */
   static sanitizeEmail(email: string): string {
     if (!email) return '';
 
@@ -79,7 +79,7 @@
 
   /**
    * Sanitize phone number
-   */
+    */
   static sanitizePhone(phone: string): string {
     if (!phone) return '';
 
@@ -91,7 +91,7 @@
 
   /**
    * Sanitize social media username
-   */
+    */
   static sanitizeSocialUsername(username: string): string {
     if (!username) return '';
 
@@ -106,7 +106,7 @@
 
   /**
    * Sanitize file name
-   */
+    */
   static sanitizeFileName(fileName: string): string {
     if (!fileName) return '';
 
@@ -122,7 +122,7 @@
 
   /**
    * Sanitize CSS content
-   */
+    */
   static sanitizeCss(css: string): string {
     if (!css) return '';
 
@@ -139,7 +139,7 @@
 
   /**
    * Sanitize profile data comprehensively
-   */
+    */
   static sanitizeProfileData(data: any): any {
     if (!data) return data;
 
@@ -230,14 +230,14 @@
 
   /**
    * Validate content length limits
-   */
+    */
   static validateContentLength(content: string, maxLength: number): boolean {
     return content.length <= maxLength;
   }
 
   /**
    * Truncate content to specified length
-   */
+    */
   static truncateContent(content: string, maxLength: number, suffix = '...'): string {
     if (content.length <= maxLength) return content;
 
@@ -246,7 +246,7 @@
 
   /**
    * Check for prohibited content
-   */
+    */
   static hasProhibitedContent(content: string): boolean {
     const prohibitedPatterns = [
       /(?:https?:\/\/)?(?:www\.)?[\w.-]+\.[\w]{2,}(?:\/[\w.-]*)*\?[\w&=%-]*(?:password|token|key)/i,

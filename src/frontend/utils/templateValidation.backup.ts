@@ -1,11 +1,11 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { TemplateDefinition, TemplateValidationResult } from '../types/template.types';
+// @ts-ignore - Export conflicts/types/template.types';
 import { PublicProfileData } from '../../types/profile.types';
 import { BrandingSettings } from '../types/creator.types';
 
 export class TemplateValidator {
   /**
    * Validate template compatibility with profile data
-   */
+    */
   static validateTemplateWithProfile(
     template: TemplateDefinition,
     profileData: Partial<PublicProfileData>
@@ -52,7 +52,7 @@ export class TemplateValidator {
 
   /**
    * Validate branding settings compatibility
-   */
+    */
   static validateBrandingSettings(branding: BrandingSettings): TemplateValidationResult {
     const errors: string[] = [];
     const warnings: string[] = [];
@@ -100,7 +100,7 @@ export class TemplateValidator {
 
   /**
    * Get required fields for a template
-   */
+    */
   private static getRequiredFieldsForTemplate(template: TemplateDefinition): string[] {
     const baseRequired = ['name', 'title'];
 
@@ -120,7 +120,7 @@ export class TemplateValidator {
 
   /**
    * Get optimal fields for better template appearance
-   */
+    */
   private static getOptimalFieldsForTemplate(template: TemplateDefinition): string[] {
     const baseOptimal = ['summary', 'profileImage', 'skills'];
 
@@ -140,7 +140,7 @@ export class TemplateValidator {
 
   /**
    * Check if profile has a specific field with content
-   */
+    */
   private static hasProfileField(profileData: Partial<PublicProfileData>, field: string): boolean {
     const value = profileData[field as keyof PublicProfileData];
 
@@ -154,7 +154,7 @@ export class TemplateValidator {
 
   /**
    * Validate template-specific requirements
-   */
+    */
   private static validateTemplateSpecificRequirements(
     template: TemplateDefinition,
     profileData: Partial<PublicProfileData>,
@@ -184,7 +184,7 @@ export class TemplateValidator {
 
   /**
    * Validate media requirements
-   */
+    */
   private static validateMediaRequirements(
     template: TemplateDefinition,
     profileData: Partial<PublicProfileData>,
@@ -208,14 +208,14 @@ export class TemplateValidator {
 
   /**
    * Validate hex color format
-   */
+    */
   private static isValidHexColor(color: string): boolean {
     return /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(color);
   }
 
   /**
    * Calculate color contrast ratio
-   */
+    */
   private static calculateColorContrast(color1: string, color2: string): number {
     // Simplified contrast calculation
     const luminance1 = this.getColorLuminance(color1);
@@ -229,7 +229,7 @@ export class TemplateValidator {
 
   /**
    * Get color luminance
-   */
+    */
   private static getColorLuminance(hex: string): number {
     const rgb = this.hexToRgb(hex);
     if (!rgb) return 0;
@@ -244,7 +244,7 @@ export class TemplateValidator {
 
   /**
    * Convert hex to RGB
-   */
+    */
   private static hexToRgb(hex: string): { r: number; g: number; b: number } | null {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
@@ -256,7 +256,7 @@ export class TemplateValidator {
 
   /**
    * Validate font family
-   */
+    */
   private static isValidFontFamily(fontFamily: string): boolean {
     const webSafeFonts = [
       'Arial', 'Helvetica', 'Times New Roman', 'Times', 'Courier New',
@@ -271,7 +271,7 @@ export class TemplateValidator {
 
   /**
    * Validate image URL
-   */
+    */
   private static isValidImageUrl(url: string): boolean {
     try {
       const urlObj = new URL(url);

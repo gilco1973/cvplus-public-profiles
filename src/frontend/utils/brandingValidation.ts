@@ -1,10 +1,10 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { BrandingSettings } from '../types/creator.types';
+// @ts-ignore - Export conflicts/types/creator.types';
 import { TemplateValidationResult } from '../types/template.types';
 
 export class BrandingValidation {
   /**
    * Validate branding settings compatibility
-   */
+    */
   static validateBrandingSettings(branding: BrandingSettings): TemplateValidationResult {
     const errors: string[] = [];
     const warnings: string[] = [];
@@ -52,14 +52,14 @@ export class BrandingValidation {
 
   /**
    * Validate hex color format
-   */
+    */
   private static isValidHexColor(color: string): boolean {
     return /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(color);
   }
 
   /**
    * Calculate color contrast ratio
-   */
+    */
   private static calculateColorContrast(color1: string, color2: string): number {
     const luminance1 = this.getColorLuminance(color1);
     const luminance2 = this.getColorLuminance(color2);
@@ -72,7 +72,7 @@ export class BrandingValidation {
 
   /**
    * Get color luminance
-   */
+    */
   private static getColorLuminance(hex: string): number {
     const rgb = this.hexToRgb(hex);
     if (!rgb) return 0;
@@ -87,7 +87,7 @@ export class BrandingValidation {
 
   /**
    * Convert hex to RGB
-   */
+    */
   private static hexToRgb(hex: string): { r: number; g: number; b: number } | null {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
@@ -99,7 +99,7 @@ export class BrandingValidation {
 
   /**
    * Validate font family
-   */
+    */
   private static isValidFontFamily(fontFamily: string): boolean {
     const webSafeFonts = [
       'Arial', 'Helvetica', 'Times New Roman', 'Times', 'Courier New',
@@ -114,7 +114,7 @@ export class BrandingValidation {
 
   /**
    * Validate image URL
-   */
+    */
   private static isValidImageUrl(url: string): boolean {
     try {
       const urlObj = new URL(url);

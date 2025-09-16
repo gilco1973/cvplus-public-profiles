@@ -1,8 +1,9 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Testimonials Functions for Firebase Cloud Functions
  * 
  * These functions handle testimonials and testimonials carousel for public profiles.
- */
+  */
 
 import { CallableRequest } from 'firebase-functions/v2/https';
 import { HttpsError } from 'firebase-functions/v2/https';
@@ -47,7 +48,7 @@ export interface UpdateCarouselLayoutRequest {
 
 /**
  * Generate testimonials carousel for a profile
- */
+  */
 export async function generateTestimonialsCarousel(request: CallableRequest<GenerateTestimonialsCarouselRequest>): Promise<any> {
   const { profileId, layout = 'horizontal', maxTestimonials = 10 } = request.data;
 
@@ -89,7 +90,7 @@ export async function generateTestimonialsCarousel(request: CallableRequest<Gene
 
 /**
  * Add a testimonial to a profile
- */
+  */
 export async function addTestimonial(request: CallableRequest<TestimonialRequest>): Promise<any> {
   const { profileId, authorName, authorTitle, authorCompany, authorImage, testimonialText, rating } = request.data;
 
@@ -130,7 +131,7 @@ export async function addTestimonial(request: CallableRequest<TestimonialRequest
 
 /**
  * Update a testimonial
- */
+  */
 export async function updateTestimonial(request: CallableRequest<UpdateTestimonialRequest>): Promise<any> {
   const { testimonialId, authorName, authorTitle, authorCompany, authorImage, testimonialText, rating } = request.data;
 
@@ -169,7 +170,7 @@ export async function updateTestimonial(request: CallableRequest<UpdateTestimoni
 
 /**
  * Remove a testimonial
- */
+  */
 export async function removeTestimonial(request: CallableRequest<RemoveTestimonialRequest>): Promise<any> {
   const { testimonialId } = request.data;
 
@@ -199,7 +200,7 @@ export async function removeTestimonial(request: CallableRequest<RemoveTestimoni
 
 /**
  * Update carousel layout and settings
- */
+  */
 export async function updateCarouselLayout(request: CallableRequest<UpdateCarouselLayoutRequest>): Promise<any> {
   const { profileId, layout } = request.data;
 
@@ -251,7 +252,7 @@ export async function updateCarouselLayout(request: CallableRequest<UpdateCarous
 
 /**
  * Get testimonials for a profile (helper function)
- */
+  */
 export async function getProfileTestimonials(profileId: string): Promise<any> {
   try {
     const testimonialsQuery = await admin.firestore()
@@ -281,7 +282,7 @@ export async function getProfileTestimonials(profileId: string): Promise<any> {
 
 /**
  * Approve a testimonial (admin function)
- */
+  */
 export async function approveTestimonial(testimonialId: string): Promise<any> {
   try {
     await admin.firestore()

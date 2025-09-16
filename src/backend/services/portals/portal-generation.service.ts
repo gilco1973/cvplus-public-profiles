@@ -1,8 +1,9 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Portal Generation Service - One Click Portal Implementation
  * @author Gil Klainert
  * @version 2.0
- */
+  */
 import * as admin from 'firebase-admin';
 import { logger } from 'firebase-functions';
 // Import types
@@ -32,7 +33,7 @@ export class PortalGenerationService {
   }
   /**
    * Main portal generation method - maintains existing public API
-   */
+    */
   async generatePortal(
     jobId: string,
     portalConfig: Partial<PortalConfig>,
@@ -192,7 +193,7 @@ export class PortalGenerationService {
 
   /**
    * Extract meaningful content chunks from CV for RAG embeddings
-   */
+    */
   private extractContentChunks(cvData: ParsedCV): Array<{ content: string; metadata: any }> {
     const chunks: Array<{ content: string; metadata: any }> = [];
 

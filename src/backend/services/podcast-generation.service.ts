@@ -1,7 +1,8 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Podcast Generation Service
  * Creates conversational podcasts using AI voices
- */
+  */
 
 import { ParsedCV, FlexibleSkillsFormat } from '../types/enhanced-models';
 import * as admin from 'firebase-admin';
@@ -94,7 +95,7 @@ export class PodcastGenerationService {
   
   /**
    * Safely retrieve secret values from Firebase Functions secrets
-   */
+    */
   private getSecretValue(secretName: string): string | undefined {
     try {
       // Firebase Functions v2 secrets are available as environment variables
@@ -110,7 +111,7 @@ export class PodcastGenerationService {
   
   /**
    * Validate environment and dependencies
-   */
+    */
   private async validateEnvironment(): Promise<void> {
     
     // Check ElevenLabs API key
@@ -168,7 +169,7 @@ export class PodcastGenerationService {
   
   /**
    * Generate a conversational podcast from CV data
-   */
+    */
   async generatePodcast(
     parsedCV: ParsedCV,
     jobId: string,
@@ -239,7 +240,7 @@ export class PodcastGenerationService {
 
   /**
    * Get technical skills from skills union type
-   */
+    */
   private getTechnicalSkills(skills: FlexibleSkillsFormat): string[] {
     if (!skills) return [];
     if (Array.isArray(skills)) return skills;
@@ -261,7 +262,7 @@ export class PodcastGenerationService {
   
   /**
    * Generate a conversational script using GPT-4
-   */
+    */
   private async generateConversationalScript(
     cv: ParsedCV,
     options: any
@@ -342,7 +343,7 @@ Focus: ${options.focus || 'balanced'}`;
   
   /**
    * Parse script text into segments
-   */
+    */
   private parseScriptToSegments(scriptText: string): ConversationalScript {
     const lines = scriptText.split('\n').filter(line => line.trim());
     const segments: ConversationalScript['segments'] = [];
@@ -392,7 +393,7 @@ Focus: ${options.focus || 'balanced'}`;
   
   /**
    * Clean script text of stage directions and emotional cues
-   */
+    */
   private cleanScriptText(text: string): string {
     // Remove common stage directions and emotional cues
     let cleanText = text
@@ -416,7 +417,7 @@ Focus: ${options.focus || 'balanced'}`;
   
   /**
    * Generate audio for each segment using ElevenLabs
-   */
+    */
   private async generateAudioSegments(
     script: ConversationalScript
   ): Promise<Array<{ speaker: string; audioBuffer: Buffer; duration: number; }>> {
@@ -588,7 +589,7 @@ Focus: ${options.focus || 'balanced'}`;
   
   /**
    * Merge audio segments into final podcast using FFmpeg
-   */
+    */
   private async mergeAudioSegments(
     segments: Array<{ speaker: string; audioBuffer: Buffer; duration: number; }>,
     jobId: string,
@@ -815,7 +816,7 @@ Focus: ${options.focus || 'balanced'}`;
    * Generate silence file using FFmpeg
    * Note: Currently disabled due to lavfi compatibility issues
    * Pauses are handled by skipping silence generation for now
-   */
+    */
   private async generateSilenceFile(durationMs: number, outputPath: string): Promise<void> {
     // This method is currently disabled to avoid FFmpeg lavfi issues
     // In production, silence could be handled by:
@@ -829,7 +830,7 @@ Focus: ${options.focus || 'balanced'}`;
   
   /**
    * Clean up temporary files with enhanced error handling
-   */
+    */
   private cleanupTempFiles(filePaths: string[]): void {
     
     let cleanedCount = 0;
@@ -871,7 +872,7 @@ Focus: ${options.focus || 'balanced'}`;
   
   /**
    * Generate template-based script as fallback
-   */
+    */
   private generateTemplateScript(cv: ParsedCV, targetWords: number): ConversationalScript {
     const name = cv.personalInfo?.name || 'our guest';
     const role = cv.experience?.[0]?.position || 'professional';
@@ -947,7 +948,7 @@ Focus: ${options.focus || 'balanced'}`;
   
   /**
    * Generate chapters from script
-   */
+    */
   private generateChapters(script: ConversationalScript): Array<{ title: string; startTime: number; endTime: number; }> {
     const chapters = [
       { title: 'Introduction', startTime: 0, endTime: 30 },
@@ -963,7 +964,7 @@ Focus: ${options.focus || 'balanced'}`;
   
   /**
    * Format script as readable transcript
-   */
+    */
   private formatTranscript(script: ConversationalScript): string {
     const lines = script.segments.map(segment => {
       const speaker = segment.speaker === 'host1' ? 'Sarah' : 'Mike';
@@ -975,7 +976,7 @@ Focus: ${options.focus || 'balanced'}`;
   
   /**
    * Estimate audio duration from text with validation
-   */
+    */
   private estimateAudioDuration(text: string): number {
     if (!text || text.trim() === '') {
       return 1000; // 1 second minimum for empty text
@@ -997,7 +998,7 @@ Focus: ${options.focus || 'balanced'}`;
   
   /**
    * Generate silence buffer
-   */
+    */
   private generateSilence(duration: number): Buffer {
     // Generate silent MP3 data
     // In production, use proper audio library
@@ -1006,7 +1007,7 @@ Focus: ${options.focus || 'balanced'}`;
   
   /**
    * Get voice settings optimized for emotion and speaker
-   */
+    */
   private getVoiceSettingsForEmotion(emotion: string, speaker: string) {
     const baseSettings = {
       stability: speaker === 'host1' ? 0.6 : 0.5, // Sarah (host1) slightly more stable
@@ -1053,7 +1054,7 @@ Focus: ${options.focus || 'balanced'}`;
   
   /**
    * Calculate total duration
-   */
+    */
   private calculateDuration(segments: Array<{ duration: number }>): string {
     const totalMs = segments.reduce((sum, seg) => sum + seg.duration, 0);
     const totalSeconds = Math.floor(totalMs / 1000);

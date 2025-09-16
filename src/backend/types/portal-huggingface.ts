@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Portal HuggingFace Deployment Types
  * 
  * HuggingFace Spaces deployment configuration types for portal hosting.
@@ -6,41 +7,41 @@
  * 
  * @author Gil Klainert
  * @version 1.0.0
- */
+  */
 
 /**
  * HuggingFace Spaces deployment configuration
  * Contains all settings for deploying to HuggingFace Spaces
- */
+  */
 export interface HuggingFaceSpaceConfig {
-  /** Generated space name */
+  /** Generated space name  */
   spaceName: string;
   
-  /** Space visibility setting */
+  /** Space visibility setting  */
   visibility: HuggingFaceVisibility;
   
-  /** SDK type for the space */
+  /** SDK type for the space  */
   sdk: HuggingFaceSDK;
   
-  /** Hardware configuration */
+  /** Hardware configuration  */
   hardware: HuggingFaceHardware;
   
-  /** Space template to use */
+  /** Space template to use  */
   template: string;
   
-  /** Repository configuration */
+  /** Repository configuration  */
   repository: RepositoryConfig;
   
-  /** Environment variables */
+  /** Environment variables  */
   environmentVariables: Record<string, string>;
   
-  /** Deployment metadata */
+  /** Deployment metadata  */
   deployment: DeploymentMetadata;
 }
 
 /**
  * HuggingFace visibility options
- */
+  */
 export enum HuggingFaceVisibility {
   PUBLIC = 'public',
   PRIVATE = 'private'
@@ -48,7 +49,7 @@ export enum HuggingFaceVisibility {
 
 /**
  * HuggingFace SDK options
- */
+  */
 export enum HuggingFaceSDK {
   GRADIO = 'gradio',
   STREAMLIT = 'streamlit',
@@ -58,7 +59,7 @@ export enum HuggingFaceSDK {
 
 /**
  * HuggingFace hardware options
- */
+  */
 export enum HuggingFaceHardware {
   CPU_BASIC = 'cpu-basic',
   CPU_UPGRADE = 'cpu-upgrade',
@@ -68,47 +69,47 @@ export enum HuggingFaceHardware {
 
 /**
  * Repository configuration for HuggingFace deployment
- */
+  */
 export interface RepositoryConfig {
-  /** Repository name */
+  /** Repository name  */
   name: string;
   
-  /** Repository description */
+  /** Repository description  */
   description: string;
   
-  /** Git configuration */
+  /** Git configuration  */
   git: {
     branch: string;
     commitMessage: string;
   };
   
-  /** File structure */
+  /** File structure  */
   files: RepositoryFile[];
   
-  /** Build configuration */
+  /** Build configuration  */
   build: BuildConfig;
 }
 
 /**
  * Repository file structure
- */
+  */
 export interface RepositoryFile {
-  /** File path */
+  /** File path  */
   path: string;
   
-  /** File content or reference */
+  /** File content or reference  */
   content: string | Buffer;
   
-  /** File type */
+  /** File type  */
   type: FileType;
   
-  /** Whether file is required */
+  /** Whether file is required  */
   required: boolean;
 }
 
 /**
  * File types
- */
+  */
 export enum FileType {
   JAVASCRIPT = 'javascript',
   TYPESCRIPT = 'typescript',
@@ -123,90 +124,90 @@ export enum FileType {
 
 /**
  * Build configuration for deployment
- */
+  */
 export interface BuildConfig {
-  /** Build command */
+  /** Build command  */
   command: string;
   
-  /** Build directory */
+  /** Build directory  */
   outputDir: string;
   
-  /** Environment variables */
+  /** Environment variables  */
   env: Record<string, string>;
   
-  /** Dependencies */
+  /** Dependencies  */
   dependencies: BuildDependency[];
   
-  /** Build steps */
+  /** Build steps  */
   steps: BuildStep[];
 }
 
 /**
  * Build dependency definition
- */
+  */
 export interface BuildDependency {
-  /** Package name */
+  /** Package name  */
   name: string;
   
-  /** Package version */
+  /** Package version  */
   version: string;
   
-  /** Dependency type */
+  /** Dependency type  */
   type: 'npm' | 'pip' | 'apt' | 'system';
   
-  /** Whether dependency is required */
+  /** Whether dependency is required  */
   required: boolean;
 }
 
 /**
  * Build step definition
- */
+  */
 export interface BuildStep {
-  /** Step name */
+  /** Step name  */
   name: string;
   
-  /** Command to execute */
+  /** Command to execute  */
   command: string;
   
-  /** Working directory */
+  /** Working directory  */
   workingDir?: string;
   
-  /** Environment variables for this step */
+  /** Environment variables for this step  */
   env?: Record<string, string>;
   
-  /** Whether step is required */
+  /** Whether step is required  */
   required: boolean;
 }
 
 /**
  * Deployment metadata
- */
+  */
 export interface DeploymentMetadata {
-  /** Deployment ID */
+  /** Deployment ID  */
   deploymentId: string;
   
-  /** Deployment timestamp */
+  /** Deployment timestamp  */
   deployedAt: Date;
   
-  /** Deployment status */
+  /** Deployment status  */
   status: DeploymentStatus;
   
-  /** Build logs */
+  /** Build logs  */
   buildLogs: string[];
   
-  /** Deployment URL */
+  /** Deployment URL  */
   url?: string;
   
-  /** Error information */
+  /** Error information  */
   error?: DeploymentError;
   
-  /** Resource usage */
+  /** Resource usage  */
   resources: ResourceUsage;
 }
 
 /**
  * Deployment status
- */
+  */
 export enum DeploymentStatus {
   PENDING = 'pending',
   BUILDING = 'building',
@@ -218,37 +219,37 @@ export enum DeploymentStatus {
 
 /**
  * Deployment error information
- */
+  */
 export interface DeploymentError {
-  /** Error code */
+  /** Error code  */
   code: string;
   
-  /** Error message */
+  /** Error message  */
   message: string;
   
-  /** Error details */
+  /** Error details  */
   details: any;
   
-  /** Timestamp */
+  /** Timestamp  */
   timestamp: Date;
 }
 
 /**
  * Resource usage tracking
- */
+  */
 export interface ResourceUsage {
-  /** CPU usage percentage */
+  /** CPU usage percentage  */
   cpu: number;
   
-  /** Memory usage in MB */
+  /** Memory usage in MB  */
   memory: number;
   
-  /** Storage usage in MB */
+  /** Storage usage in MB  */
   storage: number;
   
-  /** Network bandwidth in MB */
+  /** Network bandwidth in MB  */
   bandwidth: number;
   
-  /** Request count */
+  /** Request count  */
   requests: number;
 }

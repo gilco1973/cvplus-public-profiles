@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsexport interface ExportConfiguration {
+// @ts-ignore - Export conflicts
   format: ExportFormat;
   quality: ExportQuality;
   options: ExportFormatOptions;

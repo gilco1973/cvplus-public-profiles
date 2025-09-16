@@ -1,4 +1,5 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
+// @ts-ignore
+/**
  * Embedding Service for CV Content Processing
  *
  * Handles CV content chunking and OpenAI embedding generation
@@ -6,7 +7,7 @@
  *
  * @author CVPlus Team
  * @version 1.0.0
- */
+  */
 
 import OpenAI from 'openai';
 
@@ -47,7 +48,7 @@ export class EmbeddingService {
 
   /**
    * Generate embeddings for processed CV data
-   */
+    */
   async generateCVEmbeddings(processedCV: any): Promise<CVEmbeddingDocument[]> {
     try {
       console.log(`Generating embeddings for CV: ${processedCV.id}`);
@@ -108,7 +109,7 @@ export class EmbeddingService {
 
   /**
    * Chunk CV content into optimal sizes for embeddings
-   */
+    */
   private async chunkCVContent(processedCV: any): Promise<CVChunk[]> {
     const chunks: CVChunk[] = [];
 
@@ -176,7 +177,7 @@ export class EmbeddingService {
 
   /**
    * Extract text content from CV objects
-   */
+    */
   private extractTextFromObject(obj: any): string {
     if (typeof obj === 'string') return obj;
     if (!obj || typeof obj !== 'object') return '';
@@ -216,7 +217,7 @@ export class EmbeddingService {
 
   /**
    * Split text into chunks of optimal size
-   */
+    */
   private splitTextIntoChunks(
     text: string,
     baseId: string,
@@ -277,7 +278,7 @@ export class EmbeddingService {
 
   /**
    * Generate embedding for a single query string
-   */
+    */
   async generateQueryEmbedding(query: string): Promise<number[]> {
     try {
       const response = await this.openai.embeddings.create({
@@ -296,7 +297,7 @@ export class EmbeddingService {
 
   /**
    * Validate OpenAI API connection
-   */
+    */
   async validateConnection(): Promise<boolean> {
     try {
       const testResponse = await this.openai.embeddings.create({
