@@ -103,7 +103,7 @@
     "@cvplus/analytics": "file:../analytics",
     "@cvplus/auth": "file:../auth",
     "@cvplus/core": "file:../core",
-    "@cvplus/cv-processing": "file:../cv-processing",
+    "@cvplus/processing": "file:../processing",
     "@cvplus/i18n": "file:../i18n",
     "@cvplus/logging": "^1.0.0",
     "@cvplus/multimedia": "file:../multimedia",
