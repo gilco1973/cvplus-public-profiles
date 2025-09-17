@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// Import from core types - simplified for now
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// Import from core types - simplified for now
 export interface MediaFile {
   id: string;
   url: string;

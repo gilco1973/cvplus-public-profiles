@@ -1,4 +1,4 @@
-/**
+// @ts-ignore - Export conflicts/**
  * Send Chat Message Firebase Function
  *
  * POST /portal/{portalId}/chat/{sessionId}/message

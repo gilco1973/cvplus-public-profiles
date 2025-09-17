@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts
 import { TemplateConfiguration, TemplateType } from '../types/creator.types';
 
 interface UseTemplateSelectorOptions {

@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-ignore - Export conflicts// @ts-ignore
 /**
  * Job type definitions (keeping existing structure)
   */

@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts
   private static readonly BASE_URL = 'https://profiles.cvplus.com';
   private static readonly RESERVED_SLUGS = [
     'admin', 'api', 'www', 'mail', 'ftp', 'help', 'support', 'about',

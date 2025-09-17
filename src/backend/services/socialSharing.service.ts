@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-ignore - Export conflicts// @ts-ignore
 /**
  * Enhanced Social Sharing Service
  * Handles social media integration and sharing

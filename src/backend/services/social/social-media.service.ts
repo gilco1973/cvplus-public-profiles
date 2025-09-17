@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-nocheck
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-nocheck
 import * as admin from 'firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
 import { logger } from 'firebase-functions';

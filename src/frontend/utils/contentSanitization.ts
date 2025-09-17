@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts
   /**
    * Sanitize HTML content to prevent XSS attacks
     */

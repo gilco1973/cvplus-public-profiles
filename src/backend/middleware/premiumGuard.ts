@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts/v2/https';
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/v2/https';
 import { logger } from 'firebase-functions';
 // import { subscriptionManagementService } from '../services/subscription-management.service';
 

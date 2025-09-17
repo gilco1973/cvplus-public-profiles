@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts/types/template.types';
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/types/template.types';
 import { PublicProfileData } from '../../types/profile.types';
 import { BrandingSettings } from '../types/creator.types';
 

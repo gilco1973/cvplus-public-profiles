@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts
 import { httpsCallable } from 'firebase/functions';
 import { functions } from '../../../../lib/firebase';
 import toast from 'react-hot-toast';

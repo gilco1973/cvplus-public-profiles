@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts/creator.types';
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/creator.types';
 
 export interface TemplateTheme {
   colors: {

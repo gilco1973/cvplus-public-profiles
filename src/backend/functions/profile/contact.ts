@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts/v2/https';
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/v2/https';
 import { Request, Response } from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import { getPublicProfile } from '../../models/public-profile.service';

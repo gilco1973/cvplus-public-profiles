@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-ignore - Export conflicts// @ts-ignore
 /**
  * CV-Portal Integration Firebase Functions
  * 

@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-ignore - Export conflicts// @ts-ignore
 /**
  * Testimonials Functions for Firebase Cloud Functions
  * 

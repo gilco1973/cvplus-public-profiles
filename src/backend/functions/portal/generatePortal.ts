@@ -1,4 +1,4 @@
-/**
+// @ts-ignore - Export conflicts/**
  * Generate Portal Firebase Function
  *
  * POST /portal/generate

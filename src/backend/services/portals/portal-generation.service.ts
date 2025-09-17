@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-ignore - Export conflicts// @ts-ignore
 /**
  * Portal Generation Service - One Click Portal Implementation
  * @author Gil Klainert

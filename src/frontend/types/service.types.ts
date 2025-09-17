@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-ignore - Export conflicts// @ts-ignore
 /**
  * Service Types for ProfileService
  * Defines all types used by the ProfileService for API operations

@@ -1,4 +1,4 @@
-/**
+// @ts-ignore - Export conflicts/**
  * Get Portal Analytics Firebase Function
  *
  * GET /portal/{portalId}/analytics

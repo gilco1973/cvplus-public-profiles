@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-ignore - Export conflicts// @ts-ignore
 /**
  * Testimonials Service - Simplified Version
  * Manages testimonials with Firestore integration

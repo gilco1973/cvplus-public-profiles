@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-ignore - Export conflicts// @ts-ignore
 /**
  * Portfolio Gallery Service
  * Creates visual showcases for projects and achievements

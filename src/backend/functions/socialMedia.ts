@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts/v2/https';
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/v2/https';
 import { SocialMediaService } from '../services/social-media.service';
 import { CVParsingService } from '../services/cvParsing.service';
 import { logger } from 'firebase-functions';

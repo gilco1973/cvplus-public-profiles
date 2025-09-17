@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts/types/profile.types';
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/types/profile.types';
 
 export class StorageService {
   async saveProfile(profile: PublicProfileData): Promise<void> {

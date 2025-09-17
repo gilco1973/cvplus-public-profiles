@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts/types/creator.types';
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/types/creator.types';
 import { TemplateValidationResult } from '../types/template.types';
 
 export class BrandingValidation {

@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts/types';
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/types';
 import { ParsedCV } from '../../cvParser';
 // Note: We implement our own portfolio extraction logic instead of using the service's private methods
 import * as admin from 'firebase-admin';

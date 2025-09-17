@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// Profile Types
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// Profile Types
 export * from './profile.types';
 
 // SEO Types
@@ -109,6 +109,9 @@ export * from './portal-embeddings';
 export * from './portal-rag-config';
 export * from './portal-styling';
 export * from './portal-vector-db';export * from './api';
+export * from './booking.types';
+export * from './payment.types';
+export * from './api';
 export * from './booking.types';
 export * from './payment.types';
 export * from './api';

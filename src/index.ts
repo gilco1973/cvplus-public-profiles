@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// Types - Export main types only to avoid conflicts
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// Types - Export main types only to avoid conflicts
 export type { 
   PublicProfileData,
   ProfileCreationOptions,

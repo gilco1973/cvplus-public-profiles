@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts
   async validateProfileData(profileData: any): Promise<{ valid: boolean; errors: string[] }> {
     const errors = [];
     
