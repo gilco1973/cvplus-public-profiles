@@ -1,7 +1,6 @@
 // @ts-ignore - Export conflicts/v2/https';
 import { logger } from 'firebase-functions';
 import * as admin from 'firebase-admin';
-// TODO: Import admin types from admin submodule when built
 
 // Temporary type definitions
 type AdminRole = 'super_admin' | 'admin' | 'moderator';

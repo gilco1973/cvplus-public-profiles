@@ -10,7 +10,6 @@
   */
 
 // Temporary: Define types locally until core module is fully built
-// TODO: Import from @cvplus/core when core build is fixed
 
 /**
  * Enhanced Job interface with all enhancement features

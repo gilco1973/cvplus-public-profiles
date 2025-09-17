@@ -1,6 +1,5 @@
 // @ts-ignore - Export conflicts/v2/https';
 import { logger } from 'firebase-functions';
-// TODO: Import from @cvplus/premium when built
 // import { subscriptionManagementService } from '../services/subscription-management.service';
 
 // Temporary mock function
