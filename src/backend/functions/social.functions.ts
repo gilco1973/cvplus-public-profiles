@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore
 /**
  * Social Media Integration Functions for Firebase Cloud Functions
  * 

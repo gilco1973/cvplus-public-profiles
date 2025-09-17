@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// CORS configuration for all allowed origins - Firebase v2 compatible with explicit types
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// CORS configuration for all allowed origins - Firebase v2 compatible with explicit types
 const allowedOrigins: (string | RegExp)[] = [
   'https://getmycv-ai.firebaseapp.com',
   'https://getmycv-ai.web.app',

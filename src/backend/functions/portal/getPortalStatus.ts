@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts/**
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
  * Get Portal Status Firebase Function
  *
  * GET /portal/{portalId}/status

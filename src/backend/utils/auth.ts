@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore
 /**
  * Authentication utilities for Google-only authentication migration
   */

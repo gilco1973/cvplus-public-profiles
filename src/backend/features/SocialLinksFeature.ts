@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/types';
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/types';
 import { ParsedCV } from '../../cvParser';
 
 interface SocialMediaProfile {

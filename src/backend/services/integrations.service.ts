@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore
 /**
  * Service for managing third-party integrations
   */

@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts/**
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/**
  * Start Chat Session Firebase Function
  *
  * POST /portal/{portalId}/chat/start

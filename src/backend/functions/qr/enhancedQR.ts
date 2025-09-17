@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/v2/https';
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts/v2/https';
 // TODO: Create enhanced-qr.service
 // import { EnhancedQRService } from '../services/enhanced-qr.service';
 import { logger } from 'firebase-functions';

@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflicts// @ts-ignore
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflicts// @ts-ignore
 /**
  * Advanced QR Code Service
  * Handles QR code generation with branding and analytics

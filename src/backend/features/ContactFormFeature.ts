@@ -1,4 +1,4 @@
-// @ts-ignore - Export conflictsimport { CVFeature } from '@cvplus/processing/backend/services/cv-generator/types';
+// @ts-ignore - Export conflicts// @ts-ignore - Export conflictsimport { CVFeature } from '@cvplus/processing/backend/services/cv-generator/types';
 import { ParsedCV } from '@cvplus/processing/backend/services/cvParser';
 import * as admin from 'firebase-admin';
 
